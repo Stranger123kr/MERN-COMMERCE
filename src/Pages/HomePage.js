@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../Components/Navbar";
 import Products from "../features/Products/Products";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Navbar Children={<Products />} />
@@ -10,4 +10,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
