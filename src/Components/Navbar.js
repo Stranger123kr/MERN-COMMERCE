@@ -50,11 +50,13 @@ const Navbar = ({ Children }) => {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
-                        src="https://cdn1.iconfinder.com/data/icons/business-mix-3/100/business-27-256.png"
-                        alt="Our Company"
-                      />
+                      <Link to="/">
+                        <img
+                          className="h-8 w-8"
+                          src="https://cdn1.iconfinder.com/data/icons/business-mix-3/100/business-27-256.png"
+                          alt="Our Company"
+                        />
+                      </Link>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
