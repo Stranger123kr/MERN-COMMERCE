@@ -1,8 +1,32 @@
-// A mock function to mimic making an async request for data
-export function fetchProducts(amount = 1) {
+// this is  function for fetching all products in home page
+
+export const FetchAllProducts = () => {
   return new Promise(async (resolve) => {
-    const response = await fetch("https://dummyjson.com/products");
-    const data = response.json;
+    const response = await fetch("http://localhost:3004/products");
+    const data = response.json();
     resolve({ data });
   });
-}
+};
+
+// ============================================================================
+
+// this is filter function for filtering products for particular situation
+
+export const FetchProductsByFilter = (filter) => {
+  let queryString = "";
+  for (let key in filter) {
+    queryString += `${key}=${filter[key]}&`;
+  }
+
+  return new Promise(async (resolve) => {
+    const response = await fetch(
+      `http://localhost:3004/products?${queryString}`
+    );
+    const data = response.json();
+    resolve({ data });
+  });
+};
+
+// ============================================================================
+
+// this is filter function for filtering products for particular situation

@@ -1,19 +1,36 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchProducts } from "./ProductsAPI";
+import { FetchAllProducts, FetchProductsByFilter } from "./ProductsAPI";
 
 const initialState = {
-  value: 0,
+  products: [],
+  status: true,
+  error: null,
 };
 
-export const fetchProducts = createAsyncThunk(
-  "counter/fetchCount",
-  async (amount) => {
-    const response = await fetchCount(amount);
+// ======================================================================
+
+export const FetchAllProductsAsync = createAsyncThunk(
+  "Products/FetchAllProducts",
+  async () => {
+    const response = await FetchAllProducts();
+    return response.data;
   }
 );
 
-export const counterSlice = createSlice({
-  name: "counter",
+// ======================================================================
+
+export const FetchProductsByFilterAsync = createAsyncThunk(
+  "filter/FetchProductsByFilter",
+  async (filter) => {
+    const response = await FetchProductsByFilter(filter);
+    return response.data;
+  }
+);
+
+// ======================================================================
+
+export const ProductsSlice = createSlice({
+  name: "products",
   initialState,
 
   reducers: {
@@ -23,14 +40,39 @@ export const counterSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(incrementAsync.pending, (state) => {
-      state.status = "loading";
-    });
+    builder
+      .addCase(FetchAllProductsAsync.pending, (state) => {
+        state.status = true;
+      })
+
+      .addCase(FetchAllProductsAsync.fulfilled, (state, action) => {
+        state.products = action.payload;
+        state.status = false;
+      })
+
+      .addCase(FetchAllProductsAsync.rejected, (state, action) => {
+        state.error = action.payload;
+        state.status = false;
+      })
+
+      // ======================================================
+
+      .addCase(FetchProductsByFilterAsync.pending, (state, action) => {
+        // state.status = true;
+      })
+      .addCase(FetchProductsByFilterAsync.fulfilled, (state, action) => {
+        state.products = action.payload;
+        // state.status = false;
+      })
+      .addCase(FetchProductsByFilterAsync.rejected, (state, action) => {
+        state.error = action.payload;
+        // state.status = false;
+      });
   },
 });
 
-export const { increment } = counterSlice.actions;
+// export const {} = ProductsSlice.actions;
 
-export const selectCount = (state) => state.counter.value;
+export const selectProducts = (state) => state.product;
 
-export default counterSlice.reducer;
+export default ProductsSlice.reducer;
