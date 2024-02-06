@@ -12,7 +12,7 @@ export const FetchAllProducts = () => {
 
 // this is filter function for filtering products for particular situation
 
-export const FetchProductsByFilter = (filter, sort) => {
+export const FetchProductsByFilter = (filter, sort, pagination) => {
   // filter  = {"Category : ["smartphone","laptops"}
   // sort  = {_sort:"rating",_order:"asc"}
   let queryString = "";
@@ -25,18 +25,25 @@ export const FetchProductsByFilter = (filter, sort) => {
     }
   }
 
+  // ================================================
+
   for (let key in sort) {
     queryString += `${key}=${sort[key]}&`;
   }
 
-  console.log(queryString);
+  // ================================================
+
+  for (let key in pagination) {
+    queryString += `${key}=${pagination[key]}&`;
+  }
 
   return new Promise(async (resolve) => {
     const response = await fetch(
       `http://localhost:3004/products?${queryString}`
     );
-    const data = response.json();
-    resolve({ data });
+    const data = await response.json();
+    const totalPages = response.headers.get("X-Total-Count");
+    resolve({ data: { products: data, totalPages: +totalPages } });
   });
 };
 

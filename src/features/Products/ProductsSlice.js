@@ -3,6 +3,7 @@ import { FetchAllProducts, FetchProductsByFilter } from "./ProductsAPI";
 
 const initialState = {
   products: [],
+  totalPages: 0,
   status: true,
   error: null,
 };
@@ -21,8 +22,8 @@ export const FetchAllProductsAsync = createAsyncThunk(
 
 export const FetchProductsByFilterAsync = createAsyncThunk(
   "filter/FetchProductsByFilter",
-  async ({ filter, sort }) => {
-    const response = await FetchProductsByFilter(filter, sort);
+  async ({ filter, sort, pagination }) => {
+    const response = await FetchProductsByFilter(filter, sort, pagination);
     return response.data;
   }
 );
@@ -61,7 +62,8 @@ export const ProductsSlice = createSlice({
         state.status = true;
       })
       .addCase(FetchProductsByFilterAsync.fulfilled, (state, action) => {
-        state.products = action.payload;
+        state.products = action.payload.products;
+        state.totalPages = action.payload.totalPages;
         state.status = false;
       })
       .addCase(FetchProductsByFilterAsync.rejected, (state, action) => {
@@ -74,5 +76,6 @@ export const ProductsSlice = createSlice({
 // export const {} = ProductsSlice.actions;
 
 export const selectProducts = (state) => state.product;
+export const totalProductsPage = (state) => state.product.totalPages;
 
 export default ProductsSlice.reducer;

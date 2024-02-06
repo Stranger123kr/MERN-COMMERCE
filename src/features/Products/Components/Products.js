@@ -18,10 +18,12 @@ import { Link } from "react-router-dom";
 import {
   FetchAllProductsAsync,
   selectProducts,
+  totalProductsPage,
   FetchProductsByFilterAsync,
 } from "../ProductsSlice";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 import { handler } from "@tailwindcss/aspect-ratio";
+import { ITEMS_PER_PAGE } from "../../../app/Constant";
 // ============================================================================
 
 const sortOptions = [
@@ -212,7 +214,7 @@ const Products = () => {
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const ProductData = useSelector(selectProducts);
-  // console.log(ProductData.products);
+  const totalProducts = useSelector(totalProductsPage);
   const dispatch = useDispatch();
   const { status } = ProductData;
 
@@ -220,7 +222,6 @@ const Products = () => {
   const [filter, setFilter] = useState({});
 
   const handleFilter = (e, option, section) => {
-    console.log(e.target.checked);
     let newFilter = { ...filter };
     if (e.target.checked) {
       if (newFilter[section.id]) {
@@ -234,55 +235,39 @@ const Products = () => {
       );
       newFilter[section.id].splice(index, 1);
     }
-    console.log({ newFilter });
+
     setFilter(newFilter);
+    setPage(1);
   };
 
   // ============================================================================
+
   const [sort, setSort] = useState({});
   const handleSort = (option) => {
     const newSort = { ...sort, _sort: option.sort, _order: option.order };
     setSort(newSort);
-    console.log({ sort });
-    // dispatch(FetchProductsByFilterAsync(newSort));
+    setPage(1);
   };
 
   // ============================================================================
 
   // this is Pagination functionality materials
 
-  // _page=2&_limit=20
-
-  const [currentPage, setCurrentPage] = useState(1);
+  const [Page, setPage] = useState(1);
 
   // Calculate the total number of pages
+  const totalPages = Math.ceil(totalProducts / ITEMS_PER_PAGE);
 
-  const totalPages = Math.round(100 / 20);
-
-  // Function to handle next button click
-  const nextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-    if (currentPage >= totalPages) {
-      setCurrentPage(1);
-    }
-    const newSort = { ...filter, _page: currentPage, _limit: 20 };
-    setFilter(newSort);
-    dispatch(FetchProductsByFilterAsync(newSort));
-  };
-
-  // // Function to handle previous button click
-  const previousPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-    const newSort = { ...filter, _page: currentPage, _limit: 20 };
-    setFilter(newSort);
-    dispatch(FetchProductsByFilterAsync(newSort));
+  const handlePagination = (e, page) => {
+    setPage(page);
   };
 
   // ============================================================================
 
   useEffect(() => {
-    dispatch(FetchProductsByFilterAsync({ filter, sort }));
-  }, [dispatch, filter, sort, currentPage]);
+    const pagination = { _page: Page, _limit: ITEMS_PER_PAGE };
+    dispatch(FetchProductsByFilterAsync({ filter, sort, pagination }));
+  }, [dispatch, filter, sort, Page]);
 
   return (
     // =========== This is Filter Layout start ================
@@ -618,9 +603,18 @@ const Products = () => {
                 <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm text-gray-700">
-                      Showing <span className="font-medium">1</span> to{" "}
-                      <span className="font-medium">10</span> of{" "}
-                      <span className="font-medium">97</span> results
+                      Showing{" "}
+                      <span className="font-medium">
+                        {(Page - 1) * ITEMS_PER_PAGE + 1}
+                      </span>{" "}
+                      to{" "}
+                      <span className="font-medium">
+                        {Page * ITEMS_PER_PAGE > totalProducts
+                          ? totalProducts
+                          : Page * ITEMS_PER_PAGE}
+                      </span>{" "}
+                      of <span className="font-medium">{totalProducts}</span>{" "}
+                      results
                     </p>
                   </div>
                   <div>
@@ -629,8 +623,8 @@ const Products = () => {
                       aria-label="Pagination"
                     >
                       <button
-                        onClick={previousPage}
-                        disabled={currentPage <= 1}
+                        onClick={(e) => setPage((pre) => pre - 1)}
+                        disabled={Page <= 1}
                         className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                       >
                         <span className="sr-only">Previous</span>
@@ -639,21 +633,24 @@ const Products = () => {
                           aria-hidden="true"
                         />
                       </button>
-                      {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
+
                       {Array.from({ length: totalPages }, (_, index) => (
                         <button
                           aria-current="page"
+                          onClick={(e) => handlePagination(e, index + 1)}
                           className={`relative ${
-                            currentPage === index + 1 ? `bg-red-500` : ""
-                          } z-10 inline-flex items-center  px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                            Page === index + 1
+                              ? `bg-red-500 text-white`
+                              : "text-gray-400"
+                          }  z-10 inline-flex items-center  px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
                         >
                           {index + 1}
                         </button>
                       ))}
 
                       <button
-                        onClick={nextPage}
-                        // disabled={currentPage >= totalPages}
+                        onClick={(e) => setPage((next) => next + 1)}
+                        disabled={Page >= totalPages}
                         className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
                       >
                         <span className="sr-only">Next</span>
@@ -675,101 +672,5 @@ const Products = () => {
     </>
   );
 };
-
-// ==================================================
-
-// function Pagination({ ProductData }) {
-//   // _page=2&_limit=20
-
-//   // console.log(ProductData);
-
-//   const [currentPage, setCurrentPage] = useState(1);
-
-//   // Calculate the total number of pages
-//   const totalPages = Math.round(ProductData.length / 20);
-//   console.log(totalPages);
-
-//   // Function to handle next button click
-//   const nextPage = () => {
-//     setCurrentPage((prevPage) => prevPage + 1);
-//   };
-
-//   // // Function to handle previous button click
-//   const previousPage = () => {
-//     setCurrentPage((prevPage) => prevPage - 1);
-//   };
-
-//   // Calculate the start and end index of the current page
-//   // const startIndex = (currentPage - 1) * itemsPerPage;
-//   // const endIndex = startIndex + itemsPerPage;
-
-//   // // Slice the data based on the current page number
-//   // const slicedData = data.slice(startIndex, endIndex);
-
-//   return (
-//     <>
-//       <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
-//         <div className="flex flex-1 justify-between sm:hidden">
-//           <button
-//             href="#"
-//             className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-//           >
-//             Previous
-//           </button>
-//           <a
-//             href="#"
-//             className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-//           >
-//             Next
-//           </a>
-//         </div>
-//         <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-//           <div>
-//             <p className="text-sm text-gray-700">
-//               Showing <span className="font-medium">1</span> to{" "}
-//               <span className="font-medium">10</span> of{" "}
-//               <span className="font-medium">97</span> results
-//             </p>
-//           </div>
-//           <div>
-//             <nav
-//               className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-//               aria-label="Pagination"
-//             >
-//               <button
-//                 onClick={previousPage}
-//                 disabled={currentPage <= 1}
-//                 className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-//               >
-//                 <span className="sr-only">Previous</span>
-//                 <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-//               </button>
-//               {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
-//               {Array.from({ length: totalPages }, (_, index) => (
-//                 <button
-//                   // onClick={handlePagination}
-//                   aria-current="page"
-//                   className={`relative ${
-//                     currentPage === index + 1 ? `bg-red-500` : ""
-//                   } z-10 inline-flex items-center  px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
-//                 >
-//                   {index + 1}
-//                 </button>
-//               ))}
-//               <button
-//                 onClick={nextPage}
-//                 disabled={currentPage >= totalPages}
-//                 className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-//               >
-//                 <span className="sr-only">Next</span>
-//                 <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-//               </button>
-//             </nav>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
 
 export default Products;
