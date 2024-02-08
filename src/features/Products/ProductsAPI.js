@@ -49,4 +49,24 @@ export const FetchProductsByFilter = (filter, sort, pagination) => {
 
 // ============================================================================
 
-// this is filter function for filtering products for particular situation
+// this is  function for fetching Products Categories
+
+export const FetchCategories = () => {
+  return new Promise(async (resolve) => {
+    const response = await fetch("http://localhost:3004/categories");
+    const data = response.json();
+    resolve({ data });
+  });
+};
+
+// ============================================================================
+
+// // this is  function for fetching Products Brands
+
+export const FetchBrands = () => {
+  return new Promise(async (resolve) => {
+    const response = await fetch("http://localhost:3004/brands");
+    const data = response.json();
+    resolve({ data });
+  });
+};
