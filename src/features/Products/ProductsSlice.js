@@ -4,10 +4,12 @@ import {
   FetchProductsByFilter,
   FetchCategories,
   FetchBrands,
+  FetchProductsById,
 } from "./ProductsAPI";
 
 const initialState = {
   products: [],
+  productsById: [],
   categories: [],
   brands: [],
   totalPages: 0,
@@ -51,6 +53,16 @@ export const FetchBrandsAsync = createAsyncThunk(
   "brands/FetchBrands",
   async () => {
     const response = await FetchBrands();
+    return response.data;
+  }
+);
+
+// ======================================================================
+
+export const FetchProductsByIdAsync = createAsyncThunk(
+  "ProductsById/FetchProductsById",
+  async (id) => {
+    const response = await FetchProductsById(id);
     return response.data;
   }
 );
@@ -124,6 +136,20 @@ export const ProductsSlice = createSlice({
       .addCase(FetchBrandsAsync.rejected, (state, action) => {
         state.error = action.payload;
         // state.status = false;
+      })
+
+      // ======================================================
+
+      .addCase(FetchProductsByIdAsync.pending, (state, action) => {
+        state.status = true;
+      })
+      .addCase(FetchProductsByIdAsync.fulfilled, (state, action) => {
+        state.productsById = action.payload;
+        state.status = false;
+      })
+      .addCase(FetchProductsByIdAsync.rejected, (state, action) => {
+        state.error = action.payload;
+        state.status = false;
       });
   },
 });
@@ -131,8 +157,9 @@ export const ProductsSlice = createSlice({
 // export const {} = ProductsSlice.actions;
 
 export const selectProducts = (state) => state.product;
+export const selectTotalProductsPage = (state) => state.product.totalPages;
 export const selectCategories = (state) => state.product.categories;
 export const selectBrands = (state) => state.product.brands;
-export const selectTotalProductsPage = (state) => state.product.totalPages;
+export const selectProductsById = (state) => state.product.productsById;
 
 export default ProductsSlice.reducer;

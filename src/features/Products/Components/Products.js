@@ -402,7 +402,10 @@ const Products = () => {
                         ) : (
                           <div className="mt-6 grid grid-cols-1  gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                             {ProductData.products.map((product) => (
-                              <Link to="/product_detail" key={product.id}>
+                              <Link
+                                to={`/product_detail/${product.id}`}
+                                key={product.id}
+                              >
                                 <div className="group relative">
                                   <div className="aspect-h-1  aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-[15rem]">
                                     <img
@@ -453,7 +456,7 @@ const Products = () => {
               <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
                 <div className="flex flex-1 justify-between sm:hidden">
                   <button
-                    onClick={() => setPage((next) => next - 1)}
+                    onClick={() => setPage((pre) => pre - 1)}
                     disabled={Page <= 1}
                     className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                   >
@@ -505,7 +508,7 @@ const Products = () => {
                         <button
                           key={index}
                           aria-current="page"
-                          onClick={(e) => handlePagination(e, index + 1)}
+                          onClick={() => handlePagination(index + 1)}
                           className={`relative ${
                             Page === index + 1
                               ? `bg-red-500 text-white`

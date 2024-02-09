@@ -10,6 +10,18 @@ export const FetchAllProducts = () => {
 
 // ============================================================================
 
+// this is  function for fetching particular product for product detail  page
+
+export const FetchProductsById = (id) => {
+  return new Promise(async (resolve) => {
+    const response = await fetch(`http://localhost:3004/products/${id}`);
+    const data = response.json();
+    resolve({ data });
+  });
+};
+
+// ============================================================================
+
 // this is filter function for filtering products for particular situation
 
 export const FetchProductsByFilter = (filter, sort, pagination) => {
