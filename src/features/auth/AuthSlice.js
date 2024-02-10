@@ -1,19 +1,36 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchCount } from "./AuthAPI";
+import { CreateUser, CheckUser } from "./AuthAPI";
 
 const initialState = {
-  value: 0,
+  loggedInUser: null,
+  status: true,
+  error: null,
 };
 
-export const incrementAsync = createAsyncThunk(
-  "counter/fetchCount",
-  async (amount) => {
-    const response = await fetchCount(amount);
+// ======================================================================
+
+export const CreateUserAsync = createAsyncThunk(
+  "users/CreateUser",
+  async (UserData) => {
+    const response = await CreateUser(UserData);
+    return response.data;
   }
 );
 
-export const counterSlice = createSlice({
-  name: "counter",
+// ======================================================================
+
+export const CheckUserAsync = createAsyncThunk(
+  "users/CheckUser",
+  async (loginInfo) => {
+    const response = await CheckUser(loginInfo);
+    return response.data;
+  }
+);
+
+// ======================================================================
+
+export const AuthSlice = createSlice({
+  name: "users",
   initialState,
 
   reducers: {
@@ -23,14 +40,38 @@ export const counterSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(incrementAsync.pending, (state) => {
-      state.status = "loading";
-    });
+    builder
+      .addCase(CreateUserAsync.pending, (state) => {
+        state.status = true;
+      })
+      .addCase(CreateUserAsync.fulfilled, (state, action) => {
+        state.status = false;
+        state.loggedInUser = action.payload;
+      })
+      .addCase(CreateUserAsync.rejected, (state, action) => {
+        state.status = false;
+        state.error = action.error;
+      })
+
+      // ======================================================================
+
+      .addCase(CheckUserAsync.pending, (state) => {
+        state.status = true;
+      })
+      .addCase(CheckUserAsync.fulfilled, (state, action) => {
+        state.status = false;
+        state.loggedInUser = action.payload;
+      })
+      .addCase(CheckUserAsync.rejected, (state, action) => {
+        state.status = false;
+        state.error = action.error;
+      });
   },
 });
 
-export const { increment } = counterSlice.actions;
+// export const { increment } = counterSlice.actions;
 
-export const selectCount = (state) => state.counter.value;
+export const selectLoggedInUser = (state) => state.auth.loggedInUser;
+export const selectError = (state) => state.auth.error;
 
-export default counterSlice.reducer;
+export default AuthSlice.reducer;

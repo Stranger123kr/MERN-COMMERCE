@@ -48,7 +48,9 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/3/1.jpg"
+      ]
     },
     {
       "id": 4,
@@ -1426,7 +1428,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"
+      ]
     },
     {
       "id": 79,
@@ -1439,7 +1443,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/79/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/79/1.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/79/1.jpg"
+      ]
     },
     {
       "id": 80,
@@ -1834,7 +1840,6 @@
       ]
     }
   ],
-
   "categories": [
     {
       "value": "smartphones",
@@ -1937,7 +1942,6 @@
       "checked": false
     }
   ],
-
   "brands": [
     {
       "value": "Apple",
@@ -2328,6 +2332,23 @@
       "value": "YIOSI",
       "label": "YIOSI",
       "checked": false
+    }
+  ],
+  "users": [
+    {
+      "email": "Dimple@gmail.com",
+      "password": "Dimple12kr",
+      "id": 1
+    },
+    {
+      "email": "Nitesh@gmail.com",
+      "password": "Nitesh12kr@",
+      "id": 2
+    },
+    {
+      "email": "Pooja@gmail.com",
+      "password": "Pooja12kr",
+      "id": 3
     }
   ]
 }

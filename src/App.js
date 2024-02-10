@@ -7,12 +7,17 @@ import ErrorPage from "./Pages/ErrorPage";
 import CartPage from "./Pages/CartPage";
 import CheckoutPage from "./Pages/CheckoutPage";
 import ProductsDetailsPage from "./Pages/ProductsDetailsPage";
+import Protected from "./features/auth/Components/Protected";
 // ===================================================================
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: (
+      <Protected>
+        <HomePage />
+      </Protected>
+    ),
   },
   {
     path: "/login",
@@ -24,15 +29,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <CartPage />,
+    element: (
+      <Protected>
+        <CartPage />
+      </Protected>
+    ),
   },
   {
     path: "/checkout",
-    element: <CheckoutPage />,
+    element: (
+      <Protected>
+        <CheckoutPage />
+      </Protected>
+    ),
   },
   {
     path: "/product_detail/:id",
-    element: <ProductsDetailsPage />,
+    element: (
+      <Protected>
+        <ProductsDetailsPage />
+      </Protected>
+    ),
   },
   {
     path: "*",

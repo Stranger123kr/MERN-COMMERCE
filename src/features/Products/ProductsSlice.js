@@ -91,7 +91,7 @@ export const ProductsSlice = createSlice({
       })
 
       .addCase(FetchAllProductsAsync.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = action.error;
         state.status = false;
       })
 
@@ -106,7 +106,7 @@ export const ProductsSlice = createSlice({
         state.status = false;
       })
       .addCase(FetchProductsByFilterAsync.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = action.error;
         state.status = false;
       })
 
@@ -120,7 +120,7 @@ export const ProductsSlice = createSlice({
         // state.status = false;
       })
       .addCase(FetchCategoriesAsync.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = action.error;
         // state.status = false;
       })
 
@@ -134,7 +134,7 @@ export const ProductsSlice = createSlice({
         // state.status = false;
       })
       .addCase(FetchBrandsAsync.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = action.error;
         // state.status = false;
       })
 
@@ -148,7 +148,7 @@ export const ProductsSlice = createSlice({
         state.status = false;
       })
       .addCase(FetchProductsByIdAsync.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = action.error;
         state.status = false;
       });
   },
