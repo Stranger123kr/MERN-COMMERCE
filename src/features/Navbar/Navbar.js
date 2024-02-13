@@ -6,6 +6,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCarts } from "../Cart/CartSlice";
 
 // ============================================================================
 
@@ -40,6 +42,8 @@ function classNames(...classes) {
 // ============================================================================
 
 const Navbar = ({ Children }) => {
+  const GetAddToCart = useSelector(selectCarts);
+
   return (
     <>
       <div className="min-h-full">
@@ -91,9 +95,11 @@ const Navbar = ({ Children }) => {
                             aria-hidden="true"
                           />
                         </button>
-                        <span className="inline-flex bottom-4 right-2 relative items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
-                          10
-                        </span>
+                        {GetAddToCart.length > 0 && (
+                          <span className="inline-flex bottom-4 right-2 relative items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+                            {GetAddToCart.length}
+                          </span>
+                        )}
                       </Link>
 
                       {/* Profile dropdown */}
@@ -206,9 +212,11 @@ const Navbar = ({ Children }) => {
                           className="h-6 w-6"
                           aria-hidden="true"
                         />
-                        <span className="inline-flex bottom-4 left-5  absolute items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
-                          10
-                        </span>
+                        {GetAddToCart.length > 0 && (
+                          <span className="inline-flex bottom-4 left-5  absolute items-center rounded-md bg-yellow-50 px-1 py-1 text-xs font-bold text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+                            {GetAddToCart.length}
+                          </span>
+                        )}
                       </button>
                     </Link>
                   </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HomePage from "./Pages/HomePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage";
@@ -8,6 +8,9 @@ import CartPage from "./Pages/CartPage";
 import CheckoutPage from "./Pages/CheckoutPage";
 import ProductsDetailsPage from "./Pages/ProductsDetailsPage";
 import Protected from "./features/auth/Components/Protected";
+import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoggedInUser } from "./features/auth/AuthSlice";
 // ===================================================================
 
 const router = createBrowserRouter([
@@ -57,12 +60,18 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
+const App = () => {
+  const user = useSelector(selectLoggedInUser);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    user && dispatch(fetchCartByUserIdAsync(user.id));
+  }, [dispatch, user]);
+
   return (
     <>
       <RouterProvider router={router} />
     </>
   );
-}
+};
 
 export default App;

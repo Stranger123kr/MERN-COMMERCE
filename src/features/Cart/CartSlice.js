@@ -1,19 +1,63 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchCount } from "./CartAPI";
+import {
+  AddToCart,
+  fetchCartByUserId,
+  UpdateCart,
+  DeleteCartItem,
+} from "./CartAPI";
+
+// ============================================================================
 
 const initialState = {
-  value: 0,
+  carts: [],
+  status: true,
+  error: null,
 };
 
-export const incrementAsync = createAsyncThunk(
-  "counter/fetchCount",
-  async (amount) => {
-    const response = await fetchCount(amount);
+// ============================================================================
+
+export const AddToCartAsync = createAsyncThunk(
+  "cart/AddToCart",
+  async (CartInfo) => {
+    const response = await AddToCart(CartInfo);
+    return response.data;
   }
 );
 
-export const counterSlice = createSlice({
-  name: "counter",
+// ============================================================================
+
+export const fetchCartByUserIdAsync = createAsyncThunk(
+  "cart/fetchCartByUserId",
+  async (UserId) => {
+    const response = await fetchCartByUserId(UserId);
+    return response.data;
+  }
+);
+
+// ============================================================================
+
+export const UpdateCartAsync = createAsyncThunk(
+  "cart/UpdateCart",
+  async (update) => {
+    const response = await UpdateCart(update);
+    return response.data;
+  }
+);
+
+// ============================================================================
+
+export const DeleteCartItemAsync = createAsyncThunk(
+  "cart/DeleteCartItem",
+  async (itemId) => {
+    const response = await DeleteCartItem(itemId);
+    return response.data;
+  }
+);
+
+// ============================================================================
+
+export const CartSlice = createSlice({
+  name: "cart",
   initialState,
 
   reducers: {
@@ -23,14 +67,73 @@ export const counterSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(incrementAsync.pending, (state) => {
-      state.status = "loading";
-    });
+    builder
+      .addCase(AddToCartAsync.pending, (state) => {
+        // state.status = true;
+      })
+      .addCase(AddToCartAsync.fulfilled, (state, action) => {
+        // state.status = true;
+        state.carts.push(action.payload);
+      })
+      .addCase(AddToCartAsync.rejected, (state, action) => {
+        // state.status = true;
+        state.error = action.error;
+      })
+
+      // ===================================================
+
+      .addCase(fetchCartByUserIdAsync.pending, (state) => {
+        // state.status = true;
+      })
+      .addCase(fetchCartByUserIdAsync.fulfilled, (state, action) => {
+        // state.status = true;
+        state.carts = action.payload;
+      })
+      .addCase(fetchCartByUserIdAsync.rejected, (state, action) => {
+        // state.status = true;
+        state.error = action.error;
+      })
+
+      // ===================================================
+
+      .addCase(UpdateCartAsync.pending, (state) => {
+        // state.status = true;
+      })
+      .addCase(UpdateCartAsync.fulfilled, (state, action) => {
+        // state.status = true;
+        const index = state.carts.findIndex(
+          (item) => item.id === action.payload.id
+        );
+
+        state.carts[index] = action.payload;
+      })
+      .addCase(UpdateCartAsync.rejected, (state, action) => {
+        // state.status = true;
+        state.error = action.error;
+      })
+
+      // ===================================================
+
+      .addCase(DeleteCartItemAsync.pending, (state) => {
+        // state.status = true;
+      })
+      .addCase(DeleteCartItemAsync.fulfilled, (state, action) => {
+        // state.status = true;
+        const index = state.carts.findIndex(
+          (item) => item.id === action.payload.id
+        );
+
+        state.carts.splice(index, 1);
+      })
+      .addCase(DeleteCartItemAsync.rejected, (state, action) => {
+        // state.status = true;
+        state.error = action.error;
+      });
   },
 });
 
-export const { increment } = counterSlice.actions;
+// export const { increment } = counterSlice.actions;
 
-export const selectCount = (state) => state.counter.value;
+export const selectCarts = (state) => state.cart.carts;
 
-export default counterSlice.reducer;
+export default CartSlice.reducer;
