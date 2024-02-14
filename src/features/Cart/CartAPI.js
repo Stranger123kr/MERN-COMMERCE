@@ -51,6 +51,6 @@ export const DeleteCartItem = (itemId) => {
       headers: { "content-type": "application/json" },
     });
     const data = response.json();
-    resolve({ data });
+    resolve({ data: { id: itemId } });
   });
 };

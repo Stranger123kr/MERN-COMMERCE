@@ -1,34 +1,12 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  DeleteCartItemAsync,
+  UpdateCartAsync,
+  selectCarts,
+} from "../features/Cart/CartSlice";
 // ===================================================================
-
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    price: "$32.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
-];
 
 // ===================================================================
 
@@ -56,11 +34,39 @@ const addresses = [
 // ===================================================================
 
 const CheckoutPage = () => {
+  const GetAddToCart = useSelector(selectCarts);
+  const dispatch = useDispatch();
+
+  const totalAmount = GetAddToCart.reduce(
+    (amount, cart) => cart.price * cart.quantity + amount,
+    0
+  );
+  const totalItemsCount = GetAddToCart.reduce(
+    (total, cart) => cart.quantity + total,
+    0
+  );
+
+  // ===================================================================
+
+  const handleQuantity = (e, item) => {
+    console.log(+e.target.value);
+    console.log(item.id);
+    dispatch(UpdateCartAsync({ ...item, quantity: +e.target.value }));
+  };
+
+  // ===================================================================
+
+  const handleDeleteItems = (e, id) => {
+    dispatch(DeleteCartItemAsync(id));
+  };
+
+  // ===================================================================
+
   return (
     <>
       <form>
         <div className="grid  grid-cols-1 gap-x-4 gap-y-10 lg:grid-cols-2 px-[2%]">
-          <div className="mx-auto bg-white rounded-[0.7rem] max-w-5xl px-4 my-[3rem] mx-[1rem]  lg:px-[5rem] py-[2rem]">
+          <div className="mx-auto bg-white rounded-[0.7rem] max-w-5xl px-4 my-[3rem]  lg:px-[5rem] py-[2rem]">
             <div className="border-b border-gray-900/10 pb-5">
               <h2 className="text-[2rem]  font-[700] leading-7 text-gray-900">
                 Personal Information
@@ -237,7 +243,7 @@ const CheckoutPage = () => {
               <h2 className="text-[1.4rem] font-[700] mt-6 leading-7 text-green-600">
                 Addresses
               </h2>
-              <p className="mt-1 text-[1rem] font-[600] mt-3 leading-6 text-gray-600">
+              <p className="text-[1rem] font-[600] mt-3 leading-6 text-gray-600">
                 Choose from Existing Address
               </p>
 
@@ -344,61 +350,83 @@ const CheckoutPage = () => {
               <div className="mt-8 border-t border-gray-200 px-4 py-6 sm:px-6">
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
-                    {products.map((product) => (
-                      <li key={product.id} className="flex py-6">
-                        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                          <img
-                            src={product.imageSrc}
-                            alt={product.imageAlt}
-                            className="h-full w-full object-cover object-center"
-                          />
-                        </div>
+                    {GetAddToCart &&
+                      GetAddToCart.map((cartInfo) => (
+                        <li key={cartInfo.id} className="flex py-6">
+                          <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                            <img
+                              src={cartInfo.thumbnail}
+                              alt={cartInfo.title}
+                              className="h-full w-full object-cover object-center"
+                            />
+                          </div>
 
-                        <div className="ml-4 flex flex-1 flex-col">
-                          <div>
-                            <div className="flex justify-between text-base font-medium text-gray-900">
-                              <h3>
-                                <a href={product.href}>{product.name}</a>
-                              </h3>
-                              <p className="ml-4">{product.price}</p>
+                          <div className="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div className="flex justify-between text-base font-medium text-gray-900">
+                                <h3>
+                                  <a href={cartInfo.title}>{cartInfo.title}</a>
+                                </h3>
+                                <p className="ml-4">₹{cartInfo.price}</p>
+                              </div>
+                              <p className="mt-2 text-sm font-[700] text-gray-500">
+                                {cartInfo.breadcrumbs[0].name}
+                              </p>
+                              <p className="mt-2 text-sm text-gray-500">
+                                Stocks {cartInfo.stock}
+                              </p>
                             </div>
-                            <p className="mt-1 text-sm text-gray-500">
-                              {product.color}
-                            </p>
+                            <div className="flex flex-1 items-end justify-between text-sm">
+                              <div className="text-gray-100">
+                                <label
+                                  htmlFor="quantity"
+                                  className="inline-block text-[1.1rem] font-[700] leading-6 text-gray-900"
+                                >
+                                  Qty
+                                  <select
+                                    className="m-[1rem]"
+                                    value={cartInfo.quantity}
+                                    onChange={(e) =>
+                                      handleQuantity(e, cartInfo)
+                                    }
+                                  >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                  </select>
+                                </label>
+                              </div>
+                              <div className="flex">
+                                <button
+                                  onClick={(e) =>
+                                    handleDeleteItems(e, cartInfo.id)
+                                  }
+                                  type="button"
+                                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
                           </div>
-                          <div className="flex flex-1 items-end justify-between text-sm">
-                            <div className="text-gray-100">
-                              <label
-                                htmlFor="quantity"
-                                className="inline-block text-[1.1rem] font-[700] leading-6 text-gray-900"
-                              >
-                                Qty
-                                <select className="m-[1rem]">
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                </select>
-                              </label>
-                            </div>
-                            <div className="flex">
-                              <button
-                                type="button"
-                                className="font-medium text-indigo-600 hover:text-indigo-500"
-                              >
-                                Remove
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </div>
 
               <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                <div className="flex justify-between text-base font-medium text-gray-900">
+                <div className="flex justify-between my-2 text-base font-medium text-gray-900">
                   <p>Subtotal</p>
-                  <p>$262.00</p>
+                  <p>₹{totalAmount}</p>
+                </div>
+                <div className="flex justify-between my-2 text-base font-medium text-gray-900">
+                  <p>Total Items In Cart</p>
+                  <p className="mt-0.5  text-gray-500">
+                    {totalItemsCount} Items
+                  </p>
                 </div>
                 <p className="mt-0.5 text-sm text-gray-500">
                   Shipping and taxes calculated at checkout.

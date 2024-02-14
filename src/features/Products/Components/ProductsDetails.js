@@ -3,8 +3,8 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { selectProductsById, FetchProductsByIdAsync } from "../ProductsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { AddToCartAsync, fetchCartByUserIdAsync } from "../../Cart/CartSlice";
+import { NavLink, useParams } from "react-router-dom";
+import { AddToCartAsync, selectCarts } from "../../Cart/CartSlice";
 import { selectLoggedInUser } from "../../auth/AuthSlice";
 // ==========================================================================
 
@@ -19,6 +19,13 @@ const ProductsDetails = () => {
   const dispatch = useDispatch();
   const ProductData = useSelector(selectProductsById);
   const user = useSelector(selectLoggedInUser);
+  const GetAddToCart = useSelector(selectCarts);
+
+  // ==========================================================================
+
+  const CheckingProductInCart = GetAddToCart.filter(
+    (items) => items.title === ProductData.title
+  );
 
   // ==========================================================================
   const product = {
@@ -336,13 +343,34 @@ const ProductsDetails = () => {
                 </RadioGroup>
               </div>
 
-              <button
-                onClick={handleAddToCart}
-                type="button"
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Add to Card
-              </button>
+              <div className="flex gap-[1rem] justify-around">
+                {ProductData && CheckingProductInCart.length > 0 ? (
+                  <NavLink to="/cart">
+                    <button
+                      type="button"
+                      className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    >
+                      Go to Card
+                    </button>
+                  </NavLink>
+                ) : (
+                  <button
+                    onClick={handleAddToCart}
+                    type="button"
+                    className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  >
+                    Add to Card
+                  </button>
+                )}
+                <NavLink to="/checkout">
+                  <button
+                    type="button"
+                    className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  >
+                    Buy now
+                  </button>
+                </NavLink>
+              </div>
             </form>
           </div>
 

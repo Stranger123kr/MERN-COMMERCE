@@ -1,16 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Fragment, useEffect, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { DeleteCartItemAsync, UpdateCartAsync, selectCarts } from "./CartSlice";
+import EmptyCart from "../EmptyCart/EmptyCart";
 
 // ===================================================================
 
 const Cart = () => {
   const GetAddToCart = useSelector(selectCarts);
   const dispatch = useDispatch();
-  console.log(GetAddToCart.length);
 
   const totalAmount = GetAddToCart.reduce(
     (amount, cart) => cart.price * cart.quantity + amount,
@@ -31,8 +28,8 @@ const Cart = () => {
 
   // ===================================================================
 
-  const handleDeleteItems = (item) => {
-    dispatch(DeleteCartItemAsync(item.id));
+  const handleDeleteItems = (e, id) => {
+    dispatch(DeleteCartItemAsync(id));
   };
 
   // ===================================================================
@@ -40,9 +37,7 @@ const Cart = () => {
   return (
     <>
       {GetAddToCart.length <= 0 ? (
-        <h1 className="text-center font-semibold text-[5rem]">
-          <NavLink to="/">Your E-commerce Cart is empty</NavLink>
-        </h1>
+        <EmptyCart />
       ) : (
         <div className="mx-auto bg-white rounded-[1rem] max-w-5xl px-4 mt-[2rem] sm:px-6 lg:px-[5rem]">
           <div className="mt-8 border-t border-gray-200 px-4 py-6 sm:px-6">
@@ -69,7 +64,7 @@ const Cart = () => {
                           </div>
                           <p className="mt-2 text-sm font-[700] text-gray-500">
                             {cartInfo.breadcrumbs[0].name}
-                          </p>{" "}
+                          </p>
                           <p className="mt-2 text-sm text-gray-500">
                             Stocks {cartInfo.stock}
                           </p>
@@ -96,7 +91,7 @@ const Cart = () => {
                           </div>
                           <div className="flex">
                             <button
-                              onClick={() => handleDeleteItems(cartInfo)}
+                              onClick={(e) => handleDeleteItems(e, cartInfo.id)}
                               type="button"
                               className="font-medium text-indigo-600 hover:text-indigo-500"
                             >
