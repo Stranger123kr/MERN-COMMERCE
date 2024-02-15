@@ -2338,114 +2338,71 @@
     {
       "email": "Dimple@gmail.com",
       "password": "Dimple12kr",
+      "addresses": [
+        {
+          "name": "Nitesh",
+          "phone": "8076197005",
+          "street": "Nand Nagri Delhi",
+          "city": "Delhi",
+          "state": "Sharhadra",
+          "pinCode": "110093"
+        },
+        {
+          "name": "Dimple Pagal",
+          "phone": "7849586746",
+          "street": "Ram Nagar Shahadara",
+          "city": "Delhi",
+          "state": "Sharhadra",
+          "pinCode": "110001"
+        },
+        {
+          "name": "Neha",
+          "phone": "8967453289",
+          "street": "Sunder Nagri",
+          "city": "Delhi",
+          "state": "Sharhadra",
+          "pinCode": "110093"
+        }
+      ],
       "id": 1
     },
     {
       "email": "Nitesh@gmail.com",
       "password": "Nitesh12kr@",
+      "addresses": [],
       "id": 2
     },
     {
       "email": "Pooja@gmail.com",
       "password": "Pooja12kr",
+      "addresses": [
+        {
+          "name": "Pooja",
+          "phone": "1111111111",
+          "street": "Ram Nagar Shahadara",
+          "city": "Delhi",
+          "state": "Sharhadra",
+          "pinCode": "110001"
+        },
+        {
+          "name": "Dimple Pagal",
+          "phone": "2222222222",
+          "street": "Ram Nagar Shahadara",
+          "city": "Mumbai",
+          "state": "Bandara",
+          "pinCode": "110045"
+        }
+      ],
       "id": 3
     },
     {
       "email": "Neha@gmail.com",
       "password": "Neha12kr",
+      "addresses": [],
       "id": 4
     }
   ],
   "carts": [
-    {
-      "title": "women's shoes",
-      "price": 40,
-      "rating": 4.14,
-      "stock": 72,
-      "href": "#",
-      "breadcrumbs": [
-        {
-          "id": 1,
-          "name": "IELGY fashion",
-          "href": "#"
-        },
-        {
-          "id": 2,
-          "name": "womens-shoes",
-          "href": "#"
-        }
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/product-images/46/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/46/1.webp",
-        "https://cdn.dummyjson.com/product-images/46/2.jpg",
-        "https://cdn.dummyjson.com/product-images/46/3.jpg",
-        "https://cdn.dummyjson.com/product-images/46/4.jpg",
-        "https://cdn.dummyjson.com/product-images/46/thumbnail.jpg"
-      ],
-      "colors": [
-        {
-          "name": "White",
-          "class": "bg-white",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Gray",
-          "class": "bg-gray-200",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Black",
-          "class": "bg-gray-900",
-          "selectedClass": "ring-gray-900"
-        }
-      ],
-      "sizes": [
-        {
-          "name": "XXS",
-          "inStock": false
-        },
-        {
-          "name": "XS",
-          "inStock": true
-        },
-        {
-          "name": "S",
-          "inStock": true
-        },
-        {
-          "name": "M",
-          "inStock": true
-        },
-        {
-          "name": "L",
-          "inStock": true
-        },
-        {
-          "name": "XL",
-          "inStock": true
-        },
-        {
-          "name": "2XL",
-          "inStock": true
-        },
-        {
-          "name": "3XL",
-          "inStock": true
-        }
-      ],
-      "description": "Close: Lace, Style with bottom: Increased inside, Sole Material: Rubber",
-      "highlights": [
-        "Hand cut and sewn locally",
-        "Dyed with our proprietary colors",
-        "Pre-washed & pre-shrunk",
-        "Ultra-soft 100% cotton"
-      ],
-      "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
-      "quantity": 1,
-      "user": 3,
-      "id": 11
-    },
     {
       "title": "printed high quality T shirts",
       "price": 35,
@@ -2531,7 +2488,7 @@
         "Ultra-soft 100% cotton"
       ],
       "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
-      "quantity": 1,
+      "quantity": 3,
       "user": 3,
       "id": 12
     },
@@ -2711,357 +2668,6 @@
       "quantity": 2,
       "user": 4,
       "id": 17
-    },
-    {
-      "title": "Samsung Galaxy Book",
-      "price": 1499,
-      "rating": 4.25,
-      "stock": 50,
-      "href": "#",
-      "breadcrumbs": [
-        {
-          "id": 1,
-          "name": "Samsung",
-          "href": "#"
-        },
-        {
-          "id": 2,
-          "name": "laptops",
-          "href": "#"
-        }
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/7/1.jpg",
-        "https://cdn.dummyjson.com/product-images/7/2.jpg",
-        "https://cdn.dummyjson.com/product-images/7/3.jpg",
-        "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
-      ],
-      "colors": [
-        {
-          "name": "White",
-          "class": "bg-white",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Gray",
-          "class": "bg-gray-200",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Black",
-          "class": "bg-gray-900",
-          "selectedClass": "ring-gray-900"
-        }
-      ],
-      "sizes": [
-        {
-          "name": "XXS",
-          "inStock": false
-        },
-        {
-          "name": "XS",
-          "inStock": true
-        },
-        {
-          "name": "S",
-          "inStock": true
-        },
-        {
-          "name": "M",
-          "inStock": true
-        },
-        {
-          "name": "L",
-          "inStock": true
-        },
-        {
-          "name": "XL",
-          "inStock": true
-        },
-        {
-          "name": "2XL",
-          "inStock": true
-        },
-        {
-          "name": "3XL",
-          "inStock": true
-        }
-      ],
-      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-      "highlights": [
-        "Hand cut and sewn locally",
-        "Dyed with our proprietary colors",
-        "Pre-washed & pre-shrunk",
-        "Ultra-soft 100% cotton"
-      ],
-      "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
-      "quantity": 1,
-      "user": 1,
-      "id": 24
-    },
-    {
-      "title": "iPhone X",
-      "price": 899,
-      "rating": 4.44,
-      "stock": 34,
-      "href": "#",
-      "breadcrumbs": [
-        {
-          "id": 1,
-          "name": "Apple",
-          "href": "#"
-        },
-        {
-          "id": 2,
-          "name": "smartphones",
-          "href": "#"
-        }
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/2/1.jpg",
-        "https://cdn.dummyjson.com/product-images/2/2.jpg",
-        "https://cdn.dummyjson.com/product-images/2/3.jpg",
-        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
-      ],
-      "colors": [
-        {
-          "name": "White",
-          "class": "bg-white",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Gray",
-          "class": "bg-gray-200",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Black",
-          "class": "bg-gray-900",
-          "selectedClass": "ring-gray-900"
-        }
-      ],
-      "sizes": [
-        {
-          "name": "XXS",
-          "inStock": false
-        },
-        {
-          "name": "XS",
-          "inStock": true
-        },
-        {
-          "name": "S",
-          "inStock": true
-        },
-        {
-          "name": "M",
-          "inStock": true
-        },
-        {
-          "name": "L",
-          "inStock": true
-        },
-        {
-          "name": "XL",
-          "inStock": true
-        },
-        {
-          "name": "2XL",
-          "inStock": true
-        },
-        {
-          "name": "3XL",
-          "inStock": true
-        }
-      ],
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "highlights": [
-        "Hand cut and sewn locally",
-        "Dyed with our proprietary colors",
-        "Pre-washed & pre-shrunk",
-        "Ultra-soft 100% cotton"
-      ],
-      "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
-      "quantity": 3,
-      "user": 1,
-      "id": 25
-    },
-    {
-      "title": "MacBook Pro",
-      "price": 1749,
-      "rating": 4.57,
-      "stock": 83,
-      "href": "#",
-      "breadcrumbs": [
-        {
-          "id": 1,
-          "name": "Apple",
-          "href": "#"
-        },
-        {
-          "id": 2,
-          "name": "laptops",
-          "href": "#"
-        }
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/6/1.png",
-        "https://cdn.dummyjson.com/product-images/6/2.jpg",
-        "https://cdn.dummyjson.com/product-images/6/3.png",
-        "https://cdn.dummyjson.com/product-images/6/4.jpg"
-      ],
-      "colors": [
-        {
-          "name": "White",
-          "class": "bg-white",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Gray",
-          "class": "bg-gray-200",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Black",
-          "class": "bg-gray-900",
-          "selectedClass": "ring-gray-900"
-        }
-      ],
-      "sizes": [
-        {
-          "name": "XXS",
-          "inStock": false
-        },
-        {
-          "name": "XS",
-          "inStock": true
-        },
-        {
-          "name": "S",
-          "inStock": true
-        },
-        {
-          "name": "M",
-          "inStock": true
-        },
-        {
-          "name": "L",
-          "inStock": true
-        },
-        {
-          "name": "XL",
-          "inStock": true
-        },
-        {
-          "name": "2XL",
-          "inStock": true
-        },
-        {
-          "name": "3XL",
-          "inStock": true
-        }
-      ],
-      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "highlights": [
-        "Hand cut and sewn locally",
-        "Dyed with our proprietary colors",
-        "Pre-washed & pre-shrunk",
-        "Ultra-soft 100% cotton"
-      ],
-      "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
-      "quantity": 4,
-      "user": 1,
-      "id": 27
-    },
-    {
-      "title": "Women Shoes",
-      "price": 36,
-      "rating": 4.33,
-      "stock": 46,
-      "href": "#",
-      "breadcrumbs": [
-        {
-          "id": 1,
-          "name": "Arrivals Genuine",
-          "href": "#"
-        },
-        {
-          "id": 2,
-          "name": "womens-shoes",
-          "href": "#"
-        }
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/product-images/50/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/50/1.jpeg",
-        "https://cdn.dummyjson.com/product-images/50/2.jpg",
-        "https://cdn.dummyjson.com/product-images/50/3.jpg"
-      ],
-      "colors": [
-        {
-          "name": "White",
-          "class": "bg-white",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Gray",
-          "class": "bg-gray-200",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Black",
-          "class": "bg-gray-900",
-          "selectedClass": "ring-gray-900"
-        }
-      ],
-      "sizes": [
-        {
-          "name": "XXS",
-          "inStock": false
-        },
-        {
-          "name": "XS",
-          "inStock": true
-        },
-        {
-          "name": "S",
-          "inStock": true
-        },
-        {
-          "name": "M",
-          "inStock": true
-        },
-        {
-          "name": "L",
-          "inStock": true
-        },
-        {
-          "name": "XL",
-          "inStock": true
-        },
-        {
-          "name": "2XL",
-          "inStock": true
-        },
-        {
-          "name": "3XL",
-          "inStock": true
-        }
-      ],
-      "description": "2020 New Arrivals Genuine Leather Fashion Trend Platform Summer Women Shoes",
-      "highlights": [
-        "Hand cut and sewn locally",
-        "Dyed with our proprietary colors",
-        "Pre-washed & pre-shrunk",
-        "Ultra-soft 100% cotton"
-      ],
-      "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
-      "quantity": 1,
-      "user": 1,
-      "id": 28
     },
     {
       "title": "Women Shoes",
@@ -3502,6 +3108,409 @@
       "quantity": 1,
       "user": 2,
       "id": 36
+    },
+    {
+      "title": "MacBook Pro",
+      "price": 1749,
+      "rating": 4.57,
+      "stock": 83,
+      "href": "#",
+      "breadcrumbs": [
+        {
+          "id": 1,
+          "name": "Apple",
+          "href": "#"
+        },
+        {
+          "id": 2,
+          "name": "laptops",
+          "href": "#"
+        }
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/6/1.png",
+        "https://cdn.dummyjson.com/product-images/6/2.jpg",
+        "https://cdn.dummyjson.com/product-images/6/3.png",
+        "https://cdn.dummyjson.com/product-images/6/4.jpg"
+      ],
+      "colors": [
+        {
+          "name": "White",
+          "class": "bg-white",
+          "selectedClass": "ring-gray-400"
+        },
+        {
+          "name": "Gray",
+          "class": "bg-gray-200",
+          "selectedClass": "ring-gray-400"
+        },
+        {
+          "name": "Black",
+          "class": "bg-gray-900",
+          "selectedClass": "ring-gray-900"
+        }
+      ],
+      "sizes": [
+        {
+          "name": "XXS",
+          "inStock": false
+        },
+        {
+          "name": "XS",
+          "inStock": true
+        },
+        {
+          "name": "S",
+          "inStock": true
+        },
+        {
+          "name": "M",
+          "inStock": true
+        },
+        {
+          "name": "L",
+          "inStock": true
+        },
+        {
+          "name": "XL",
+          "inStock": true
+        },
+        {
+          "name": "2XL",
+          "inStock": true
+        },
+        {
+          "name": "3XL",
+          "inStock": true
+        }
+      ],
+      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+      "highlights": [
+        "Hand cut and sewn locally",
+        "Dyed with our proprietary colors",
+        "Pre-washed & pre-shrunk",
+        "Ultra-soft 100% cotton"
+      ],
+      "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+      "quantity": 1,
+      "user": 4,
+      "id": 38
+    },
+    {
+      "title": "MacBook Pro",
+      "price": 1749,
+      "rating": 4.57,
+      "stock": 83,
+      "href": "#",
+      "breadcrumbs": [
+        {
+          "id": 1,
+          "name": "Apple",
+          "href": "#"
+        },
+        {
+          "id": 2,
+          "name": "laptops",
+          "href": "#"
+        }
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/6/1.png",
+        "https://cdn.dummyjson.com/product-images/6/2.jpg",
+        "https://cdn.dummyjson.com/product-images/6/3.png",
+        "https://cdn.dummyjson.com/product-images/6/4.jpg"
+      ],
+      "colors": [
+        {
+          "name": "White",
+          "class": "bg-white",
+          "selectedClass": "ring-gray-400"
+        },
+        {
+          "name": "Gray",
+          "class": "bg-gray-200",
+          "selectedClass": "ring-gray-400"
+        },
+        {
+          "name": "Black",
+          "class": "bg-gray-900",
+          "selectedClass": "ring-gray-900"
+        }
+      ],
+      "sizes": [
+        {
+          "name": "XXS",
+          "inStock": false
+        },
+        {
+          "name": "XS",
+          "inStock": true
+        },
+        {
+          "name": "S",
+          "inStock": true
+        },
+        {
+          "name": "M",
+          "inStock": true
+        },
+        {
+          "name": "L",
+          "inStock": true
+        },
+        {
+          "name": "XL",
+          "inStock": true
+        },
+        {
+          "name": "2XL",
+          "inStock": true
+        },
+        {
+          "name": "3XL",
+          "inStock": true
+        }
+      ],
+      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+      "highlights": [
+        "Hand cut and sewn locally",
+        "Dyed with our proprietary colors",
+        "Pre-washed & pre-shrunk",
+        "Ultra-soft 100% cotton"
+      ],
+      "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+      "quantity": 3,
+      "user": 3,
+      "id": 39
+    },
+    {
+      "title": "Freckle Treatment Cream- 15gm",
+      "price": 70,
+      "rating": 4.06,
+      "stock": 140,
+      "href": "#",
+      "breadcrumbs": [
+        {
+          "id": 1,
+          "name": "Fair & Clear",
+          "href": "#"
+        },
+        {
+          "id": 2,
+          "name": "skincare",
+          "href": "#"
+        }
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg",
+      "images": [
+        "https://cdn.dummyjson.com/product-images/20/1.jpg",
+        "https://cdn.dummyjson.com/product-images/20/2.jpg",
+        "https://cdn.dummyjson.com/product-images/20/3.jpg",
+        "https://cdn.dummyjson.com/product-images/20/4.jpg",
+        "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg"
+      ],
+      "colors": [
+        {
+          "name": "White",
+          "class": "bg-white",
+          "selectedClass": "ring-gray-400"
+        },
+        {
+          "name": "Gray",
+          "class": "bg-gray-200",
+          "selectedClass": "ring-gray-400"
+        },
+        {
+          "name": "Black",
+          "class": "bg-gray-900",
+          "selectedClass": "ring-gray-900"
+        }
+      ],
+      "sizes": [
+        {
+          "name": "XXS",
+          "inStock": false
+        },
+        {
+          "name": "XS",
+          "inStock": true
+        },
+        {
+          "name": "S",
+          "inStock": true
+        },
+        {
+          "name": "M",
+          "inStock": true
+        },
+        {
+          "name": "L",
+          "inStock": true
+        },
+        {
+          "name": "XL",
+          "inStock": true
+        },
+        {
+          "name": "2XL",
+          "inStock": true
+        },
+        {
+          "name": "3XL",
+          "inStock": true
+        }
+      ],
+      "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
+      "highlights": [
+        "Hand cut and sewn locally",
+        "Dyed with our proprietary colors",
+        "Pre-washed & pre-shrunk",
+        "Ultra-soft 100% cotton"
+      ],
+      "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+      "quantity": 1,
+      "user": 1,
+      "id": 40
+    }
+  ],
+  "orders": [
+    {
+      "GetAddToCart": [
+        {
+          "title": "Freckle Treatment Cream- 15gm",
+          "price": 70,
+          "rating": 4.06,
+          "stock": 140,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Fair & Clear",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "skincare",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/20/1.jpg",
+            "https://cdn.dummyjson.com/product-images/20/2.jpg",
+            "https://cdn.dummyjson.com/product-images/20/3.jpg",
+            "https://cdn.dummyjson.com/product-images/20/4.jpg",
+            "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 1,
+          "user": 1,
+          "id": 40
+        }
+      ],
+      "totalAmount": 70,
+      "totalItemsCount": 1,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "addresses": [
+          {
+            "name": "Nitesh",
+            "phone": "8076197005",
+            "street": "Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal",
+            "phone": "7849586746",
+            "street": "Ram Nagar Shahadara",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110001"
+          },
+          {
+            "name": "Neha",
+            "phone": "8967453289",
+            "street": "Sunder Nagri",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Dimple Pagal",
+        "phone": "7849586746",
+        "street": "Ram Nagar Shahadara",
+        "city": "Delhi",
+        "state": "Sharhadra",
+        "pinCode": "110001"
+      },
+      "paymentMethod": "cash",
+      "id": 1
     }
   ]
 }

@@ -39,6 +39,7 @@ const SignUp = () => {
                 CreateUserAsync({
                   email: data.email,
                   password: data.password,
+                  addresses: [],
                 })
               );
             })}
