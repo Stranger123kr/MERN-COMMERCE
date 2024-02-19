@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import {
   DeleteCartItemAsync,
   UpdateCartAsync,
   selectCarts,
 } from "../features/Cart/CartSlice";
-import { CreateOrderAsync } from "../features/Order/OrderSlice";
+import {
+  CreateOrderAsync,
+  selectCurrentOrder,
+} from "../features/Order/OrderSlice";
 import { useForm } from "react-hook-form";
 import {
   UpdateUserAsync,
@@ -18,8 +21,8 @@ import {
 const CheckoutPage = () => {
   const GetAddToCart = useSelector(selectCarts);
   const user = useSelector(selectLoggedInUser);
+  const currentOrder = useSelector(selectCurrentOrder);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // ===================================================================
 
@@ -39,16 +42,20 @@ const CheckoutPage = () => {
   // ===================================================================
 
   const handleOrder = () => {
-    const order = {
-      GetAddToCart,
-      totalAmount,
-      totalItemsCount,
-      user,
-      selectedAddress,
-      paymentMethod,
-    };
-    dispatch(CreateOrderAsync(order));
-    navigate("/");
+    if (selectedAddress && paymentMethod) {
+      const order = {
+        GetAddToCart,
+        totalAmount,
+        totalItemsCount,
+        user,
+        selectedAddress,
+        paymentMethod,
+        status: "pending", // order status can be deliver, received
+      };
+      dispatch(CreateOrderAsync(order));
+    } else {
+      alert("Please Enter or Select Address and Payment method");
+    }
     // TODD :   redirect to order-success page
     // TODD :   clear cart after order
     // TODD :   on server change the number of stocks in products
@@ -77,8 +84,6 @@ const CheckoutPage = () => {
   // ===================================================================
 
   const handleQuantity = (e, item) => {
-    console.log(+e.target.value);
-    console.log(item.id);
     dispatch(UpdateCartAsync({ ...item, quantity: +e.target.value }));
   };
 
@@ -92,11 +97,11 @@ const CheckoutPage = () => {
 
   return (
     <>
+      {currentOrder && <Navigate to={`/order_success/${currentOrder.id}`} />}
       <div className="grid  grid-cols-1 gap-x-4 gap-y-10 lg:grid-cols-2 px-[2%]">
         <div className="mx-auto bg-white rounded-[0.7rem] max-w-5xl px-4 my-[3rem]  lg:px-[5rem] py-[2rem]">
           <form
             onSubmit={handleSubmit((data) => {
-              console.log(data);
               reset();
               dispatch(
                 UpdateUserAsync({

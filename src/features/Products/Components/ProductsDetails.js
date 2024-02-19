@@ -18,6 +18,7 @@ const ProductsDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const ProductData = useSelector(selectProductsById);
+
   const user = useSelector(selectLoggedInUser);
   const GetAddToCart = useSelector(selectCarts);
 
@@ -70,6 +71,10 @@ const ProductsDetails = () => {
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   const handleAddToCart = () => {
+    dispatch(AddToCartAsync({ ...product, quantity: 1, user: user.id }));
+  };
+
+  const handleBuyProduct = () => {
     dispatch(AddToCartAsync({ ...product, quantity: 1, user: user.id }));
   };
 
@@ -362,14 +367,26 @@ const ProductsDetails = () => {
                     Add to Card
                   </button>
                 )}
-                <NavLink to="/checkout">
-                  <button
-                    type="button"
-                    className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    Buy now
-                  </button>
-                </NavLink>
+                {ProductData && CheckingProductInCart.length > 0 ? (
+                  <NavLink to="/checkout">
+                    <button
+                      type="button"
+                      className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    >
+                      Buy now
+                    </button>
+                  </NavLink>
+                ) : (
+                  <NavLink to="/checkout">
+                    <button
+                      onClick={handleBuyProduct}
+                      type="button"
+                      className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    >
+                      Buy now
+                    </button>
+                  </NavLink>
+                )}
               </div>
             </form>
           </div>

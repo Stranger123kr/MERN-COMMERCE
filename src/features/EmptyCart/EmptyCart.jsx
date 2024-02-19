@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const EmptyCart = () => {
+const EmptyCart = ({ title }) => {
   return (
     <>
       <main className="grid min-h-full place-items-center h-screen bg-white px-2 py-2 sm:py-5 lg:px-8">
@@ -12,7 +12,7 @@ const EmptyCart = () => {
           />
 
           <h1 className="mt-4 text-[2rem] font-bold tracking-tight text-gray-900 sm:text-[4rem]">
-            Your Cart is Empty
+            {title ? title : "Your Cart is Empty"}
           </h1>
           <p className="mt-6 text-[1.3rem] font-[600] leading-7 text-gray-600">
             Sorry, we couldn’t find the any items you’re looking for.

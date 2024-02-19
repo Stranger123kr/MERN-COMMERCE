@@ -4,6 +4,7 @@ import {
   fetchCartByUserId,
   UpdateCart,
   DeleteCartItem,
+  ResetCart,
 } from "./CartAPI";
 
 // ============================================================================
@@ -56,6 +57,16 @@ export const DeleteCartItemAsync = createAsyncThunk(
 
 // ============================================================================
 
+export const ResetCartAsync = createAsyncThunk(
+  "cart/ResetCart",
+  async (userId) => {
+    const response = await ResetCart(userId);
+    return response.data;
+  }
+);
+
+// ============================================================================
+
 export const CartSlice = createSlice({
   name: "cart",
   initialState,
@@ -69,14 +80,14 @@ export const CartSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(AddToCartAsync.pending, (state) => {
-        // state.status = true;
+        state.status = true;
       })
       .addCase(AddToCartAsync.fulfilled, (state, action) => {
-        // state.status = true;
+        state.status = false;
         state.carts.push(action.payload);
       })
       .addCase(AddToCartAsync.rejected, (state, action) => {
-        // state.status = true;
+        state.status = false;
         state.error = action.error;
       })
 
@@ -126,6 +137,20 @@ export const CartSlice = createSlice({
         state.carts.splice(index, 1);
       })
       .addCase(DeleteCartItemAsync.rejected, (state, action) => {
+        // state.status = true;
+        state.error = action.error;
+      })
+
+      // ===================================================
+
+      .addCase(ResetCartAsync.pending, (state) => {
+        // state.status = true;
+      })
+      .addCase(ResetCartAsync.fulfilled, (state, action) => {
+        // state.status = true;
+        state.carts = [];
+      })
+      .addCase(ResetCartAsync.rejected, (state, action) => {
         // state.status = true;
         state.error = action.error;
       });

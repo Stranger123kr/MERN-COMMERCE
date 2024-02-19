@@ -35,7 +35,6 @@ const Login = () => {
           <form
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
-              console.log(data);
               dispatch(
                 CheckUserAsync({
                   email: data.email,

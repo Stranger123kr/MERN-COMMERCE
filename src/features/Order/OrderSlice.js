@@ -5,7 +5,9 @@ const initialState = {
   orders: [],
   status: true,
   error: null,
+  currentOrder: null,
 };
+// We need more information about order
 
 export const CreateOrderAsync = createAsyncThunk(
   "create/CreateOrder",
@@ -20,8 +22,8 @@ export const OrderSlice = createSlice({
   initialState,
 
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    ResetOrder: (state) => {
+      state.currentOrder = null;
     },
   },
 
@@ -33,6 +35,7 @@ export const OrderSlice = createSlice({
       .addCase(CreateOrderAsync.fulfilled, (state, action) => {
         state.status = false;
         state.orders.push(action.payload);
+        state.currentOrder = action.payload;
       })
       .addCase(CreateOrderAsync.rejected, (state, action) => {
         state.status = false;
@@ -41,6 +44,8 @@ export const OrderSlice = createSlice({
   },
 });
 
-// export const selectCount = (state) => state.counter.value;
+export const { ResetOrder } = OrderSlice.actions;
+
+export const selectCurrentOrder = (state) => state.order.currentOrder;
 
 export default OrderSlice.reducer;

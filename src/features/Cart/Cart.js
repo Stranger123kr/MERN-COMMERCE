@@ -21,8 +21,6 @@ const Cart = () => {
   // ===================================================================
 
   const handleQuantity = (e, item) => {
-    console.log(+e.target.value);
-    console.log(item.id);
     dispatch(UpdateCartAsync({ ...item, quantity: +e.target.value }));
   };
 

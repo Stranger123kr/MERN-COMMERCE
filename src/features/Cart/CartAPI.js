@@ -42,7 +42,7 @@ export const UpdateCart = (update) => {
 
 // ============================================================================
 
-// this is function to Update Quantity of Cart product in Carts
+// this is function to Delete items in Carts as user wish
 
 export const DeleteCartItem = (itemId) => {
   return new Promise(async (resolve) => {
@@ -52,5 +52,23 @@ export const DeleteCartItem = (itemId) => {
     });
     const data = response.json();
     resolve({ data: { id: itemId } });
+  });
+};
+
+// ============================================================================
+
+// this is function to remove all  items in Carts when user finish their shopping
+
+export const ResetCart = (userId) => {
+  // get all the items of user's cart - and then remove each
+  return new Promise(async (resolve) => {
+    const response = await fetchCartByUserId(userId);
+    const items = await response.data;
+
+    for (let key of items) {
+      DeleteCartItem(key.id);
+    }
+
+    resolve({ msg: " Carts have  Empty Now" });
   });
 };
