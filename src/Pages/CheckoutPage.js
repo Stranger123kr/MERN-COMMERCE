@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
-import {
-  DeleteCartItemAsync,
-  UpdateCartAsync,
-  selectCarts,
-} from "../features/Cart/CartSlice";
+import { UpdateCartAsync, selectCarts } from "../features/Cart/CartSlice";
 import {
   CreateOrderAsync,
   selectCurrentOrder,
@@ -85,12 +81,6 @@ const CheckoutPage = () => {
 
   const handleQuantity = (e, item) => {
     dispatch(UpdateCartAsync({ ...item, quantity: +e.target.value }));
-  };
-
-  // ===================================================================
-
-  const handleDeleteItems = (e, id) => {
-    dispatch(DeleteCartItemAsync(id));
   };
 
   // ===================================================================
@@ -446,17 +436,6 @@ const CheckoutPage = () => {
                                   <option value="5">5</option>
                                 </select>
                               </label>
-                            </div>
-                            <div className="flex">
-                              <button
-                                onClick={(e) =>
-                                  handleDeleteItems(e, cartInfo.id)
-                                }
-                                type="button"
-                                className="font-medium text-indigo-600 hover:text-indigo-500"
-                              >
-                                Remove
-                              </button>
                             </div>
                           </div>
                         </div>

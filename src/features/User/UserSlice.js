@@ -1,8 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchLoggedInUser, fetchLoggedInUserOrders } from "./UserAPI";
+import {
+  UpdateUser,
+  fetchLoggedInUser,
+  fetchLoggedInUserOrders,
+} from "./UserAPI";
 
 const initialState = {
-  userInfo: [],
+  userInfo: [], // this info will be used in case of details user info, while auth will
+  // only be used for loggedIn user id etc checks
   userOrders: [],
   status: true,
   error: null,
@@ -22,6 +27,16 @@ export const fetchLoggedInUserOrdersAsync = createAsyncThunk(
   "userOrders/fetchLoggedInUserOrders",
   async (userId) => {
     const response = await fetchLoggedInUserOrders(userId);
+    return response.data;
+  }
+);
+
+// ==================================================================
+
+export const UpdateUserAsync = createAsyncThunk(
+  "user/UpdateUser",
+  async (userId) => {
+    const response = await UpdateUser(userId);
     return response.data;
   }
 );
@@ -64,6 +79,20 @@ export const userSlice = createSlice({
         state.userOrders = action.payload;
       })
       .addCase(fetchLoggedInUserOrdersAsync.rejected, (state, action) => {
+        state.status = false;
+        state.error = action.error;
+      })
+
+      // ================================================================
+
+      .addCase(UpdateUserAsync.pending, (state) => {
+        state.status = true;
+      })
+      .addCase(UpdateUserAsync.fulfilled, (state, action) => {
+        state.status = false;
+        state.userInfo = action.payload;
+      })
+      .addCase(UpdateUserAsync.rejected, (state, action) => {
         state.status = false;
         state.error = action.error;
       });

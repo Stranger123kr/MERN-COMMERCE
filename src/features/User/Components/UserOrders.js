@@ -23,7 +23,7 @@ const UserOrders = () => {
       ) : (
         <div className=" pb-[2rem]">
           {orders.map((order) => (
-            <div>
+            <div key={order.id}>
               <div className="mx-auto bg-white rounded-[1rem] max-w-5xl px-4 mt-[2rem]  sm:px-6 lg:px-[5rem]">
                 <h3 className="text-center py-3">{order.status}</h3>
                 <div className="mt-8 border-t border-gray-200 px-4 py-6 sm:px-6">
@@ -125,9 +125,6 @@ const UserOrders = () => {
                       {order.paymentMethod}
                     </p>
                   </div>
-                  <p className="mt-0.5 text-sm text-gray-500">
-                    Shipping and taxes calculated at checkout.
-                  </p>
                 </div>
               </div>
             </div>

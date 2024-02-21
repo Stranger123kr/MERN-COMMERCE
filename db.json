@@ -2340,27 +2340,27 @@
       "password": "Dimple12kr",
       "addresses": [
         {
-          "name": "Nitesh",
+          "name": "Nitesh King",
           "phone": "8076197005",
-          "street": "Nand Nagri Delhi",
+          "street": "E-1/188 Nand Nagri Delhi",
           "city": "Delhi",
           "state": "Sharhadra",
           "pinCode": "110093"
         },
         {
-          "name": "Dimple Pagal",
-          "phone": "7849586746",
-          "street": "Ram Nagar Shahadara",
+          "name": "Dimple Pagal ho chuki hai",
+          "phone": "8967453289",
+          "street": "Ram Nagar Shahadara Delihi",
           "city": "Delhi",
-          "state": "Sharhadra",
-          "pinCode": "110001"
+          "state": "Delhi",
+          "pinCode": "110022"
         },
         {
-          "name": "Neha",
+          "name": "Neha kumar",
           "phone": "8967453289",
-          "street": "Sunder Nagri",
+          "street": "f-1/474 Sunder Nagri delhi",
           "city": "Delhi",
-          "state": "Sharhadra",
+          "state": "Delhi",
           "pinCode": "110093"
         }
       ],
@@ -2392,14 +2392,6 @@
           "city": "Delhi",
           "state": "Sharhadra",
           "pinCode": "110001"
-        },
-        {
-          "name": "Dimple Pagal",
-          "phone": "2222222222",
-          "street": "Ram Nagar Shahadara",
-          "city": "Mumbai",
-          "state": "Bandara",
-          "pinCode": "110045"
         }
       ],
       "id": 3
@@ -2414,6 +2406,14 @@
           "street": "Sunder Nagri",
           "city": "Delhi",
           "state": "Sharhadra",
+          "pinCode": "110093"
+        },
+        {
+          "name": "Nitesh",
+          "phone": "8076197221",
+          "street": "E-1/188 Nand Nagri Delhi ",
+          "city": "Delhi",
+          "state": "Delhi",
           "pinCode": "110093"
         }
       ],
@@ -2504,7 +2504,7 @@
       "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
       "quantity": 1,
       "user": 1,
-      "id": 2
+      "id": 1
     }
   ],
   "orders": [
@@ -3396,6 +3396,1069 @@
       "paymentMethod": "card",
       "status": "pending",
       "id": 7
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Money Heist Printed Summer T Shirts",
+          "price": 66,
+          "rating": 4.9,
+          "stock": 122,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "The Warehouse",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "mens-shirts",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/55/1.jpg",
+            "https://cdn.dummyjson.com/product-images/55/2.webp",
+            "https://cdn.dummyjson.com/product-images/55/3.jpg",
+            "https://cdn.dummyjson.com/product-images/55/4.jpg",
+            "https://cdn.dummyjson.com/product-images/55/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Fabric Jercy, Size: M & L Wear Stylish Dual Stiched",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 2,
+          "user": 3,
+          "id": 1
+        }
+      ],
+      "totalAmount": 132,
+      "totalItemsCount": 2,
+      "user": {
+        "email": "Pooja@gmail.com",
+        "password": "Pooja12kr",
+        "addresses": [
+          {
+            "name": "Pooja",
+            "phone": "1111111111",
+            "street": "Ram Nagar Shahadara",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110001"
+          },
+          {
+            "name": "Dimple Pagal",
+            "phone": "2222222222",
+            "street": "Ram Nagar Shahadara",
+            "city": "Mumbai",
+            "state": "Bandara",
+            "pinCode": "110045"
+          }
+        ],
+        "id": 3
+      },
+      "selectedAddress": {
+        "name": "Pooja",
+        "phone": "1111111111",
+        "street": "Ram Nagar Shahadara",
+        "city": "Delhi",
+        "state": "Sharhadra",
+        "pinCode": "110001"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 8
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Gulab Powder 50 Gram",
+          "price": 70,
+          "rating": 4.87,
+          "stock": 47,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Dry Rose",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "groceries",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/25/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/25/1.png",
+            "https://cdn.dummyjson.com/product-images/25/2.jpg",
+            "https://cdn.dummyjson.com/product-images/25/3.png",
+            "https://cdn.dummyjson.com/product-images/25/4.jpg",
+            "https://cdn.dummyjson.com/product-images/25/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 3,
+          "user": 3,
+          "id": 1
+        }
+      ],
+      "totalAmount": 210,
+      "totalItemsCount": 3,
+      "user": {
+        "email": "Pooja@gmail.com",
+        "password": "Pooja12kr",
+        "addresses": [
+          {
+            "name": "Pooja",
+            "phone": "1111111111",
+            "street": "Ram Nagar Shahadara",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110001"
+          },
+          {
+            "name": "Dimple Pagal",
+            "phone": "2222222222",
+            "street": "Ram Nagar Shahadara",
+            "city": "Mumbai",
+            "state": "Bandara",
+            "pinCode": "110045"
+          },
+          {
+            "name": "Neha",
+            "phone": "8067544332",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110093"
+          }
+        ],
+        "id": 3
+      },
+      "selectedAddress": {
+        "name": "Neha",
+        "phone": "8067544332",
+        "street": "Ram Nagar Shahadara Delihi",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 9
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Bluetooth Aux",
+          "price": 25,
+          "rating": 4.57,
+          "stock": 22,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Car Aux",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "automotive",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/86/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/86/1.jpg",
+            "https://cdn.dummyjson.com/product-images/86/2.webp",
+            "https://cdn.dummyjson.com/product-images/86/3.jpg",
+            "https://cdn.dummyjson.com/product-images/86/4.jpg",
+            "https://cdn.dummyjson.com/product-images/86/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Bluetooth Aux Bluetooth Car Aux Car Bluetooth Transmitter Aux Audio Receiver Handfree Car Bluetooth Music Receiver Universal 3.5mm Streaming A2DP Wireless Auto AUX Audio Adapter With Mic For Phone MP3",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 2,
+          "user": 3,
+          "id": 1
+        }
+      ],
+      "totalAmount": 50,
+      "totalItemsCount": 2,
+      "user": {
+        "email": "Pooja@gmail.com",
+        "password": "Pooja12kr",
+        "addresses": [
+          {
+            "name": "Pooja",
+            "phone": "1111111111",
+            "street": "Ram Nagar Shahadara",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110001"
+          },
+          {
+            "name": "Dimple Pagal",
+            "phone": "2222222222",
+            "street": "Ram Nagar Shahadara",
+            "city": "Mumbai",
+            "state": "Bandara",
+            "pinCode": "110045"
+          },
+          {
+            "name": "Neha",
+            "phone": "8067544332",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110093"
+          }
+        ],
+        "id": 3
+      },
+      "selectedAddress": {
+        "name": "Neha",
+        "phone": "8067544332",
+        "street": "Ram Nagar Shahadara Delihi",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 10
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Microsoft Surface Laptop 4",
+          "price": 1499,
+          "rating": 4.43,
+          "stock": 68,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Microsoft Surface",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "laptops",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/8/1.jpg",
+            "https://cdn.dummyjson.com/product-images/8/2.jpg",
+            "https://cdn.dummyjson.com/product-images/8/3.jpg",
+            "https://cdn.dummyjson.com/product-images/8/4.jpg",
+            "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 1,
+          "user": 4,
+          "id": 1
+        }
+      ],
+      "totalAmount": 1499,
+      "totalItemsCount": 1,
+      "user": {
+        "email": "Neha@gmail.com",
+        "password": "Neha12kr",
+        "addresses": [
+          {
+            "name": "Neha",
+            "phone": "9856543456",
+            "street": "Sunder Nagri",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Nitesh",
+            "phone": "8076197221",
+            "street": "E-1/188 Nand Nagri Delhi ",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110093"
+          }
+        ],
+        "id": 4
+      },
+      "selectedAddress": {
+        "name": "Nitesh",
+        "phone": "8076197221",
+        "street": "E-1/188 Nand Nagri Delhi ",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 11
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Samsung Universe 9",
+          "price": 1249,
+          "rating": 4.09,
+          "stock": 36,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Samsung",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "smartphones",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 2,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 2498,
+      "totalItemsCount": 2,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "addresses": [
+          {
+            "name": "Nitesh",
+            "phone": "8076197005",
+            "street": "Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal",
+            "phone": "7849586746",
+            "street": "Ram Nagar Shahadara",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110001"
+          },
+          {
+            "name": "Neha",
+            "phone": "9067544323",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110001"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Neha",
+        "phone": "9067544323",
+        "street": "Ram Nagar Shahadara Delihi",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110001"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 12
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "iPhone X",
+          "price": 899,
+          "rating": 4.44,
+          "stock": 34,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Apple",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "smartphones",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/2/1.jpg",
+            "https://cdn.dummyjson.com/product-images/2/2.jpg",
+            "https://cdn.dummyjson.com/product-images/2/3.jpg",
+            "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 2,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 1798,
+      "totalItemsCount": 2,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "addresses": [
+          {
+            "name": "Nitesh",
+            "phone": "8076197005",
+            "street": "Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal",
+            "phone": "7849586746",
+            "street": "Ram Nagar Shahadara",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110001"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Dimple Pagal",
+        "phone": "7849586746",
+        "street": "Ram Nagar Shahadara",
+        "city": "Delhi",
+        "state": "Sharhadra",
+        "pinCode": "110001"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 13
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "OPPOF19",
+          "price": 280,
+          "rating": 4.3,
+          "stock": 123,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "OPPO",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "smartphones",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/4/1.jpg",
+            "https://cdn.dummyjson.com/product-images/4/2.jpg",
+            "https://cdn.dummyjson.com/product-images/4/3.jpg",
+            "https://cdn.dummyjson.com/product-images/4/4.jpg",
+            "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 280,
+      "totalItemsCount": 1,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "addresses": [
+          {
+            "name": "Nitesh",
+            "phone": "8076197005",
+            "street": "Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110001"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Dimple Pagal",
+        "phone": "8967453289",
+        "street": "Ram Nagar Shahadara Delihi",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110001"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 14
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Samsung Universe 9",
+          "price": 1249,
+          "rating": 4.09,
+          "stock": 36,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Samsung",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "smartphones",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 2,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 2498,
+      "totalItemsCount": 2,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "addresses": [
+          {
+            "name": "Nitesh King",
+            "phone": "8076197005",
+            "street": "E-1/188 Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal hai",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110022"
+          },
+          {
+            "name": "Neha kumar",
+            "phone": "8967453289",
+            "street": "f-1/474 Sunder Nagri delhi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Pooja",
+            "phone": "1234567895",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "mumbai",
+            "state": "Maharashtra",
+            "pinCode": "110022"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Pooja",
+        "phone": "1234567895",
+        "street": "Ram Nagar Shahadara Delihi",
+        "city": "mumbai",
+        "state": "Maharashtra",
+        "pinCode": "110022"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 15
     }
   ]
 }

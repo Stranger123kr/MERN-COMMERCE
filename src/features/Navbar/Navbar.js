@@ -28,8 +28,8 @@ const navigation = [
 // ============================================================================
 
 const userNavigation = [
-  { name: "Your Profile", link: "/profile" },
-  { name: "Your Orders", link: "/orders" },
+  { name: "My Profile", link: "/profile" },
+  { name: "My Orders", link: "/orders" },
   { name: "Sign out", link: "/login" },
 ];
 
@@ -222,14 +222,16 @@ const Navbar = ({ Children }) => {
                   </div>
                   <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map((item) => (
-                      <Disclosure.Button
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                      >
-                        {item.name}
-                      </Disclosure.Button>
+                      <div key={item.name}>
+                        <Link
+                          to={item.link}
+                          className="block rounded-md px-3 py-2 text-base
+                          font-medium text-gray-400 hover:bg-gray-700
+                          hover:text-white"
+                        >
+                          {item.name}
+                        </Link>
+                      </div>
                     ))}
                   </div>
                 </div>

@@ -12,8 +12,9 @@ import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoggedInUser } from "./features/auth/AuthSlice";
 import Order_SuccessPage from "./Pages/Order_SuccessPage";
-import UserProfile from "./features/User/Components/UserProfile";
+import UserProfilePage from "./Pages/UserProfilePage";
 import UserOrdersPage from "./Pages/UserOrdersPage";
+import { fetchLoggedInUserAsync } from "./features/User/UserSlice";
 // ===================================================================
 
 const router = createBrowserRouter([
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
     path: "/profile",
     element: (
       <Protected>
-        <UserProfile />
+        <UserProfilePage />
       </Protected>
     ),
   },
@@ -92,6 +93,7 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     user && dispatch(fetchCartByUserIdAsync(user.id));
+    user && dispatch(fetchLoggedInUserAsync(user.id));
   }, [dispatch, user]);
 
   return (
