@@ -67,7 +67,11 @@ const UserProfile = () => {
       <div className=" pb-[2rem]">
         <div>
           <div className="mx-auto relative bg-white rounded-[1rem] max-w-5xl px-4 mt-[2rem]  sm:px-6 lg:px-[5rem]">
-            <h3 className="text-center py-3">User Profile</h3>
+            <img
+              className="w-[5rem] m-auto pt-3"
+              src="https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png"
+              alt="Profile_img"
+            />
 
             <h3 className="text-[1.5rem] my-5 font-bold tracking-tight text-gray-500">
               Name : {user.name ? user.name : "Guest User"}
@@ -75,6 +79,11 @@ const UserProfile = () => {
             <h3 className="text-[1.5rem] my-5 font-bold tracking-tight text-gray-500">
               Email : {user.email}
             </h3>
+            {user.role === "admin" && (
+              <h3 className="text-[1.5rem] my-5 font-bold tracking-tight text-gray-500">
+                Role : {user.role}
+              </h3>
+            )}
 
             <button
               type="Submit"

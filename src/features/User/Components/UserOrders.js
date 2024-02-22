@@ -25,7 +25,7 @@ const UserOrders = () => {
           {orders.map((order) => (
             <div key={order.id}>
               <div className="mx-auto bg-white rounded-[1rem] max-w-5xl px-4 mt-[2rem]  sm:px-6 lg:px-[5rem]">
-                <h3 className="text-center py-3">{order.status}</h3>
+                <h3 className="text-center py-3">Status : {order.status}</h3>
                 <div className="mt-8 border-t border-gray-200 px-4 py-6 sm:px-6">
                   <h3 className="text-[1.2rem] my-5 font-bold tracking-tight text-gray-500">
                     Order ID : {order.id}

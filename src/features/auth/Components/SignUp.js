@@ -40,6 +40,8 @@ const SignUp = () => {
                   email: data.email,
                   password: data.password,
                   addresses: [],
+                  role: "user",
+                  // this role can be changed directly by given backend
                 })
               );
             })}

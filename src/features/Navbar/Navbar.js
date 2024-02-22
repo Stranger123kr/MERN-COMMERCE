@@ -1,4 +1,4 @@
-import { Children, Fragment } from "react";
+import { Children, Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -8,22 +8,8 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCarts } from "../Cart/CartSlice";
-
-// ============================================================================
-
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
-
-// ============================================================================
-
-const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-];
+import { selectLoggedInUser } from "../auth/AuthSlice";
+import { current } from "@reduxjs/toolkit";
 
 // ============================================================================
 
@@ -35,6 +21,12 @@ const userNavigation = [
 
 // ============================================================================
 
+const navigation = [
+  { name: "Dashboard", link: "#", current: false, user: true },
+  { name: "Team", link: "#", current: false, user: true },
+  { name: "Admin", link: "/admin", current: false, admin: true },
+];
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -42,7 +34,12 @@ function classNames(...classes) {
 // ============================================================================
 
 const Navbar = ({ Children }) => {
+  const user = useSelector(selectLoggedInUser);
   const GetAddToCart = useSelector(selectCarts);
+
+  // ============================================================================
+
+  // ============================================================================
 
   return (
     <>
@@ -64,21 +61,24 @@ const Navbar = ({ Children }) => {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className={classNames(
-                              item.current
-                                ? "bg-gray-900 text-white"
-                                : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                              "rounded-md px-3 py-2 text-sm font-medium"
-                            )}
-                            aria-current={item.current ? "page" : undefined}
-                          >
-                            {item.name}
-                          </a>
-                        ))}
+                        {navigation.map(
+                          (item) =>
+                            item[user.role] && (
+                              <Link
+                                key={item.name}
+                                to={item.link}
+                                className={classNames(
+                                  item.current
+                                    ? "bg-blue-900 text-white"
+                                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                                  "rounded-md px-3 py-2 text-sm font-medium"
+                                )}
+                                aria-current={item.current ? "page" : undefined}
+                              >
+                                {item.name}
+                              </Link>
+                            )
+                        )}
                       </div>
                     </div>
                   </div>
@@ -110,8 +110,8 @@ const Navbar = ({ Children }) => {
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
-                              src={user.imageUrl}
-                              alt=""
+                              src="https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png"
+                              alt="profile_img"
                             />
                           </Menu.Button>
                         </div>
@@ -168,30 +168,32 @@ const Navbar = ({ Children }) => {
 
               <Disclosure.Panel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                  {navigation.map((item) => (
-                    <Disclosure.Button
-                      key={item.name}
-                      as="a"
-                      href={item.href}
-                      className={classNames(
-                        item.current
-                          ? "bg-gray-900 text-white"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                        "block rounded-md px-3 py-2 text-base font-medium"
-                      )}
-                      aria-current={item.current ? "page" : undefined}
-                    >
-                      {item.name}
-                    </Disclosure.Button>
-                  ))}
+                  {navigation.map(
+                    (item) =>
+                      item[user.role] && (
+                        <Link key={item.name} to={item.link}>
+                          <Disclosure.Button
+                            className={classNames(
+                              item.current
+                                ? "bg-gray-900 text-white"
+                                : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                              "block rounded-md px-3 py-2 text-base font-medium"
+                            )}
+                            aria-current={item.current ? "page" : undefined}
+                          >
+                            {item.name}
+                          </Disclosure.Button>
+                        </Link>
+                      )
+                  )}
                 </div>
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
                       <img
                         className="h-10 w-10 rounded-full"
-                        src={user.imageUrl}
-                        alt=""
+                        src="https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png"
+                        alt="profile_img"
                       />
                     </div>
                     <div className="ml-3">
