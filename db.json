@@ -48,9 +48,7 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/3/1.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
     },
     {
       "id": 4,
@@ -1428,9 +1426,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"]
     },
     {
       "id": 79,
@@ -1443,9 +1439,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/79/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/79/1.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/79/1.jpg"]
     },
     {
       "id": 80,
@@ -2338,6 +2332,7 @@
     {
       "email": "Dimple@gmail.com",
       "password": "Dimple12kr",
+      "role": "admin",
       "addresses": [
         {
           "name": "Nitesh King",
@@ -2361,6 +2356,7 @@
     {
       "email": "Nitesh@gmail.com",
       "password": "Nitesh12kr@",
+      "role": "admin",
       "addresses": [
         {
           "name": "Nitesh",
@@ -2376,6 +2372,7 @@
     {
       "email": "Pooja@gmail.com",
       "password": "Pooja12kr",
+      "role": "user",
       "addresses": [
         {
           "name": "Pooja",
@@ -2391,6 +2388,7 @@
     {
       "email": "Neha@gmail.com",
       "password": "Neha12kr",
+      "role": "user",
       "addresses": [
         {
           "name": "Neha",
@@ -3856,9 +3854,7 @@
             }
           ],
           "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-          "images": [
-            "https://cdn.dummyjson.com/product-images/3/1.jpg"
-          ],
+          "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"],
           "colors": [
             {
               "name": "White",
@@ -4246,9 +4242,7 @@
             }
           ],
           "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-          "images": [
-            "https://cdn.dummyjson.com/product-images/3/1.jpg"
-          ],
+          "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"],
           "colors": [
             {
               "name": "White",
