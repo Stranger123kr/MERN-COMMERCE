@@ -35,3 +35,12 @@ export const CheckUser = (loginInfo) => {
 };
 
 // ===========================================================================
+
+// this is function for  signOut
+
+export const UserSignOut = (userId) => {
+  return new Promise(async (resolve) => {
+    // TODO : on server we will remove user session info
+    resolve({ msg: "User Logout Successfully" });
+  });
+};
