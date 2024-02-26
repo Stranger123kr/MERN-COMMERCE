@@ -5,6 +5,9 @@ import {
   FetchCategories,
   FetchBrands,
   FetchProductsById,
+  CreateProducts,
+  UpdateProducts,
+  DeleteProducts,
 } from "./ProductsAPI";
 
 const initialState = {
@@ -63,6 +66,36 @@ export const FetchProductsByIdAsync = createAsyncThunk(
   "ProductsById/FetchProductsById",
   async (id) => {
     const response = await FetchProductsById(id);
+    return response.data;
+  }
+);
+
+// ======================================================================
+
+export const CreateProductsAsync = createAsyncThunk(
+  "Products/CreateProducts",
+  async (ProductData) => {
+    const response = await CreateProducts(ProductData);
+    return response.data;
+  }
+);
+
+// ======================================================================
+
+export const UpdateProductsAsync = createAsyncThunk(
+  "Products/UpdateProducts",
+  async (productInfo) => {
+    const response = await UpdateProducts(productInfo);
+    return response.data;
+  }
+);
+
+// ======================================================================
+
+export const DeleteProductsAsync = createAsyncThunk(
+  "Products/DeleteProducts",
+  async (id) => {
+    const response = await DeleteProducts(id);
     return response.data;
   }
 );
@@ -150,11 +183,59 @@ export const ProductsSlice = createSlice({
       .addCase(FetchProductsByIdAsync.rejected, (state, action) => {
         state.error = action.error;
         state.status = false;
+      })
+
+      // ======================================================
+
+      .addCase(CreateProductsAsync.pending, (state, action) => {
+        state.status = true;
+      })
+      .addCase(CreateProductsAsync.fulfilled, (state, action) => {
+        state.status = false;
+        state.products.push(action.payload);
+      })
+      .addCase(CreateProductsAsync.rejected, (state, action) => {
+        state.error = action.error;
+        state.status = false;
+      })
+
+      // ======================================================
+
+      .addCase(UpdateProductsAsync.pending, (state, action) => {
+        state.status = true;
+      })
+      .addCase(UpdateProductsAsync.fulfilled, (state, action) => {
+        const index = state.products.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        state.products[index] = action.payload;
+        state.status = false;
+      })
+      .addCase(UpdateProductsAsync.rejected, (state, action) => {
+        state.error = action.error;
+        state.status = false;
+      })
+
+      // ======================================================
+
+      .addCase(DeleteProductsAsync.pending, (state) => {
+        state.status = true;
+      })
+      .addCase(DeleteProductsAsync.fulfilled, (state, action) => {
+        const index = state.products.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        state.products.splice(index, 1);
+        state.status = false;
+      })
+      .addCase(DeleteProductsAsync.rejected, (state, action) => {
+        state.error = action.error;
+        state.status = false;
       });
   },
 });
 
-// export const {} = ProductsSlice.actions;
+// export const {} = ProductsSlice.actions;+
 
 export const selectProducts = (state) => state.product;
 export const selectTotalProductsPage = (state) => state.product.totalPages;

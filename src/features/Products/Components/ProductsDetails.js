@@ -31,9 +31,12 @@ const ProductsDetails = () => {
   // ==========================================================================
   const product = {
     title: ProductData.title,
-    price: ProductData.price,
+    price: Math.round(
+      ProductData.price * (1 - ProductData.discountPercentage / 100)
+    ),
     rating: ProductData.rating,
     stock: ProductData.stock,
+
     href: "#",
     breadcrumbs: [
       { id: 1, name: ProductData.brand, href: "#" },
@@ -191,7 +194,7 @@ const ProductsDetails = () => {
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
             <p className="text-3xl tracking-tight text-gray-900">
-              ₹ {product.price}
+              ₹{product.price.toLocaleString()}
             </p>
 
             {/* Reviews */}

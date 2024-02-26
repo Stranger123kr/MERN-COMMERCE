@@ -82,3 +82,53 @@ export const FetchBrands = () => {
     resolve({ data });
   });
 };
+
+// ============================================================================
+
+// this is  function for Creating a products and this function for admin
+
+export const CreateProducts = (productInfo) => {
+  return new Promise(async (resolve) => {
+    const response = await fetch("http://localhost:3004/products", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(productInfo),
+    });
+    const data = response.json();
+    resolve({ data });
+  });
+};
+
+// ============================================================================
+
+// this is  function for Updating a products and this function for admin
+
+export const UpdateProducts = (productInfo) => {
+  return new Promise(async (resolve) => {
+    const response = await fetch(
+      `http://localhost:3004/products/${productInfo.id}`,
+      {
+        method: "PATCH",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(productInfo),
+      }
+    );
+    const data = response.json();
+    resolve({ data });
+  });
+};
+
+// ============================================================================
+
+// this is  function for Updating a products and this function for admin
+
+export const DeleteProducts = (id) => {
+  return new Promise(async (resolve) => {
+    const response = await fetch(`http://localhost:3004/products/${id}`, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+    });
+    const data = response.json();
+    resolve({ data: { id } });
+  });
+};

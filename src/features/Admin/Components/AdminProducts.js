@@ -24,6 +24,7 @@ import {
   FetchProductsByFilterAsync,
   selectCategories,
   selectBrands,
+  DeleteProductsAsync,
 } from "../../Products/ProductsSlice";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 import { handler } from "@tailwindcss/aspect-ratio";
@@ -116,6 +117,12 @@ const AdminProducts = () => {
 
   const handlePagination = (page) => {
     setPage(page);
+  };
+
+  // ============================================================================
+
+  const handleDeleteProducts = (id) => {
+    dispatch(DeleteProductsAsync(id));
   };
 
   // ============================================================================
@@ -396,7 +403,7 @@ const AdminProducts = () => {
                   <Link to="/admin/products_form">
                     <button
                       type="button"
-                      className="rounded-md mx-8 my-5  px-5 py-2 bg-violet-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      className="rounded-md mx-8 my-5  px-5 py-2 bg-violet-600 text-[1rem] font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
                       Add Product
                     </button>
@@ -448,12 +455,23 @@ const AdminProducts = () => {
                                   </div>
                                 </Link>
 
-                                <button
-                                  type="button"
-                                  className="rounded-md my-5  px-5 py-2 bg-red-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                >
-                                  Edit Product
-                                </button>
+                                <div className="flex justify-between">
+                                  <Link
+                                    to={`/admin/products_form/edit/${product.id}`}
+                                    className="rounded-md w-[6.5rem] text-center px-5 py-2 my-5  bg-green-500 text-[1rem] font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                  >
+                                    Edit
+                                  </Link>
+                                  <button
+                                    onClick={() =>
+                                      handleDeleteProducts(product.id)
+                                    }
+                                    type="button"
+                                    className="rounded-md w-[6.5rem] text-center px-5 py-2 my-5  bg-red-600 text-[1rem] font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                  >
+                                    Delete
+                                  </button>
+                                </div>
                               </div>
                             ))}
                           </div>

@@ -4,7 +4,7 @@
       "id": 1,
       "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
-      "price": 549,
+      "price": 40000,
       "discountPercentage": 12.96,
       "rating": 4.69,
       "stock": 94,
@@ -23,7 +23,7 @@
       "id": 2,
       "title": "iPhone X",
       "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
+      "price": 20000,
       "discountPercentage": 17.94,
       "rating": 4.44,
       "stock": 34,
@@ -34,27 +34,34 @@
         "https://cdn.dummyjson.com/product-images/2/1.jpg",
         "https://cdn.dummyjson.com/product-images/2/2.jpg",
         "https://cdn.dummyjson.com/product-images/2/3.jpg",
-        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
+        null
       ]
     },
     {
       "id": 3,
       "title": "Samsung Universe 9",
       "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
+      "price": 10000,
       "discountPercentage": 15.46,
       "rating": 4.09,
       "stock": 36,
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/3/1.jpg",
+        null,
+        null,
+        null,
+        null
+      ]
     },
     {
       "id": 4,
       "title": "OPPOF19",
       "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
+      "price": 15000,
       "discountPercentage": 17.91,
       "rating": 4.3,
       "stock": 123,
@@ -73,7 +80,7 @@
       "id": 5,
       "title": "Huawei P30",
       "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-      "price": 499,
+      "price": 16000,
       "discountPercentage": 10.58,
       "rating": 4.09,
       "stock": 32,
@@ -83,14 +90,16 @@
       "images": [
         "https://cdn.dummyjson.com/product-images/5/1.jpg",
         "https://cdn.dummyjson.com/product-images/5/2.jpg",
-        "https://cdn.dummyjson.com/product-images/5/3.jpg"
+        "https://cdn.dummyjson.com/product-images/5/3.jpg",
+        null,
+        null
       ]
     },
     {
       "id": 6,
       "title": "MacBook Pro",
       "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "price": 1749,
+      "price": 120000,
       "discountPercentage": 11.02,
       "rating": 4.57,
       "stock": 83,
@@ -101,14 +110,15 @@
         "https://cdn.dummyjson.com/product-images/6/1.png",
         "https://cdn.dummyjson.com/product-images/6/2.jpg",
         "https://cdn.dummyjson.com/product-images/6/3.png",
-        "https://cdn.dummyjson.com/product-images/6/4.jpg"
+        "https://cdn.dummyjson.com/product-images/6/4.jpg",
+        null
       ]
     },
     {
       "id": 7,
       "title": "Samsung Galaxy Book",
       "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-      "price": 1499,
+      "price": 65000,
       "discountPercentage": 4.15,
       "rating": 4.25,
       "stock": 50,
@@ -119,14 +129,15 @@
         "https://cdn.dummyjson.com/product-images/7/1.jpg",
         "https://cdn.dummyjson.com/product-images/7/2.jpg",
         "https://cdn.dummyjson.com/product-images/7/3.jpg",
-        "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
+        "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
+        null
       ]
     },
     {
       "id": 8,
       "title": "Microsoft Surface Laptop 4",
       "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
-      "price": 1499,
+      "price": 55000,
       "discountPercentage": 10.23,
       "rating": 4.43,
       "stock": 68,
@@ -145,7 +156,7 @@
       "id": 9,
       "title": "Infinix INBOOK",
       "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
-      "price": 1099,
+      "price": 30000,
       "discountPercentage": 11.83,
       "rating": 4.54,
       "stock": 96,
@@ -164,7 +175,7 @@
       "id": 10,
       "title": "HP Pavilion 15-DK1056WM",
       "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-      "price": 1099,
+      "price": 70000,
       "discountPercentage": 6.18,
       "rating": 4.43,
       "stock": 89,
@@ -175,7 +186,8 @@
         "https://cdn.dummyjson.com/product-images/10/1.jpg",
         "https://cdn.dummyjson.com/product-images/10/2.jpg",
         "https://cdn.dummyjson.com/product-images/10/3.jpg",
-        "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
+        "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
+        null
       ]
     },
     {
@@ -1426,7 +1438,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"
+      ]
     },
     {
       "id": 79,
@@ -1439,7 +1453,9 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/79/thumbnail.jpg",
-      "images": ["https://cdn.dummyjson.com/product-images/79/1.jpg"]
+      "images": [
+        "https://cdn.dummyjson.com/product-images/79/1.jpg"
+      ]
     },
     {
       "id": 80,
@@ -1832,6 +1848,25 @@
         "https://cdn.dummyjson.com/product-images/100/3.jpg",
         "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg"
       ]
+    },
+    {
+      "title": "JioBook (NB2112QB/JioOS/Octa-Core/LTE/2GB LPDDR4X/32GB eMMC/HD/1.2 Kg), 29.46 cm (11.6 inch)",
+      "description": "\t29.4 cm (11.6 inch) HD display (TN) Input 100 to 276 V, 0.6A at 50/60 Hz 1 HDMI mini Audio jack - 3.5mm standard headphone jack SD card - Micro-SD card slot up to 128GB 2 x 1.0 W Stereo speakers Output: 12V, 2.0A, 5000 mAh (Lithium-ion) Battery",
+      "price": 14000,
+      "discountPercentage": 12.5,
+      "rating": 0,
+      "stock": 100,
+      "brand": "Jio",
+      "category": "laptops",
+      "thumbnail": "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-0-202210202122.jpeg?im=Resize=(1000,1000)",
+      "images": [
+        "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-1-202210202122.jpeg?im=Resize=(420,420)",
+        "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-2-202210202122.jpeg?im=Resize=(420,420)",
+        "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-3-202210202122.jpeg?im=Resize=(420,420)",
+        "https://www.reliancedigital.in/akamai/images/products/JioBook-NB2112QB0-Laptop-492337972-21.jpg",
+        "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-4-202210202122.jpeg?im=Resize=(420,420)"
+      ],
+      "id": 101
     }
   ],
   "categories": [
@@ -1940,6 +1975,11 @@
     {
       "value": "Apple",
       "label": "Apple",
+      "checked": false
+    },
+    {
+      "value": "Jio",
+      "label": "Jio",
       "checked": false
     },
     {
@@ -3854,7 +3894,9 @@
             }
           ],
           "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-          "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"],
+          "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg"
+          ],
           "colors": [
             {
               "name": "White",
@@ -4242,7 +4284,9 @@
             }
           ],
           "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-          "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"],
+          "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg"
+          ],
           "colors": [
             {
               "name": "White",
@@ -4359,6 +4403,398 @@
       "paymentMethod": "card",
       "status": "pending",
       "id": 15
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Apple iPhone 15 Pro Max",
+          "price": "159900",
+          "rating": 0,
+          "stock": "100",
+          "discountPercentage": "7",
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Apple",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "smartphones",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://webobjects2.cdw.com/is/image/CDW/7167731?$product-main$",
+          "images": [
+            "https://miro.medium.com/v2/resize:fit:1400/1*SU2-p2pxhQTZj-Ze5bMPeQ.jpeg",
+            "https://external-preview.redd.it/apple-iphone-15-pro-max-has-three-new-and-main-features-v0-VTeRGhUFAAqyVYHnP6_apB3oQhZakB6dUVAjaWTaUBI.jpg?auto=webp&s=ddb7cf82b23baacdb900f5d116482880658a0959",
+            "https://im.cyberport.de/is/image/cyberport//230914171451300301900047A?$Zoom_1000$",
+            "https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/172/17231/17231487_2.jpg",
+            "https://systematixmedia.com/storage/product_varient/large/_1_20230913033236.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "FORGED IN TITANIUM — iPhone 15 Pro Max has a strong and light aerospace-grade titanium design with a textured matte-glass back. It also features a Ceramic Shield front that’s tougher than any smartphone glass. And it’s splash, water, and dust resistant.\nADVANCED DISPLAY — The 6.7” Super Retina XDR display with ProMotion ramps up refresh rates to 120Hz when you need exceptional graphics performance. Dynamic Island bubbles up alerts and Live Notifications. Plus, with Always-On display, your Lock Screen stays glanceable, so you don’t have to tap it to stay in the know.\nGAME-CHANGING A17 PRO CHIP — A Pro-class GPU makes mobile games feel so immersive, with rich environments and realistic characters. A17 Pro is also incredibly efficient and helps to deliver amazing all-day battery life.\nPOWERFUL PRO CAMERA SYSTEM — Get incredible framing flexibility with 7 pro lenses. Capture super high-resolution photos with more color and detail using the 48MP Main camera. And take sharper close-ups from farther away with the 5x Telephoto camera on iPhone 15 Pro Max.\nCUSTOMIZABLE ACTION BUTTON — Action button is a fast track to your favorite feature. Just set the one you want, like Silent mode, Camera, Voice Memo, Shortcut, and more. Then press and hold to launch the action.",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 2,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 319800,
+      "totalItemsCount": 2,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh King",
+            "phone": "8076197005",
+            "street": "E-1/188 Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal ho chuki hai",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110022"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Nitesh King",
+        "phone": "8076197005",
+        "street": "E-1/188 Nand Nagri Delhi",
+        "city": "Delhi",
+        "state": "Sharhadra",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 16
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "JioBook 11",
+          "price": 25000,
+          "rating": 0,
+          "stock": 100,
+          "discountPercentage": 41,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Jio",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "laptops",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://m.media-amazon.com/images/I/51cNQIk3q9L._AC_UF1000,1000_QL80_.jpg",
+          "images": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDfYCC_VnvSpcW-2R89ZXWbu_XPcNQSEyQR7Nzm0zKKbtbrAon-5m9iqJoOB8k937LY8A&usqp=CAU",
+            "https://cdn.zeebiz.com/sites/default/files/2023/08/01/254080-jiobook.jpg",
+            "https://www.hindustantimes.com/ht-img/img/2023/07/31/550x309/jiobook_pictures_1690815006568_1690815006872.png",
+            "https://static.langimg.com/photo/imgsize-15992,msid-86189516/navbharat-times.jpg",
+            "https://images.livemint.com/img/2022/10/20/1600x900/jiobook_1666269022622_1666269030386_1666269030386.png"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Always-on internet with 4G LTE and Dual band Wi-Fi (2.4GHz and 5.0 GHz)\nProcessor: Mediatek MT 8788 Octa Core/2.0 GHz/ ARM V8-A 64 bit / Memory: 4GB LPDDR4 RAM, Storage: 64 GB, Expandable upto 256GB via SD card. Octa-Core performance empowers you to multi-task between applications & do more\n990gms light & ultra compact makes it easy to carry anywhere\nBuilt like a PC with JioOS having 75+ shortcuts, native apps, extended display, touchpad gestures etc.\n8+ hrs of strong battery backup for your on-the-go lifestyle\nAnti-glare HD Display & Stereo Speakers helps you to work outdoors\nInfinity Keyboard & large touchpad ensures convenient, seamless & efficient workflow",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 25000,
+      "totalItemsCount": 1,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh King",
+            "phone": "8076197005",
+            "street": "E-1/188 Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal ho chuki hai",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110022"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Dimple Pagal ho chuki hai",
+        "phone": "8967453289",
+        "street": "Ram Nagar Shahadara Delihi",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110022"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 17
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Hyaluronic Acid Serum",
+          "price": 16,
+          "rating": 4.83,
+          "stock": 110,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "L'Oreal Paris",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "skincare",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/16/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/16/1.png",
+            "https://cdn.dummyjson.com/product-images/16/2.webp",
+            "https://cdn.dummyjson.com/product-images/16/3.jpg",
+            "https://cdn.dummyjson.com/product-images/16/4.jpg",
+            "https://cdn.dummyjson.com/product-images/16/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 3,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmount": 48,
+      "totalItemsCount": 3,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh King",
+            "phone": "8076197005",
+            "street": "E-1/188 Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal ho chuki hai",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110022"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Dimple Pagal ho chuki hai",
+        "phone": "8967453289",
+        "street": "Ram Nagar Shahadara Delihi",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110022"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 18
     }
   ]
 }
