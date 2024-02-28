@@ -6,6 +6,7 @@ import EmptyOrder from "../../EmptyCart/EmptyCart";
 const UserOrders = () => {
   const orders = useSelector(selectUserOrders);
   const user = useSelector(selectLoggedInUser);
+
   const dispatch = useDispatch();
 
   // ==============================================
@@ -48,13 +49,19 @@ const UserOrders = () => {
                                 <h3>
                                   <a href={cartInfo.title}>{cartInfo.title}</a>
                                 </h3>
-                                <p className="ml-4">₹{cartInfo.price}</p>
+                                <p className="ml-4">
+                                  ₹{cartInfo.price.toLocaleString()}
+                                </p>
                               </div>
                               <p className="mt-2 text-sm font-[700] text-gray-500">
                                 {cartInfo.breadcrumbs[0].name}
                               </p>
                               <p className="mt-2 text-sm text-gray-500">
                                 Stocks {cartInfo.stock}
+                              </p>
+
+                              <p className="mt-2 text-sm text-gray-500">
+                                Quantity {cartInfo.quantity}
                               </p>
                             </div>
                           </div>
@@ -111,7 +118,7 @@ const UserOrders = () => {
                 <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                   <div className="flex justify-between my-2 text-base font-medium text-gray-900">
                     <p>Subtotal</p>
-                    <p>₹{order.totalAmount}</p>
+                    <p>₹{order.totalAmount.toLocaleString()}</p>
                   </div>
                   <div className="flex justify-between my-2 text-base font-medium text-gray-900">
                     <p>Total Items In Cart</p>

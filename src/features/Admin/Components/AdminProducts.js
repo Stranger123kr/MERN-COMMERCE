@@ -27,8 +27,8 @@ import {
   DeleteProductsAsync,
 } from "../../Products/ProductsSlice";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
-import { handler } from "@tailwindcss/aspect-ratio";
-import { ITEMS_PER_PAGE } from "../../../app/Constant";
+
+import { ITEMS_PER_PAGE, discountPrice } from "../../../app/Constant";
 // ============================================================================
 
 const sortOptions = [
@@ -430,7 +430,7 @@ const AdminProducts = () => {
                                     <div className="mt-4 flex justify-between">
                                       <div>
                                         <h3 className="text-lg font-[600] text-gray-700">
-                                          {product.title}
+                                          {product.title.slice(0, 20)}
                                         </h3>
                                         <p className="text-sm  mt-2  font-medium text-gray-900">
                                           {product.rating}
@@ -439,16 +439,13 @@ const AdminProducts = () => {
                                       </div>
                                       <div className="mt-1 flex flex-col gap-y-[0.3rem]">
                                         <p className="text-sm font-medium text-gray-400 line-through">
-                                          ₹ {product.price}
+                                          ₹ {product.price.toLocaleString()}
                                         </p>
                                         <p className="text-sm font-medium text-gray-900">
                                           ₹{" "}
-                                          {Math.round(
-                                            product.price *
-                                              (1 -
-                                                product.discountPercentage /
-                                                  100)
-                                          )}
+                                          {discountPrice(
+                                            product
+                                          ).toLocaleString()}
                                         </p>
                                       </div>
                                     </div>

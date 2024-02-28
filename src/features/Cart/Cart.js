@@ -13,6 +13,7 @@ const Cart = () => {
     (amount, cart) => cart.price * cart.quantity + amount,
     0
   );
+
   const totalItemsCount = GetAddToCart.reduce(
     (total, cart) => cart.quantity + total,
     0
@@ -59,7 +60,7 @@ const Cart = () => {
                               <a href={cartInfo.title}>{cartInfo.title}</a>
                             </h3>
                             <p className="ml-4">
-                              {cartInfo.price.toLocaleString()}
+                              ₹{cartInfo.price.toLocaleString()}
                             </p>
                           </div>
                           <p className="mt-2 text-sm font-[700] text-gray-500">

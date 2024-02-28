@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { AddToCartAsync, selectCarts } from "../../Cart/CartSlice";
 import { selectLoggedInUser } from "../../auth/AuthSlice";
+import { discountPrice } from "../../../app/Constant";
 // ==========================================================================
 
 function classNames(...classes) {
@@ -34,7 +35,7 @@ const AdminProductsDetails = () => {
   // ==========================================================================
   const product = {
     title: ProductData.title,
-    price: ProductData.price,
+    price: discountPrice(ProductData),
     rating: ProductData.rating,
     stock: ProductData.stock,
     href: "#",

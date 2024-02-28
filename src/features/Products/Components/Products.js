@@ -26,8 +26,7 @@ import {
   selectBrands,
 } from "../ProductsSlice";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
-import { handler } from "@tailwindcss/aspect-ratio";
-import { ITEMS_PER_PAGE } from "../../../app/Constant";
+import { ITEMS_PER_PAGE, discountPrice } from "../../../app/Constant";
 // ============================================================================
 
 const sortOptions = [
@@ -430,10 +429,8 @@ const Products = () => {
                                       </p>
                                       <p className="text-sm font-medium text-gray-900">
                                         ₹{" "}
-                                        {Math.round(
-                                          product.price *
-                                            (1 -
-                                              product.discountPercentage / 100)
+                                        {discountPrice(
+                                          product
                                         ).toLocaleString()}
                                       </p>
                                     </div>
