@@ -12,7 +12,7 @@ const EmptyCart = ({ title }) => {
           />
 
           <h1 className="mt-4 text-[2rem] font-bold tracking-tight text-gray-900 sm:text-[4rem]">
-            {title ? title : "Your Cart is Empty"}
+            {title && title}
           </h1>
           <p className="mt-6 text-[1.3rem] font-[600] leading-7 text-gray-600">
             Sorry, we couldn’t find the any items you’re looking for.

@@ -22,6 +22,9 @@ import AdminProductsDetailsPage from "./Pages/AdminProductsDetailsPage";
 import AdminHomePage from "./Pages/AdminHomePage";
 import AdminProductsFormPage from "./Pages/AdminProductsFormPage";
 import AdminOrdersPage from "./Pages/AdminOrdersPage";
+import { ToastContainer, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // ===================================================================
 
 const router = createBrowserRouter([
@@ -161,6 +164,17 @@ const App = () => {
   return (
     <>
       <RouterProvider router={router} />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        newestOnTop={false}
+        hideProgressBar
+        closeOnClick
+        rtl={false}
+        theme="dark"
+        transition={Zoom}
+      />
     </>
   );
 };

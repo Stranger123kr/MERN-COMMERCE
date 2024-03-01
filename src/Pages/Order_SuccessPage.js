@@ -4,10 +4,10 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { selectLoggedInUser } from "../features/auth/AuthSlice";
 import { ResetCartAsync } from "../features/Cart/CartSlice";
 import { ResetOrder } from "../features/Order/OrderSlice";
-
 const Order_SuccessPage = () => {
   const { id } = useParams();
   const user = useSelector(selectLoggedInUser);
+
   const dispatch = useDispatch();
 
   // ========================================

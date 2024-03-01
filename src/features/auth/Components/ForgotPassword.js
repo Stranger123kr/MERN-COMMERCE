@@ -27,7 +27,6 @@ const ForgotPassword = () => {
           <form
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
-              console.log(data);
               // TODO : implementation will be on backend side with email
             })}
           >

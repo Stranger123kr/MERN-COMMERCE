@@ -7,7 +7,7 @@
       "price": 40000,
       "discountPercentage": 12.96,
       "rating": 4.69,
-      "stock": 94,
+      "stock": 0,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
@@ -64,7 +64,7 @@
       "price": 15000,
       "discountPercentage": 17.91,
       "rating": 4.3,
-      "stock": 123,
+      "stock": 0,
       "brand": "OPPO",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
@@ -102,7 +102,7 @@
       "price": 120000,
       "discountPercentage": 11.02,
       "rating": 4.57,
-      "stock": 83,
+      "stock": 0,
       "brand": "Apple",
       "category": "laptops",
       "thumbnail": "https://cdn.dummyjson.com/product-images/6/thumbnail.png",
@@ -121,7 +121,7 @@
       "price": 65000,
       "discountPercentage": 4.15,
       "rating": 4.25,
-      "stock": 50,
+      "stock": 0,
       "brand": "Samsung",
       "category": "laptops",
       "thumbnail": "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
@@ -1855,7 +1855,7 @@
       "price": 14000,
       "discountPercentage": 12.5,
       "rating": 0,
-      "stock": 100,
+      "stock": 1000,
       "brand": "Jio",
       "category": "laptops",
       "thumbnail": "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-0-202210202122.jpeg?im=Resize=(1000,1000)",
@@ -2373,24 +2373,7 @@
       "email": "Dimple@gmail.com",
       "password": "Dimple12kr",
       "role": "admin",
-      "addresses": [
-        {
-          "name": "Nitesh King",
-          "phone": "8076197005",
-          "street": "E-1/188 Nand Nagri Delhi",
-          "city": "Delhi",
-          "state": "Sharhadra",
-          "pinCode": "110093"
-        },
-        {
-          "name": "Dimple Pagal ho chuki hai",
-          "phone": "8967453289",
-          "street": "Ram Nagar Shahadara Delihi",
-          "city": "Delhi",
-          "state": "Delhi",
-          "pinCode": "110022"
-        }
-      ],
+      "addresses": [],
       "id": 1
     },
     {
@@ -2400,10 +2383,18 @@
       "addresses": [
         {
           "name": "Nitesh",
-          "phone": "9067544323",
-          "street": "Nand Nagri Delhi",
-          "city": "Delhi",
-          "state": "Sharhadra",
+          "phone": "9087423821",
+          "street": "E-1/188 nand nagri delhi near by gagan cinema",
+          "city": "delhi",
+          "state": "delhi",
+          "pinCode": "110093"
+        },
+        {
+          "name": "Dimple",
+          "phone": "7809785634",
+          "street": "A-1/255 Ram Nagar Shahadara ",
+          "city": "delhi",
+          "state": "delhi",
           "pinCode": "110093"
         }
       ],
@@ -2437,110 +2428,19 @@
           "city": "Delhi",
           "state": "Sharhadra",
           "pinCode": "110093"
-        },
-        {
-          "name": "Nitesh",
-          "phone": "8076197221",
-          "street": "E-1/188 Nand Nagri Delhi ",
-          "city": "Delhi",
-          "state": "Delhi",
-          "pinCode": "110093"
         }
       ],
       "id": 4
-    }
-  ],
-  "carts": [
+    },
     {
-      "title": "JioBook (NB2112QB/JioOS/Octa-Core/LTE/2GB LPDDR4X/32GB eMMC/HD/1.2 Kg), 29.46 cm (11.6 inch)",
-      "price": 12250,
-      "rating": 0,
-      "stock": 100,
-      "href": "#",
-      "breadcrumbs": [
-        {
-          "id": 1,
-          "name": "Jio",
-          "href": "#"
-        },
-        {
-          "id": 2,
-          "name": "laptops",
-          "href": "#"
-        }
-      ],
-      "thumbnail": "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-0-202210202122.jpeg?im=Resize=(1000,1000)",
-      "images": [
-        "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-1-202210202122.jpeg?im=Resize=(420,420)",
-        "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-2-202210202122.jpeg?im=Resize=(420,420)",
-        "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-3-202210202122.jpeg?im=Resize=(420,420)",
-        "https://www.reliancedigital.in/akamai/images/products/JioBook-NB2112QB0-Laptop-492337972-21.jpg",
-        "https://www.jiomart.com/images/product/original/492337972/jiobook-nb2112qb-jioos-octa-core-lte-2gb-lpddr4x-32gb-emmc-hd-1-2-kg-29-46-cm-11-6-inch-digital-o492337972-p594569546-4-202210202122.jpeg?im=Resize=(420,420)"
-      ],
-      "colors": [
-        {
-          "name": "White",
-          "class": "bg-white",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Gray",
-          "class": "bg-gray-200",
-          "selectedClass": "ring-gray-400"
-        },
-        {
-          "name": "Black",
-          "class": "bg-gray-900",
-          "selectedClass": "ring-gray-900"
-        }
-      ],
-      "sizes": [
-        {
-          "name": "XXS",
-          "inStock": false
-        },
-        {
-          "name": "XS",
-          "inStock": true
-        },
-        {
-          "name": "S",
-          "inStock": true
-        },
-        {
-          "name": "M",
-          "inStock": true
-        },
-        {
-          "name": "L",
-          "inStock": true
-        },
-        {
-          "name": "XL",
-          "inStock": true
-        },
-        {
-          "name": "2XL",
-          "inStock": true
-        },
-        {
-          "name": "3XL",
-          "inStock": true
-        }
-      ],
-      "description": "\t29.4 cm (11.6 inch) HD display (TN) Input 100 to 276 V, 0.6A at 50/60 Hz 1 HDMI mini Audio jack - 3.5mm standard headphone jack SD card - Micro-SD card slot up to 128GB 2 x 1.0 W Stereo speakers Output: 12V, 2.0A, 5000 mAh (Lithium-ion) Battery",
-      "highlights": [
-        "Hand cut and sewn locally",
-        "Dyed with our proprietary colors",
-        "Pre-washed & pre-shrunk",
-        "Ultra-soft 100% cotton"
-      ],
-      "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
-      "quantity": 1,
-      "user": 4,
-      "id": 1
+      "email": "Raj@gmail.com",
+      "password": "Rajkumar12kr",
+      "addresses": [],
+      "role": "user",
+      "id": 5
     }
   ],
+  "carts": [],
   "orders": [
     {
       "GetAddToCart": [
@@ -3066,7 +2966,7 @@
         "pinCode": "110093"
       },
       "paymentMethod": "cash",
-      "status": "canceled",
+      "status": "dispatched",
       "id": 4
     },
     {
@@ -6137,6 +6037,913 @@
       "paymentMethod": "card",
       "status": "delivered",
       "id": 25
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Rose Ring",
+          "price": 97,
+          "rating": 4.21,
+          "stock": 149,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Copenhagen Luxe",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "womens-jewellery",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/77/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/77/1.jpg",
+            "https://cdn.dummyjson.com/product-images/77/2.jpg",
+            "https://cdn.dummyjson.com/product-images/77/3.jpg",
+            "https://cdn.dummyjson.com/product-images/77/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Brand: The Greetings Flower Colour: RedRing Colour: GoldenSize: Adjustable",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 1,
+          "user": 1,
+          "productId": 77,
+          "id": 1
+        }
+      ],
+      "totalAmount": 97,
+      "totalItemsCount": 1,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh King",
+            "phone": "8076197005",
+            "street": "E-1/188 Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal ho chuki hai",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110022"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Nitesh King",
+        "phone": "8076197005",
+        "street": "E-1/188 Nand Nagri Delhi",
+        "city": "Delhi",
+        "state": "Sharhadra",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "cash",
+      "status": "pending",
+      "id": 26
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Chappals & Shoe Ladies Metallic",
+          "price": 22,
+          "rating": 4.72,
+          "stock": 107,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Maasai Sandals",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "womens-shoes",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/49/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/49/1.jpg",
+            "https://cdn.dummyjson.com/product-images/49/2.jpg",
+            "https://cdn.dummyjson.com/product-images/49/3.webp",
+            "https://cdn.dummyjson.com/product-images/49/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Womens Chappals & Shoe Ladies Metallic Tong Thong Sandal Flat Summer 2020 Maasai Sandals",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 1,
+          "user": 1,
+          "productId": 49,
+          "id": 1
+        }
+      ],
+      "totalAmount": 22,
+      "totalItemsCount": 1,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh King",
+            "phone": "8076197005",
+            "street": "E-1/188 Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal ho chuki hai",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110022"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Dimple Pagal ho chuki hai",
+        "phone": "8967453289",
+        "street": "Ram Nagar Shahadara Delihi",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110022"
+      },
+      "paymentMethod": "cash",
+      "status": "delivered",
+      "id": 27
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "TC Reusable Silicone Magic Washing Gloves",
+          "price": 28,
+          "rating": 4.98,
+          "stock": 42,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "TC Reusable",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "automotive",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/88/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/88/1.jpg",
+            "https://cdn.dummyjson.com/product-images/88/2.jpg",
+            "https://cdn.dummyjson.com/product-images/88/3.jpg",
+            "https://cdn.dummyjson.com/product-images/88/4.webp",
+            "https://cdn.dummyjson.com/product-images/88/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "TC Reusable Silicone Magic Washing Gloves with Scrubber, Cleaning Brush Scrubber Gloves Heat Resistant Pair for Cleaning of Kitchen, Dishes, Vegetables and Fruits, Bathroom, Car Wash, Pet Care and Multipurpose",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 2,
+          "user": 1,
+          "productId": 88,
+          "id": 1
+        }
+      ],
+      "totalAmount": 56,
+      "totalItemsCount": 2,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh King",
+            "phone": "8076197005",
+            "street": "E-1/188 Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal ho chuki hai",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110022"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Nitesh King",
+        "phone": "8076197005",
+        "street": "E-1/188 Nand Nagri Delhi",
+        "city": "Delhi",
+        "state": "Sharhadra",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 28
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Cycle Bike Glow",
+          "price": 31,
+          "rating": 4.1,
+          "stock": 63,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Neon LED Light",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "automotive",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/90/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/90/1.jpg",
+            "https://cdn.dummyjson.com/product-images/90/2.jpg",
+            "https://cdn.dummyjson.com/product-images/90/3.jpg",
+            "https://cdn.dummyjson.com/product-images/90/4.jpg",
+            "https://cdn.dummyjson.com/product-images/90/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Universal fitment and easy to install no special wires, can be easily installed and removed. Fits most standard tyre air stem valves of road, mountain bicycles, motocycles and cars.Bright led will turn on w",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 1,
+          "user": 1,
+          "productId": 90,
+          "id": 1
+        }
+      ],
+      "totalAmount": 31,
+      "totalItemsCount": 1,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh King",
+            "phone": "8076197005",
+            "street": "E-1/188 Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal ho chuki hai",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110022"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Nitesh King",
+        "phone": "8076197005",
+        "street": "E-1/188 Nand Nagri Delhi",
+        "city": "Delhi",
+        "state": "Sharhadra",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "card",
+      "status": "dispatched",
+      "id": 29
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Wholesale cargo lashing Belt",
+          "price": 766,
+          "rating": 4.21,
+          "stock": 144,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Xiangle",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "motorcycle",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/95/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/95/1.jpg",
+            "https://cdn.dummyjson.com/product-images/95/2.jpg",
+            "https://cdn.dummyjson.com/product-images/95/3.jpg",
+            "https://cdn.dummyjson.com/product-images/95/4.jpg",
+            "https://cdn.dummyjson.com/product-images/95/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Wholesale cargo lashing Belt Tie Down end Ratchet strap customized strap 25mm motorcycle 1500kgs with rubber handle",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 1,
+          "user": 1,
+          "productId": 95,
+          "id": 1
+        }
+      ],
+      "totalAmount": 766,
+      "totalItemsCount": 1,
+      "user": {
+        "email": "Dimple@gmail.com",
+        "password": "Dimple12kr",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh King",
+            "phone": "8076197005",
+            "street": "E-1/188 Nand Nagri Delhi",
+            "city": "Delhi",
+            "state": "Sharhadra",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Dimple Pagal ho chuki hai",
+            "phone": "8967453289",
+            "street": "Ram Nagar Shahadara Delihi",
+            "city": "Delhi",
+            "state": "Delhi",
+            "pinCode": "110022"
+          }
+        ],
+        "id": 1
+      },
+      "selectedAddress": {
+        "name": "Nitesh King",
+        "phone": "8076197005",
+        "street": "E-1/188 Nand Nagri Delhi",
+        "city": "Delhi",
+        "state": "Sharhadra",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "cash",
+      "status": "delivered",
+      "id": 30
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Samsung Universe 9",
+          "price": 8454,
+          "rating": 4.09,
+          "stock": 36,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Samsung",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "smartphones",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/3/1.jpg",
+            null,
+            null,
+            null,
+            null
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 2,
+          "user": 2,
+          "productId": 3,
+          "id": 1
+        }
+      ],
+      "totalAmount": 16908,
+      "totalItemsCount": 2,
+      "user": {
+        "email": "Nitesh@gmail.com",
+        "password": "Nitesh12kr@",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh",
+            "phone": "9087423821",
+            "street": "E-1/188 nand nagri delhi near by gagan cinema",
+            "city": "delhi",
+            "state": "delhi",
+            "pinCode": "110093"
+          }
+        ],
+        "id": 2
+      },
+      "selectedAddress": {
+        "name": "Nitesh",
+        "phone": "9087423821",
+        "street": "E-1/188 nand nagri delhi near by gagan cinema",
+        "city": "delhi",
+        "state": "delhi",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 31
+    },
+    {
+      "GetAddToCart": [
+        {
+          "title": "Microsoft Surface Laptop 4",
+          "price": 49374,
+          "rating": 4.43,
+          "stock": 68,
+          "href": "#",
+          "breadcrumbs": [
+            {
+              "id": 1,
+              "name": "Microsoft Surface",
+              "href": "#"
+            },
+            {
+              "id": 2,
+              "name": "laptops",
+              "href": "#"
+            }
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
+          "images": [
+            "https://cdn.dummyjson.com/product-images/8/1.jpg",
+            "https://cdn.dummyjson.com/product-images/8/2.jpg",
+            "https://cdn.dummyjson.com/product-images/8/3.jpg",
+            "https://cdn.dummyjson.com/product-images/8/4.jpg",
+            "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
+          ],
+          "colors": [
+            {
+              "name": "White",
+              "class": "bg-white",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Gray",
+              "class": "bg-gray-200",
+              "selectedClass": "ring-gray-400"
+            },
+            {
+              "name": "Black",
+              "class": "bg-gray-900",
+              "selectedClass": "ring-gray-900"
+            }
+          ],
+          "sizes": [
+            {
+              "name": "XXS",
+              "inStock": false
+            },
+            {
+              "name": "XS",
+              "inStock": true
+            },
+            {
+              "name": "S",
+              "inStock": true
+            },
+            {
+              "name": "M",
+              "inStock": true
+            },
+            {
+              "name": "L",
+              "inStock": true
+            },
+            {
+              "name": "XL",
+              "inStock": true
+            },
+            {
+              "name": "2XL",
+              "inStock": true
+            },
+            {
+              "name": "3XL",
+              "inStock": true
+            }
+          ],
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "highlights": [
+            "Hand cut and sewn locally",
+            "Dyed with our proprietary colors",
+            "Pre-washed & pre-shrunk",
+            "Ultra-soft 100% cotton"
+          ],
+          "details": "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming \"Charcoal Gray\" limited release.",
+          "quantity": 1,
+          "user": 2,
+          "productId": 8,
+          "id": 2
+        }
+      ],
+      "totalAmount": 49374,
+      "totalItemsCount": 1,
+      "user": {
+        "email": "Nitesh@gmail.com",
+        "password": "Nitesh12kr@",
+        "role": "admin",
+        "addresses": [
+          {
+            "name": "Nitesh",
+            "phone": "9087423821",
+            "street": "E-1/188 nand nagri delhi near by gagan cinema",
+            "city": "delhi",
+            "state": "delhi",
+            "pinCode": "110093"
+          },
+          {
+            "name": "Neeraj",
+            "phone": "1234567890",
+            "street": "E-1/188 nand nagri delhi",
+            "city": "delhi",
+            "state": "delhi",
+            "pinCode": "110093"
+          }
+        ],
+        "id": 2
+      },
+      "selectedAddress": {
+        "name": "Neeraj",
+        "phone": "1234567890",
+        "street": "E-1/188 nand nagri delhi",
+        "city": "delhi",
+        "state": "delhi",
+        "pinCode": "110093"
+      },
+      "paymentMethod": "card",
+      "status": "pending",
+      "id": 32
     }
   ]
 }

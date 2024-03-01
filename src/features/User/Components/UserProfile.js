@@ -4,6 +4,8 @@ import { UpdateUserAsync, selectUserInfo } from "../UserSlice";
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import Dialogs from "../../Common/Dialogs";
+import { toast } from "react-toastify";
 const UserProfile = () => {
   const user = useSelector(selectUserInfo);
   const dispatch = useDispatch();
@@ -54,10 +56,13 @@ const UserProfile = () => {
 
   // ==================================================================
 
-  const DeleteAddress = (index) => {
+  const [openDialog, setOpenDialog] = useState(-1);
+
+  const DeleteAddress = (index, name) => {
     const newUser = { ...user, addresses: [...user.addresses] }; // for shallow copy issue
     newUser.addresses.splice(index, 1);
     dispatch(UpdateUserAsync(newUser));
+    toast.success(<h3 className="font-bold">{name} Address Deleted</h3>);
   };
 
   // ==================================================================
@@ -484,7 +489,21 @@ const UserProfile = () => {
                           setShowAddedForm(false);
                         }}
                       />
-                      <MdDelete onClick={() => DeleteAddress(index)} />
+
+                      <MdDelete onClick={() => setOpenDialog(index)} />
+
+                      {
+                        <Dialogs
+                          title={`Delete ${address.name}`}
+                          message="Are you sure you want to delete this address ?"
+                          dangerOption="Delete"
+                          cancelAction={() => setOpenDialog(-1)}
+                          dangerAction={() =>
+                            DeleteAddress(index, address.name)
+                          }
+                          showDialogs={openDialog === index}
+                        ></Dialogs>
+                      }
                     </div>
                     <li>
                       Name :{" "}

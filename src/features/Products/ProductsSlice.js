@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
-  FetchAllProducts,
   FetchProductsByFilter,
   FetchCategories,
   FetchBrands,
@@ -19,16 +18,6 @@ const initialState = {
   status: true,
   error: null,
 };
-
-// ======================================================================
-
-export const FetchAllProductsAsync = createAsyncThunk(
-  "Products/FetchAllProducts",
-  async () => {
-    const response = await FetchAllProducts();
-    return response.data;
-  }
-);
 
 // ======================================================================
 
@@ -114,21 +103,6 @@ export const ProductsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(FetchAllProductsAsync.pending, (state) => {
-        state.status = true;
-      })
-
-      .addCase(FetchAllProductsAsync.fulfilled, (state, action) => {
-        state.products = action.payload;
-        state.status = false;
-      })
-
-      .addCase(FetchAllProductsAsync.rejected, (state, action) => {
-        state.error = action.error;
-        state.status = false;
-      })
-
-      // ======================================================
 
       .addCase(FetchProductsByFilterAsync.pending, (state, action) => {
         state.status = true;
@@ -146,29 +120,29 @@ export const ProductsSlice = createSlice({
       // ======================================================
 
       .addCase(FetchCategoriesAsync.pending, (state, action) => {
-        // state.status = true;
+        state.status = true;
       })
       .addCase(FetchCategoriesAsync.fulfilled, (state, action) => {
         state.categories = action.payload;
-        // state.status = false;
+        state.status = false;
       })
       .addCase(FetchCategoriesAsync.rejected, (state, action) => {
         state.error = action.error;
-        // state.status = false;
+        state.status = false;
       })
 
       // ======================================================
 
       .addCase(FetchBrandsAsync.pending, (state, action) => {
-        // state.status = true;
+        state.status = true;
       })
       .addCase(FetchBrandsAsync.fulfilled, (state, action) => {
         state.brands = action.payload;
-        // state.status = false;
+        state.status = false;
       })
       .addCase(FetchBrandsAsync.rejected, (state, action) => {
         state.error = action.error;
-        // state.status = false;
+        state.status = false;
       })
 
       // ======================================================
@@ -242,5 +216,6 @@ export const selectTotalProductsPage = (state) => state.product.totalPages;
 export const selectCategories = (state) => state.product.categories;
 export const selectBrands = (state) => state.product.brands;
 export const selectProductsById = (state) => state.product.productsById;
+export const selectStatus = (state) => state.product.status;
 
 export default ProductsSlice.reducer;

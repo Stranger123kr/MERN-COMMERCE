@@ -16,7 +16,6 @@ import {
 } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import {
-  FetchAllProductsAsync,
   FetchCategoriesAsync,
   FetchBrandsAsync,
   selectProducts,
@@ -26,9 +25,11 @@ import {
   selectBrands,
   DeleteProductsAsync,
 } from "../../Products/ProductsSlice";
-import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
 
 import { ITEMS_PER_PAGE, discountPrice } from "../../../app/Constant";
+import Dialogs from "../../Common/Dialogs";
+import { toast } from "react-toastify";
 // ============================================================================
 
 const sortOptions = [
@@ -121,8 +122,11 @@ const AdminProducts = () => {
 
   // ============================================================================
 
-  const handleDeleteProducts = (id) => {
-    dispatch(DeleteProductsAsync(id));
+  const [openDialog, setOpenDialog] = useState(null);
+
+  const handleDeleteProducts = (item) => {
+    dispatch(DeleteProductsAsync(item.id));
+    toast.success(<h3 className="font-bold">{item.title} Deleted</h3>);
   };
 
   // ============================================================================
@@ -459,10 +463,20 @@ const AdminProducts = () => {
                                   >
                                     Edit
                                   </Link>
+                                  {
+                                    <Dialogs
+                                      title={`Delete ${product.title}`}
+                                      message="Are you sure you want to delete this product item ?"
+                                      dangerOption="Delete"
+                                      cancelAction={() => setOpenDialog(-1)}
+                                      dangerAction={() =>
+                                        handleDeleteProducts(product)
+                                      }
+                                      showDialogs={openDialog === product.id}
+                                    ></Dialogs>
+                                  }
                                   <button
-                                    onClick={() =>
-                                      handleDeleteProducts(product.id)
-                                    }
+                                    onClick={() => setOpenDialog(product.id)}
                                     type="button"
                                     className="rounded-md w-[6.5rem] text-center px-5 py-2 my-5  bg-red-600 text-[1rem] font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                   >

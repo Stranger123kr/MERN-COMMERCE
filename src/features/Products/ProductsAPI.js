@@ -1,15 +1,3 @@
-// this is  function for fetching all products in home page
-
-export const FetchAllProducts = () => {
-  return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:3004/products");
-    const data = response.json();
-    resolve({ data });
-  });
-};
-
-// ============================================================================
-
 // this is  function for fetching particular product for product detail  page
 
 export const FetchProductsById = (id) => {

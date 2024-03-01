@@ -94,24 +94,24 @@ export const CartSlice = createSlice({
       // ===================================================
 
       .addCase(fetchCartByUserIdAsync.pending, (state) => {
-        // state.status = true;
+        state.status = true;
       })
       .addCase(fetchCartByUserIdAsync.fulfilled, (state, action) => {
-        // state.status = true;
+        state.status = false;
         state.carts = action.payload;
       })
       .addCase(fetchCartByUserIdAsync.rejected, (state, action) => {
-        // state.status = true;
+        state.status = false;
         state.error = action.error;
       })
 
       // ===================================================
 
       .addCase(UpdateCartAsync.pending, (state) => {
-        // state.status = true;
+        state.status = true;
       })
       .addCase(UpdateCartAsync.fulfilled, (state, action) => {
-        // state.status = true;
+        state.status = false;
         const index = state.carts.findIndex(
           (item) => item.id === action.payload.id
         );
@@ -119,17 +119,17 @@ export const CartSlice = createSlice({
         state.carts[index] = action.payload;
       })
       .addCase(UpdateCartAsync.rejected, (state, action) => {
-        // state.status = true;
+        state.status = false;
         state.error = action.error;
       })
 
       // ===================================================
 
       .addCase(DeleteCartItemAsync.pending, (state) => {
-        // state.status = true;
+        state.status = true;
       })
       .addCase(DeleteCartItemAsync.fulfilled, (state, action) => {
-        // state.status = true;
+        state.status = false;
         const index = state.carts.findIndex(
           (item) => item.id === action.payload.id
         );
@@ -137,21 +137,21 @@ export const CartSlice = createSlice({
         state.carts.splice(index, 1);
       })
       .addCase(DeleteCartItemAsync.rejected, (state, action) => {
-        // state.status = true;
+        state.status = false;
         state.error = action.error;
       })
 
       // ===================================================
 
       .addCase(ResetCartAsync.pending, (state) => {
-        // state.status = true;
+        state.status = true;
       })
       .addCase(ResetCartAsync.fulfilled, (state, action) => {
-        // state.status = true;
+        state.status = false;
         state.carts = [];
       })
       .addCase(ResetCartAsync.rejected, (state, action) => {
-        // state.status = true;
+        state.status = false;
         state.error = action.error;
       });
   },
@@ -160,5 +160,6 @@ export const CartSlice = createSlice({
 // export const { increment } = counterSlice.actions;
 
 export const selectCarts = (state) => state.cart.carts;
+export const selectCartsStatus = (state) => state.cart.status;
 
 export default CartSlice.reducer;

@@ -1,4 +1,4 @@
-import { Children, Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCarts } from "../Cart/CartSlice";
 import { selectLoggedInUser } from "../auth/AuthSlice";
-import { current } from "@reduxjs/toolkit";
 
 // ============================================================================
 
@@ -22,9 +21,8 @@ const userNavigation = [
 // ============================================================================
 
 const navigation = [
-  { name: "Dashboard", link: "#", current: false, user: true },
-  { name: "Team", link: "#", current: false, user: true },
-  { name: "Admin", link: "/admin", current: false, admin: true },
+  { name: "Product", link: "/", current: false, user: true },
+  { name: "Products", link: "/admin", current: false, admin: true },
   { name: "Orders", link: "/admin/orders", current: false, admin: true },
 ];
 
@@ -37,8 +35,6 @@ function classNames(...classes) {
 const Navbar = ({ Children }) => {
   const user = useSelector(selectLoggedInUser);
   const GetAddToCart = useSelector(selectCarts);
-
-  // ============================================================================
 
   // ============================================================================
 
@@ -245,8 +241,8 @@ const Navbar = ({ Children }) => {
 
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-            <h1 className="text-[1.9rem]  font-bold  tracking-tight text-gray-800">
-              E-Commerce
+            <h1 className="text-[1.9rem]  font-[900]  tracking-tight text-violet-700">
+              Apanee Dukaan
             </h1>
           </div>
         </header>
