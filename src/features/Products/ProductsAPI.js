@@ -2,13 +2,13 @@
 
 export const FetchProductsById = (id) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:3004/products/${id}`);
+    const response = await fetch(`http://localhost:8080/products/${id}`);
     const data = response.json();
     resolve({ data });
   });
 };
 
-// ============================================================================
+// =========================================================
 
 // this is filter function for filtering products for particular situation
 
@@ -39,7 +39,7 @@ export const FetchProductsByFilter = (filter, sort, pagination) => {
 
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `http://localhost:3004/products?${queryString}`
+      `http://localhost:8080/products?${queryString}`
     );
     const data = await response.json();
     const totalPages = response.headers.get("X-Total-Count");
@@ -47,37 +47,37 @@ export const FetchProductsByFilter = (filter, sort, pagination) => {
   });
 };
 
-// ============================================================================
+// ==========================================================
 
 // this is  function for fetching Products Categories
 
 export const FetchCategories = () => {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:3004/categories");
+    const response = await fetch("http://localhost:8080/categories");
     const data = response.json();
     resolve({ data });
   });
 };
 
-// ============================================================================
+// ===========================================================
 
 // // this is  function for fetching Products Brands
 
 export const FetchBrands = () => {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:3004/brands");
+    const response = await fetch("http://localhost:8080/brands");
     const data = response.json();
     resolve({ data });
   });
 };
 
-// ============================================================================
+// ===========================================================
 
 // this is  function for Creating a products and this function for admin
 
 export const CreateProducts = (productInfo) => {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:3004/products", {
+    const response = await fetch("http://localhost:8080/products", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(productInfo),
@@ -87,14 +87,14 @@ export const CreateProducts = (productInfo) => {
   });
 };
 
-// ============================================================================
+// ===========================================================
 
 // this is  function for Updating a products and this function for admin
 
 export const UpdateProducts = (productInfo) => {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `http://localhost:3004/products/${productInfo.id}`,
+      `http://localhost:8080/products/${productInfo.id}`,
       {
         method: "PATCH",
         headers: { "content-type": "application/json" },
@@ -106,13 +106,13 @@ export const UpdateProducts = (productInfo) => {
   });
 };
 
-// ============================================================================
+// =============================================================
 
 // this is  function for Updating a products and this function for admin
 
 export const DeleteProducts = (id) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:3004/products/${id}`, {
+    const response = await fetch(`http://localhost:8080/products/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     });

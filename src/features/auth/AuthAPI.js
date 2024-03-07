@@ -1,7 +1,7 @@
 // this is function for getting user information to register at first time
 export const CreateUser = (UserData) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:3004/users`, {
+    const response = await fetch(`http://localhost:8080/auth/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(UserData),
@@ -17,19 +17,26 @@ export const CreateUser = (UserData) => {
 
 export const CheckUser = (loginInfo) => {
   return new Promise(async (resolve, reject) => {
-    const email = loginInfo.email;
-    const password = loginInfo.password;
-    const response = await fetch(`http://localhost:3004/users?email=${email}`);
-    const data = await response.json();
+    try {
+      const response = await fetch(
+        `http://localhost:8080/auth/login`,
 
-    if (data.length) {
-      if (password === data[0].password) {
-        resolve({ data: data[0] });
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(loginInfo),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        resolve({ data });
       } else {
-        reject({ message: "Invalid Credential" });
+        const error = await response.json();
+        reject(error);
       }
-    } else {
-      reject({ message: "User not found SignUp first" });
+    } catch (error) {
+      reject(error);
     }
   });
 };

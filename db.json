@@ -1438,9 +1438,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/78/thumbnail.jpg"]
     },
     {
       "id": 79,
@@ -1453,9 +1451,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://cdn.dummyjson.com/product-images/79/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/79/1.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/79/1.jpg"]
     },
     {
       "id": 80,
@@ -3884,9 +3880,7 @@
             }
           ],
           "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-          "images": [
-            "https://cdn.dummyjson.com/product-images/3/1.jpg"
-          ],
+          "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"],
           "colors": [
             {
               "name": "White",
@@ -4274,9 +4268,7 @@
             }
           ],
           "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-          "images": [
-            "https://cdn.dummyjson.com/product-images/3/1.jpg"
-          ],
+          "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"],
           "colors": [
             {
               "name": "White",

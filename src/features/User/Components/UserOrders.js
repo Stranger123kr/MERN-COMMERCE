@@ -8,10 +8,12 @@ import {
 import { selectLoggedInUser } from "../../auth/AuthSlice";
 import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
 import EmptyOrder from "../../Common/EmptyCart";
+import { discountPrice } from "../../../app/Constant";
 const UserOrders = () => {
   const orders = useSelector(selectUserOrders);
   const user = useSelector(selectLoggedInUser);
   const status = useSelector(selectUserStatus);
+  console.log(orders);
 
   const dispatch = useDispatch();
 
@@ -52,8 +54,8 @@ const UserOrders = () => {
                             <li key={cartInfo.id} className="flex py-6">
                               <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                 <img
-                                  src={cartInfo.thumbnail}
-                                  alt={cartInfo.title}
+                                  src={cartInfo.product.thumbnail}
+                                  alt={cartInfo.product.title}
                                   className="h-full w-full object-cover object-center"
                                 />
                               </div>
@@ -62,19 +64,22 @@ const UserOrders = () => {
                                 <div>
                                   <div className="flex justify-between text-base font-medium text-gray-900">
                                     <h3>
-                                      <a href={cartInfo.title}>
-                                        {cartInfo.title}
+                                      <a href={cartInfo.product.title}>
+                                        {cartInfo.product.title}
                                       </a>
                                     </h3>
                                     <p className="ml-4">
-                                      ₹{cartInfo.price.toLocaleString()}
+                                      ₹
+                                      {discountPrice(
+                                        cartInfo.product
+                                      ).toLocaleString()}
                                     </p>
                                   </div>
                                   <p className="mt-2 text-sm font-[700] text-gray-500">
-                                    {cartInfo.breadcrumbs[0].name}
+                                    {cartInfo.product.brand}
                                   </p>
                                   <p className="mt-2 text-sm text-gray-500">
-                                    Stocks {cartInfo.stock}
+                                    Stocks {cartInfo.product.stock}
                                   </p>
 
                                   <p className="mt-2 text-sm text-gray-500">

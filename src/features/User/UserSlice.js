@@ -8,7 +8,6 @@ import {
 const initialState = {
   userInfo: [], // this info will be used in case of details user info, while auth will
   // only be used for loggedIn user id etc checks
-  userOrders: [],
   status: true,
   error: null,
 };
@@ -35,8 +34,8 @@ export const fetchLoggedInUserOrdersAsync = createAsyncThunk(
 
 export const UpdateUserAsync = createAsyncThunk(
   "user/UpdateUser",
-  async (userId) => {
-    const response = await UpdateUser(userId);
+  async (update) => {
+    const response = await UpdateUser(update);
     return response.data;
   }
 );
@@ -76,7 +75,7 @@ export const userSlice = createSlice({
       .addCase(fetchLoggedInUserOrdersAsync.fulfilled, (state, action) => {
         state.status = false;
         // this info is to much bigger of loggedIn user
-        state.userOrders = action.payload;
+        state.userInfo.orders = action.payload;
       })
       .addCase(fetchLoggedInUserOrdersAsync.rejected, (state, action) => {
         state.status = false;
@@ -104,7 +103,7 @@ export const userSlice = createSlice({
 // export const { increment } = counterSlice.actions;
 
 export const selectUserInfo = (state) => state.user.userInfo;
-export const selectUserOrders = (state) => state.user.userOrders;
+export const selectUserOrders = (state) => state.user.userInfo.orders;
 export const selectUserStatus = (state) => state.user.status;
 
 export default userSlice.reducer;

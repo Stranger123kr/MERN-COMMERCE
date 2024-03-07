@@ -34,7 +34,7 @@ const ProductsDetails = () => {
   // to check product is already in cart or not : to implement duplicate problem
 
   const CheckingProductInCart = GetAddToCart.filter(
-    (items) => items.productId === ProductData.id
+    (items) => items.product.id === ProductData.id
   );
 
   // ==========================================================================
@@ -83,10 +83,9 @@ const ProductsDetails = () => {
   const handleAddToCart = () => {
     dispatch(
       AddToCartAsync({
-        ...product,
         quantity: 1,
         user: user.id,
-        productId: ProductData.id,
+        product: ProductData.id,
       })
     );
     // TODO : it will be based on the server response
@@ -96,10 +95,9 @@ const ProductsDetails = () => {
   const handleBuyProduct = () => {
     dispatch(
       AddToCartAsync({
-        ...product,
         quantity: 1,
         user: user.id,
-        productId: ProductData.id,
+        product: ProductData.id,
       })
     );
     // TODO : it will be based on the server response
@@ -110,7 +108,7 @@ const ProductsDetails = () => {
 
   useEffect(() => {
     dispatch(FetchProductsByIdAsync(id));
-  }, [id]);
+  }, [dispatch, id]);
 
   // =============================================================================
 

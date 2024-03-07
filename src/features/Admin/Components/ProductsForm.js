@@ -85,7 +85,7 @@ const ProductsForm = () => {
             };
 
             if (id) {
-              productInfo.id = +id;
+              productInfo.id = id;
               dispatch(UpdateProductsAsync(productInfo));
             } else {
               dispatch(CreateProductsAsync(productInfo));

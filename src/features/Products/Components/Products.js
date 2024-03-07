@@ -391,49 +391,56 @@ const Products = () => {
                           <LoadingSpinner />
                         ) : (
                           <div className="mt-6 grid grid-cols-1  gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                            {ProductData.products.map((product) => (
-                              <Link
-                                to={`/product_detail/${product.id}`}
-                                key={product.id}
-                              >
-                                <div className="group relative">
-                                  <div className="aspect-h-1  aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-[15rem]">
-                                    <img
-                                      src={product.thumbnail}
-                                      alt="Products thumbnail"
-                                      className="h-full w-full   object-fill object-center lg:h-full lg:w-full"
-                                    />
-                                  </div>
-                                  <div className="mt-4 flex justify-between">
-                                    <div>
-                                      <h3 className="text-lg font-[600] text-gray-700">
-                                        {product.title.slice(0, 20)}
-                                      </h3>
-                                      <p className="text-sm  mt-2  font-medium text-gray-900">
-                                        {product.rating}
-                                        <StarIcon className="w-4 h-4 text-gray-500 inline-flex mb-[0.3rem] ml-[0.6rem]"></StarIcon>
-                                      </p>
+                            {ProductData &&
+                            ProductData.products.length !== 0 ? (
+                              ProductData.products.map((product) => (
+                                <Link
+                                  to={`/product_detail/${product.id}`}
+                                  key={product.id}
+                                >
+                                  <div className="group relative">
+                                    <div className="aspect-h-1  aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-[15rem]">
+                                      <img
+                                        src={product.thumbnail}
+                                        alt="Products thumbnail"
+                                        className="h-full w-full   object-fill object-center lg:h-full lg:w-full"
+                                      />
                                     </div>
-                                    <div className="mt-1 flex flex-col gap-y-[0.3rem]">
-                                      <p className="text-sm font-medium text-gray-400 line-through">
-                                        ₹ {product.price.toLocaleString()}
-                                      </p>
-                                      <p className="text-sm font-medium text-gray-900">
-                                        ₹{" "}
-                                        {discountPrice(
-                                          product
-                                        ).toLocaleString()}
-                                      </p>
+                                    <div className="mt-4 flex justify-between">
+                                      <div>
+                                        <h3 className="text-lg font-[600] text-gray-700">
+                                          {product.title.slice(0, 20)}
+                                        </h3>
+                                        <p className="text-sm  mt-2  font-medium text-gray-900">
+                                          {product.rating}
+                                          <StarIcon className="w-4 h-4 text-gray-500 inline-flex mb-[0.3rem] ml-[0.6rem]"></StarIcon>
+                                        </p>
+                                      </div>
+                                      <div className="mt-1 flex flex-col gap-y-[0.3rem]">
+                                        <p className="text-sm font-medium text-gray-400 line-through">
+                                          ₹ {product.price.toLocaleString()}
+                                        </p>
+                                        <p className="text-sm font-medium text-gray-900">
+                                          ₹{" "}
+                                          {discountPrice(
+                                            product
+                                          ).toLocaleString()}
+                                        </p>
+                                      </div>
                                     </div>
+                                    {product.stock <= 0 ? (
+                                      <p className="text-[1.3rem] font-medium mt-2 text-red-500">
+                                        Out of Stock
+                                      </p>
+                                    ) : null}
                                   </div>
-                                  {product.stock <= 0 ? (
-                                    <p className="text-[1.3rem] font-medium mt-2 text-red-500">
-                                      Out of Stock
-                                    </p>
-                                  ) : null}
-                                </div>
-                              </Link>
-                            ))}
+                                </Link>
+                              ))
+                            ) : (
+                              <h1 className="text-[1.4rem] font-bold">
+                                Result Not Found
+                              </h1>
+                            )}
                           </div>
                         )}
                       </div>

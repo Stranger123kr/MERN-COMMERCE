@@ -11,9 +11,10 @@ import {
   selectCurrentOrder,
 } from "../features/Order/OrderSlice";
 import { useForm } from "react-hook-form";
-import { UpdateUserAsync } from "../features/auth/AuthSlice";
+import { UpdateUserAsync } from "../features/User/UserSlice";
 import LoadingSpinner from "../features/Common/LoadingSpinner/LoadingSpinner";
 import { selectUserInfo } from "../features/User/UserSlice";
+import { discountPrice } from "../app/Constant";
 // ===================================================================
 
 const CheckoutPage = () => {
@@ -46,7 +47,7 @@ const CheckoutPage = () => {
         GetAddToCart,
         totalAmount,
         totalItemsCount,
-        user,
+        user: user.id,
         selectedAddress,
         paymentMethod,
         status: "pending", // order status can be deliver, received
@@ -72,7 +73,7 @@ const CheckoutPage = () => {
   // ===================================================================
 
   const totalAmount = GetAddToCart.reduce(
-    (amount, cart) => cart.price * cart.quantity + amount,
+    (amount, cart) => discountPrice(cart.product) * cart.quantity + amount,
     0
   );
   const totalItemsCount = GetAddToCart.reduce(
@@ -83,7 +84,7 @@ const CheckoutPage = () => {
   // ===================================================================
 
   const handleQuantity = (e, item) => {
-    dispatch(UpdateCartAsync({ ...item, quantity: +e.target.value }));
+    dispatch(UpdateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
 
   // ===================================================================
@@ -405,8 +406,8 @@ const CheckoutPage = () => {
                           <li key={cartInfo.id} className="flex py-6">
                             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                               <img
-                                src={cartInfo.thumbnail}
-                                alt={cartInfo.title}
+                                src={cartInfo.product.thumbnail}
+                                alt={cartInfo.product.title}
                                 className="h-full w-full object-cover object-center"
                               />
                             </div>
@@ -415,19 +416,22 @@ const CheckoutPage = () => {
                               <div>
                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
-                                    <a href={cartInfo.title}>
-                                      {cartInfo.title}
+                                    <a href={cartInfo.product.title}>
+                                      {cartInfo.product.title}
                                     </a>
                                   </h3>
                                   <p className="ml-4">
-                                    ₹{cartInfo.price.toLocaleString()}
+                                    ₹
+                                    {discountPrice(
+                                      cartInfo.product
+                                    ).toLocaleString()}
                                   </p>
                                 </div>
                                 <p className="mt-2 text-sm font-[700] text-gray-500">
-                                  {cartInfo.breadcrumbs[0].name}
+                                  {cartInfo.product.brand}
                                 </p>
                                 <p className="mt-2 text-sm text-gray-500">
-                                  Stocks {cartInfo.stock}
+                                  Stocks {cartInfo.product.stock}
                                 </p>
                               </div>
                               <div className="flex flex-1 items-end justify-between text-sm">

@@ -39,13 +39,13 @@ export const UserSignOutAsync = createAsyncThunk(
 
 // ======================================================================
 
-export const UpdateUserAsync = createAsyncThunk(
-  "users/UpdateUser",
-  async (update) => {
-    const response = await UpdateUser(update);
-    return response.data;
-  }
-);
+// export const UpdateUserAsync = createAsyncThunk(
+//   "users/UpdateUser",
+//   async (update) => {
+//     const response = await UpdateUser(update);
+//     return response.data;
+//   }
+// );
 
 // ======================================================================
 
@@ -89,18 +89,17 @@ export const AuthSlice = createSlice({
 
       // ======================================================================
 
-      .addCase(UpdateUserAsync.pending, (state) => {
-        state.status = true;
-      })
-      .addCase(UpdateUserAsync.fulfilled, (state, action) => {
-        state.status = false;
-
-        state.loggedInUser = action.payload;
-      })
-      .addCase(UpdateUserAsync.rejected, (state, action) => {
-        state.status = false;
-        state.error = action.error;
-      })
+      // .addCase(UpdateUserAsync.pending, (state) => {
+      //   state.status = true;
+      // })
+      // .addCase(UpdateUserAsync.fulfilled, (state, action) => {
+      //   state.status = false;
+      //   state.loggedInUser = action.payload;
+      // })
+      // .addCase(UpdateUserAsync.rejected, (state, action) => {
+      //   state.status = false;
+      //   state.error = action.error;
+      // })
 
       // ======================================================================
 

@@ -8,7 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCarts } from "../Cart/CartSlice";
-import { selectLoggedInUser } from "../auth/AuthSlice";
+import { selectUserInfo } from "../User/UserSlice";
 
 // ============================================================================
 
@@ -33,7 +33,7 @@ function classNames(...classes) {
 // ============================================================================
 
 const Navbar = ({ Children }) => {
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const GetAddToCart = useSelector(selectCarts);
 
   // ============================================================================

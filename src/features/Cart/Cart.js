@@ -11,6 +11,7 @@ import EmptyCart from "../Common/EmptyCart";
 import LoadingSpinner from "../Common/LoadingSpinner/LoadingSpinner";
 import Dialogs from "../Common/Dialogs";
 import { toast } from "react-toastify";
+import { discountPrice } from "../../app/Constant";
 
 // ===================================================================
 
@@ -19,8 +20,10 @@ const Cart = () => {
   const status = useSelector(selectCartsStatus);
   const dispatch = useDispatch();
 
+  console.log(GetAddToCart);
+
   const totalAmount = GetAddToCart.reduce(
-    (amount, cart) => cart.price * cart.quantity + amount,
+    (amount, cart) => discountPrice(cart.product) * cart.quantity + amount,
     0
   );
 
@@ -32,14 +35,14 @@ const Cart = () => {
   // ===================================================================
 
   const handleQuantity = (e, item) => {
-    dispatch(UpdateCartAsync({ ...item, quantity: +e.target.value }));
+    dispatch(UpdateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
 
   // ===================================================================
   const [openDialog, setOpenDialog] = useState(null);
   const handleDeleteItems = (item) => {
     dispatch(DeleteCartItemAsync(item.id));
-    toast.success(<h3 className="font-bold">{item.title} Deleted</h3>);
+    toast.success(<h3 className="font-bold">{item.product.title} Deleted</h3>);
   };
 
   // ===================================================================
@@ -58,12 +61,12 @@ const Cart = () => {
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
                     {GetAddToCart &&
-                      GetAddToCart.map((cartInfo) => (
-                        <li key={cartInfo.id} className="flex py-6">
+                      GetAddToCart.map((cartInfo, index) => (
+                        <li key={index} className="flex py-6">
                           <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                             <img
-                              src={cartInfo.thumbnail}
-                              alt={cartInfo.title}
+                              src={cartInfo.product.thumbnail}
+                              alt={cartInfo.product.title}
                               className="h-full w-full object-cover object-center"
                             />
                           </div>
@@ -72,17 +75,22 @@ const Cart = () => {
                             <div>
                               <div className="flex justify-between text-base font-medium text-gray-900">
                                 <h3>
-                                  <a href={cartInfo.title}>{cartInfo.title}</a>
+                                  <a href={cartInfo.product.title}>
+                                    {cartInfo.product.title}
+                                  </a>
                                 </h3>
                                 <p className="ml-4">
-                                  ₹{cartInfo.price.toLocaleString()}
+                                  ₹
+                                  {discountPrice(
+                                    cartInfo.product
+                                  ).toLocaleString()}
                                 </p>
                               </div>
                               <p className="mt-2 text-sm font-[700] text-gray-500">
-                                {cartInfo.breadcrumbs[0].name}
+                                {cartInfo.product.brand}
                               </p>
                               <p className="mt-2 text-sm text-gray-500">
-                                Stocks {cartInfo.stock}
+                                Stocks {cartInfo.product.stock}
                               </p>
                             </div>
                             <div className="flex flex-1 items-end justify-between text-sm">
@@ -110,18 +118,22 @@ const Cart = () => {
                               <div className="flex">
                                 {
                                   <Dialogs
-                                    title={`Delete ${cartInfo.title}`}
+                                    title={`Delete ${cartInfo.product.title}`}
                                     message="Are you sure you want to delete this cart item ?"
                                     dangerOption="Delete"
                                     cancelAction={() => setOpenDialog(-1)}
                                     dangerAction={() =>
                                       handleDeleteItems(cartInfo)
                                     }
-                                    showDialogs={openDialog === cartInfo.id}
+                                    showDialogs={
+                                      openDialog === cartInfo.product.id
+                                    }
                                   ></Dialogs>
                                 }
                                 <button
-                                  onClick={() => setOpenDialog(cartInfo.id)}
+                                  onClick={() =>
+                                    setOpenDialog(cartInfo.product.id)
+                                  }
                                   type="button"
                                   className="font-medium text-indigo-600 hover:text-indigo-500"
                                 >
