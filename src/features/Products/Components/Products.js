@@ -7,8 +7,10 @@ import {
   FunnelIcon,
   MinusIcon,
   PlusIcon,
+  ShoppingCartIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
+
 import { StarIcon } from "@heroicons/react/20/solid";
 
 import { Link } from "react-router-dom";
@@ -20,11 +22,14 @@ import {
   FetchProductsByFilterAsync,
   selectCategories,
   selectBrands,
+  selectProductsById,
 } from "../ProductsSlice";
 import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
 import { ITEMS_PER_PAGE, discountPrice } from "../../../app/Constant";
 import Pagination from "../../Common/Pagination";
-
+import { AddToCartAsync, selectCarts } from "../../Cart/CartSlice";
+import { toast } from "react-toastify";
+import { CiSearch } from "react-icons/ci";
 // ============================================================================
 
 const sortOptions = [
@@ -46,6 +51,7 @@ const Products = () => {
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const ProductData = useSelector(selectProducts);
+  const ProductDataById = useSelector(selectProductsById);
   const totalProducts = useSelector(selectTotalProductsPage);
   const categories = useSelector(selectCategories);
   const brands = useSelector(selectBrands);
@@ -95,6 +101,28 @@ const Products = () => {
 
   // ============================================================================
 
+  // this is searching functionality by improving
+  //  debouncing implementation
+
+  const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+
+  const handleSearch = (searchItem) => {
+    const newSort = { ...search, _search: searchItem };
+    setDebouncedSearch(newSort);
+  };
+
+  useEffect(() => {
+    const searchTimeout = setTimeout(() => {
+      setSearch(debouncedSearch);
+      setPage(1);
+    }, 1000);
+
+    return () => clearTimeout(searchTimeout);
+  }, [debouncedSearch]);
+
+  // ============================================================================
+
   const [sort, setSort] = useState({});
   const handleSort = (option) => {
     const newSort = { ...sort, _sort: option.sort, _order: option.order };
@@ -109,11 +137,34 @@ const Products = () => {
   const [Page, setPage] = useState(1);
 
   // ============================================================================
+  // to check product is already in cart or not : to implement duplicate problem
+  const GetAddToCart = useSelector(selectCarts);
+  const handleAddToCart = (productId) => {
+    const CheckingProductInCart = GetAddToCart.filter(
+      (items) => items.product.id === productId
+    );
+
+    if (CheckingProductInCart.length <= 0) {
+      dispatch(
+        AddToCartAsync({
+          quantity: 1,
+          product: productId,
+        })
+      );
+      toast.success(<h3 className="font-bold"> 🛒 item added to cart</h3>);
+    } else {
+      toast.info(<h3 className="font-bold"> 🛒 item already in your cart</h3>);
+    }
+
+    // TODO : it will be based on the server response
+  };
+
+  // ============================================================================
 
   useEffect(() => {
     const pagination = { _page: Page, _limit: ITEMS_PER_PAGE };
-    dispatch(FetchProductsByFilterAsync({ filter, sort, pagination }));
-  }, [dispatch, filter, sort, Page]);
+    dispatch(FetchProductsByFilterAsync({ search, filter, sort, pagination }));
+  }, [dispatch, search, filter, sort, Page]);
 
   // ============================================================================
 
@@ -245,73 +296,91 @@ const Products = () => {
           </Transition.Root>
 
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center relative right-[6rem] sm:right-[0rem] sm1:right-[4rem] sm0:right-[6rem]">
+              {
+                // this is search bar start
+              }
+
+              <div className="relative mt-3 left-[8rem] sm:left-[10rem] top-[4rem] mx-auto">
+                <input
+                  className="bg-white border-gray-500 lg:w-[25rem] h-10 px-5 pr-16 text-sm rounded-[0.4rem] focus:border-transparent"
+                  type="search"
+                  name="search"
+                  onChange={(e) => handleSearch(e.target.value)}
+                  placeholder="Search for Products"
+                />
+                <span className="absolute right-[1rem] top-0 mt-3 mr-4">
+                  <CiSearch></CiSearch>
+                </span>
+              </div>
+              {
+                // this is search bar end
+              }
+              <Menu as="div" className="relative inline-block text-left">
+                <div>
+                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                    Sort
+                    <ChevronDownIcon
+                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+                </div>
+
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div className="py-1">
+                      {sortOptions.map((option) => (
+                        <Menu.Item key={option.name}>
+                          {({ active }) => (
+                            <p
+                              onClick={(e) => handleSort(option)}
+                              className={classNames(
+                                option.current
+                                  ? "font-medium text-gray-900"
+                                  : "text-gray-500",
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm"
+                              )}
+                            >
+                              {option.name}
+                            </p>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+
+              <button
+                type="button"
+                className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
+              >
+                <span className="sr-only">View grid</span>
+                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
+                onClick={() => setMobileFiltersOpen(true)}
+              >
+                <span className="sr-only">Filters</span>
+                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
             <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900">
                 All Products
               </h1>
-
-              <div className="flex items-center">
-                <Menu as="div" className="relative inline-block text-left">
-                  <div>
-                    <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                      Sort
-                      <ChevronDownIcon
-                        className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                        aria-hidden="true"
-                      />
-                    </Menu.Button>
-                  </div>
-
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <div className="py-1">
-                        {sortOptions.map((option) => (
-                          <Menu.Item key={option.name}>
-                            {({ active }) => (
-                              <p
-                                onClick={(e) => handleSort(option)}
-                                className={classNames(
-                                  option.current
-                                    ? "font-medium text-gray-900"
-                                    : "text-gray-500",
-                                  active ? "bg-gray-100" : "",
-                                  "block px-4 py-2 text-sm"
-                                )}
-                              >
-                                {option.name}
-                              </p>
-                            )}
-                          </Menu.Item>
-                        ))}
-                      </div>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-
-                <button
-                  type="button"
-                  className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
-                >
-                  <span className="sr-only">View grid</span>
-                  <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
-                  onClick={() => setMobileFiltersOpen(true)}
-                >
-                  <span className="sr-only">Filters</span>
-                  <FunnelIcon className="h-5 w-5" aria-hidden="true" />
-                </button>
-              </div>
             </div>
             <section aria-labelledby="products-heading" className="pb-24 pt-6">
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
@@ -394,47 +463,55 @@ const Products = () => {
                             {ProductData &&
                             ProductData.products.length !== 0 ? (
                               ProductData.products.map((product) => (
-                                <Link
-                                  to={`/product_detail/${product.id}`}
+                                <div
                                   key={product.id}
+                                  className="group relative border-2 border-gray-300 h-[27rem] rounded-lg solid p-[1rem]"
                                 >
-                                  <div className="group relative">
-                                    <div className="aspect-h-1  aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-[15rem]">
-                                      <img
-                                        src={product.thumbnail}
-                                        alt="Products thumbnail"
-                                        className="h-full w-full   object-fill object-center lg:h-full lg:w-full"
-                                      />
-                                    </div>
-                                    <div className="mt-4 flex justify-between">
-                                      <div>
-                                        <h3 className="text-lg font-[600] text-gray-700">
-                                          {product.title.slice(0, 20)}
-                                        </h3>
-                                        <p className="text-sm  mt-2  font-medium text-gray-900">
-                                          {product.rating}
-                                          <StarIcon className="w-4 h-4 text-gray-500 inline-flex mb-[0.3rem] ml-[0.6rem]"></StarIcon>
-                                        </p>
+                                  <div>
+                                    <Link to={`/product_detail/${product.id}`}>
+                                      <div className="aspect-h-1  aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-[15rem]">
+                                        <img
+                                          src={product.thumbnail}
+                                          alt="Products thumbnail"
+                                          className="h-full w-full   object-fill object-center lg:h-full lg:w-full"
+                                        />
                                       </div>
-                                      <div className="mt-1 flex flex-col gap-y-[0.3rem]">
-                                        <p className="text-sm font-medium text-gray-400 line-through">
-                                          ₹ {product.price.toLocaleString()}
-                                        </p>
-                                        <p className="text-sm font-medium text-gray-900">
-                                          ₹{" "}
-                                          {discountPrice(
-                                            product
-                                          ).toLocaleString()}
-                                        </p>
+                                      <div className="mt-4 flex justify-between">
+                                        <div>
+                                          <h3 className="text-lg font-[600] text-gray-700">
+                                            {product.title.slice(0, 20)}
+                                          </h3>
+                                          <p className="text-sm  mt-2  font-medium text-gray-900">
+                                            {product.rating}
+                                            <StarIcon className="w-4 h-4 text-gray-500 inline-flex mb-[0.3rem] ml-[0.6rem]"></StarIcon>
+                                          </p>
+                                        </div>
+                                        <div className="mt-1 flex flex-col gap-y-[0.3rem]">
+                                          <p className="text-sm font-medium text-gray-400 line-through">
+                                            ₹ {product.price.toLocaleString()}
+                                          </p>
+                                          <p className="text-sm font-medium text-gray-900">
+                                            ₹{" "}
+                                            {discountPrice(
+                                              product
+                                            ).toLocaleString()}
+                                          </p>
+                                        </div>
                                       </div>
-                                    </div>
-                                    {product.stock <= 0 ? (
-                                      <p className="text-[1.3rem] font-medium mt-2 text-red-500">
-                                        Out of Stock
-                                      </p>
-                                    ) : null}
+                                    </Link>
                                   </div>
-                                </Link>
+                                  <ShoppingCartIcon
+                                    onClick={() => handleAddToCart(product.id)}
+                                    className={`w-[1.5rem] text-green-800 ${
+                                      product.stock <= 0 ? "hidden" : "block"
+                                    }  cursor-pointer absolute right-[1rem] bottom-[0rem] my-5`}
+                                  />
+                                  {product.stock <= 0 ? (
+                                    <p className="text-[1.3rem] font-medium mt-2 text-red-500">
+                                      Out of Stock
+                                    </p>
+                                  ) : null}
+                                </div>
                               ))
                             ) : (
                               <h1 className="text-[1.4rem] font-bold">

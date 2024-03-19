@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { CreateUserAsync, selectLoggedInUser } from "../AuthSlice";
+import { CreateUserAsync, selectLoggedInUserToken } from "../AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 const SignUp = () => {
   const {
@@ -13,7 +13,7 @@ const SignUp = () => {
   } = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectLoggedInUserToken);
   const dispatch = useDispatch();
 
   return (

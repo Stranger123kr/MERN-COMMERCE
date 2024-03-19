@@ -7,15 +7,18 @@ import {
 
 const initialState = {
   userInfo: [], // this info will be used in case of details user info, while auth will
+  // this info will be used in case of details user info, while auth will
   // only be used for loggedIn user id etc checks
+  orders: [],
   status: true,
+  userCheck: false,
   error: null,
 };
 
 export const fetchLoggedInUserAsync = createAsyncThunk(
   "user/fetchLoggedInUser",
-  async (userId) => {
-    const response = await fetchLoggedInUser(userId);
+  async () => {
+    const response = await fetchLoggedInUser();
     return response.data;
   }
 );
@@ -24,8 +27,8 @@ export const fetchLoggedInUserAsync = createAsyncThunk(
 
 export const fetchLoggedInUserOrdersAsync = createAsyncThunk(
   "userOrders/fetchLoggedInUserOrders",
-  async (userId) => {
-    const response = await fetchLoggedInUserOrders(userId);
+  async () => {
+    const response = await fetchLoggedInUserOrders();
     return response.data;
   }
 );
@@ -61,10 +64,12 @@ export const userSlice = createSlice({
         state.status = false;
         // this info is to much bigger of loggedIn user
         state.userInfo = action.payload;
+        state.userCheck = true;
       })
       .addCase(fetchLoggedInUserAsync.rejected, (state, action) => {
         state.status = false;
         state.error = action.error;
+        state.userCheck = true;
       })
 
       // ================================================================
@@ -75,11 +80,13 @@ export const userSlice = createSlice({
       .addCase(fetchLoggedInUserOrdersAsync.fulfilled, (state, action) => {
         state.status = false;
         // this info is to much bigger of loggedIn user
-        state.userInfo.orders = action.payload;
+        state.orders = action.payload;
+        state.userCheck = true;
       })
       .addCase(fetchLoggedInUserOrdersAsync.rejected, (state, action) => {
         state.status = false;
         state.error = action.error;
+        state.userCheck = true;
       })
 
       // ================================================================
@@ -103,7 +110,8 @@ export const userSlice = createSlice({
 // export const { increment } = counterSlice.actions;
 
 export const selectUserInfo = (state) => state.user.userInfo;
-export const selectUserOrders = (state) => state.user.userInfo.orders;
+export const selectUserCheck = (state) => state.user.userCheck;
+export const selectUserOrders = (state) => state.user.orders;
 export const selectUserStatus = (state) => state.user.status;
 
 export default userSlice.reducer;

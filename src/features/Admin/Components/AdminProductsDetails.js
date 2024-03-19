@@ -8,7 +8,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { AddToCartAsync, selectCarts } from "../../Cart/CartSlice";
-import { selectLoggedInUser } from "../../auth/AuthSlice";
+import { selectLoggedInUserToken } from "../../auth/AuthSlice";
 import { discountPrice } from "../../../app/Constant";
 // ==========================================================================
 
@@ -23,7 +23,6 @@ const AdminProductsDetails = () => {
   const dispatch = useDispatch();
   const ProductData = useSelector(selectProductsById);
 
-  const user = useSelector(selectLoggedInUser);
   const GetAddToCart = useSelector(selectCarts);
 
   // ==========================================================================
@@ -75,11 +74,11 @@ const AdminProductsDetails = () => {
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   const handleAddToCart = () => {
-    dispatch(AddToCartAsync({ ...product, quantity: 1, user: user.id }));
+    dispatch(AddToCartAsync({ ...product, quantity: 1 }));
   };
 
   const handleBuyProduct = () => {
-    dispatch(AddToCartAsync({ ...product, quantity: 1, user: user.id }));
+    dispatch(AddToCartAsync({ ...product, quantity: 1 }));
   };
 
   // =============================================================================

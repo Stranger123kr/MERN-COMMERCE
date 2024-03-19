@@ -4,6 +4,7 @@ export const CreateOrder = (order) => {
   return new Promise(async (resolve) => {
     const response = await fetch(`http://localhost:8080/orders`, {
       method: "POST",
+      credentials: "include",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(order),
     });
@@ -27,8 +28,14 @@ export const fetchAllOrders = (sort, pagination) => {
   }
 
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:3004/orders?${queryString}`);
+    const response = await fetch(
+      `http://localhost:8080/orders/admin?${queryString}`,
+      {
+        credentials: "include",
+      }
+    );
     const data = await response.json();
+    console.log(data);
     const totalOrder = response.headers.get("X-Total-Count");
     resolve({ data: { orders: data, totalOrders: +totalOrder } });
   });
@@ -38,10 +45,25 @@ export const fetchAllOrders = (sort, pagination) => {
 
 // this is function to Update User Order Details or etc in order
 
+export const OrderWithPayment = () => {
+  return new Promise(async (resolve) => {
+    const response = await fetch(`http://localhost:8080/create/orderId`, {
+      method: "POST",
+    });
+    const data = await response.json();
+    resolve(data);
+  });
+};
+
+// ============================================================================
+
+// this is function to Update User Order Details or etc in order
+
 export const UpdateOrder = (order) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:3004/orders/${order.id}`, {
+    const response = await fetch(`http://localhost:8080/orders/${order.id}`, {
       method: "PATCH",
+      credentials: "include",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(order),
     });

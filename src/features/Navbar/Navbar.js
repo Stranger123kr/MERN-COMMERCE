@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { selectCarts } from "../Cart/CartSlice";
 import { selectUserInfo } from "../User/UserSlice";
 
+
 // ============================================================================
 
 const userNavigation = [
@@ -79,6 +80,7 @@ const Navbar = ({ Children }) => {
                       </div>
                     </div>
                   </div>
+
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
                       <Link to="/cart">

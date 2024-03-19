@@ -91,7 +91,12 @@ const CheckoutPage = () => {
 
   return (
     <>
-      {currentOrder && <Navigate to={`/order_success/${currentOrder.id}`} />}
+      {paymentMethod === "cash" && currentOrder && (
+        <Navigate to={`/order_success/${currentOrder.id}`} />
+      )}
+      {paymentMethod === "card" && currentOrder && (
+        <Navigate to={`/stripe_checkout`} />
+      )}
       <>
         {status ? (
           <LoadingSpinner />

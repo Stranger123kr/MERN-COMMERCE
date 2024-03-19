@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { CheckUserAsync, selectError, selectLoggedInUser } from "../AuthSlice";
+import {
+  loginUserAsync,
+  selectError,
+  selectLoggedInUserToken,
+} from "../AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 const Login = () => {
   const {
@@ -13,7 +17,7 @@ const Login = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const error = useSelector(selectError);
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectLoggedInUserToken);
   const dispatch = useDispatch();
 
   return (
@@ -36,7 +40,7 @@ const Login = () => {
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
               dispatch(
-                CheckUserAsync({
+                loginUserAsync({
                   email: data.email,
                   password: data.password,
                 })

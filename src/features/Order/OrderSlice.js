@@ -1,11 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { CreateOrder, fetchAllOrders, UpdateOrder } from "./OrderAPI";
+import {
+  CreateOrder,
+  fetchAllOrders,
+  OrderWithPayment,
+  UpdateOrder,
+} from "./OrderAPI";
 
 const initialState = {
   orders: [],
   status: true,
   error: null,
   currentOrder: null,
+  UserPaymentInfo: null,
+  adminCheck: false,
   totalOrders: 0,
 };
 
@@ -27,6 +34,16 @@ export const fetchAllOrdersAsync = createAsyncThunk(
   "fetch/fetchAllOrders",
   async ({ sort, pagination }) => {
     const response = await fetchAllOrders(sort, pagination);
+    return response.data;
+  }
+);
+
+// ===========================================================
+
+export const OrderWithPaymentAsync = createAsyncThunk(
+  "fetch/OrderWithPayment",
+  async () => {
+    const response = await OrderWithPayment();
     return response.data;
   }
 );
@@ -77,10 +94,28 @@ export const OrderSlice = createSlice({
         state.status = false;
         state.orders = action.payload.orders;
         state.totalOrders = action.payload.totalOrders;
+        state.adminCheck = true;
       })
       .addCase(fetchAllOrdersAsync.rejected, (state, action) => {
         state.status = false;
         state.error = action.error;
+        state.adminCheck = true;
+      })
+
+      // =======================================================
+
+      .addCase(OrderWithPaymentAsync.pending, (state) => {
+        state.status = true;
+      })
+      .addCase(OrderWithPaymentAsync.fulfilled, (state, action) => {
+        state.status = false;
+        state.UserPaymentInfo = action.payload;
+        // state.adminCheck = true;
+      })
+      .addCase(OrderWithPaymentAsync.rejected, (state, action) => {
+        state.status = false;
+        state.error = action.error;
+        // state.adminCheck = true;
       })
 
       // =======================================================
@@ -109,7 +144,9 @@ export const { ResetOrder } = OrderSlice.actions;
 
 export const selectCurrentOrder = (state) => state.order.currentOrder;
 export const selectAllOrder = (state) => state.order.orders;
+export const selectAdminCheck = (state) => state.order.adminCheck;
 export const selectTotalOrders = (state) => state.order.totalOrders;
+export const selectUserPaymentInfo = (state) => state.order.UserPaymentInfo;
 export const selectOrdersStatus = (state) => state.order.status;
 
 export default OrderSlice.reducer;

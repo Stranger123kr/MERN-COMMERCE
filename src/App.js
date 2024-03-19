@@ -10,11 +10,18 @@ import ProductsDetailsPage from "./Pages/ProductsDetailsPage";
 import Protected from "./features/auth/Components/Protected";
 import { fetchCartByUserIdAsync } from "./features/Cart/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoggedInUser } from "./features/auth/AuthSlice";
+import {
+  CheckAuthAsync,
+  selectLoggedInUserToken,
+  selectUserCheck,
+} from "./features/auth/AuthSlice";
 import Order_SuccessPage from "./Pages/Order_SuccessPage";
 import UserProfilePage from "./Pages/UserProfilePage";
 import UserOrdersPage from "./Pages/UserOrdersPage";
-import { fetchLoggedInUserAsync } from "./features/User/UserSlice";
+import {
+  fetchLoggedInUserAsync,
+  fetchLoggedInUserOrdersAsync,
+} from "./features/User/UserSlice";
 import LogOut from "./features/auth/Components/LogOut";
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
 import ProtectedAdmin from "./features/auth/Components/ProtectedAdmin";
@@ -24,6 +31,7 @@ import AdminProductsFormPage from "./Pages/AdminProductsFormPage";
 import AdminOrdersPage from "./Pages/AdminOrdersPage";
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import StripeCheckout from "./Pages/StripeCheckout";
 
 // ===================================================================
 
@@ -67,6 +75,14 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <CheckoutPage />
+      </Protected>
+    ),
+  },
+  {
+    path: "/stripe_checkout",
+    element: (
+      <Protected>
+        <StripeCheckout />
       </Protected>
     ),
   },
@@ -154,17 +170,24 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
+  const UserCheck = useSelector(selectUserCheck);
+  const User = useSelector(selectLoggedInUserToken);
+
   useEffect(() => {
-    user && dispatch(fetchCartByUserIdAsync(user.id));
-    user && dispatch(fetchLoggedInUserAsync(user.id));
-  }, [dispatch, user]);
+    dispatch(CheckAuthAsync());
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchCartByUserIdAsync());
+    // we can get req.user by token on backend so we don't need to give in frontend
+    dispatch(fetchLoggedInUserAsync());
+    dispatch(fetchLoggedInUserOrdersAsync());
+  }, [dispatch, User]);
 
   return (
     <>
-      <RouterProvider router={router} />
-
+      {UserCheck && <RouterProvider router={router} />}
       <ToastContainer
         position="top-right"
         autoClose={2000}

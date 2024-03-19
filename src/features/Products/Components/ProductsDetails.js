@@ -9,7 +9,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { AddToCartAsync, selectCarts } from "../../Cart/CartSlice";
-import { selectLoggedInUser } from "../../auth/AuthSlice";
+import { selectLoggedInUserToken } from "../../auth/AuthSlice";
 import { discountPrice } from "../../../app/Constant";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
@@ -26,7 +26,7 @@ const ProductsDetails = () => {
   const dispatch = useDispatch();
   const ProductData = useSelector(selectProductsById);
   const status = useSelector(selectStatus);
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectLoggedInUserToken);
   const GetAddToCart = useSelector(selectCarts);
 
   // ==========================================================================
@@ -84,7 +84,6 @@ const ProductsDetails = () => {
     dispatch(
       AddToCartAsync({
         quantity: 1,
-        user: user.id,
         product: ProductData.id,
       })
     );
@@ -96,7 +95,6 @@ const ProductsDetails = () => {
     dispatch(
       AddToCartAsync({
         quantity: 1,
-        user: user.id,
         product: ProductData.id,
       })
     );
