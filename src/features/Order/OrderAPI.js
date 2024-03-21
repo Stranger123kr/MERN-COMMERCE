@@ -45,13 +45,16 @@ export const fetchAllOrders = (sort, pagination) => {
 
 // this is function to Update User Order Details or etc in order
 
-export const OrderWithPayment = () => {
+export const OrderWithPayment = (amount) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/create/orderId`, {
+    const response = await fetch(`http://localhost:8080/create/payment`, {
       method: "POST",
+      credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ amount }),
     });
     const data = await response.json();
-    resolve(data);
+    resolve({ data });
   });
 };
 

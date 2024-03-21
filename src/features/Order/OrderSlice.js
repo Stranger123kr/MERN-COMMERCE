@@ -11,7 +11,7 @@ const initialState = {
   status: true,
   error: null,
   currentOrder: null,
-  UserPaymentInfo: null,
+  UserPaymentInfo: [],
   adminCheck: false,
   totalOrders: 0,
 };
@@ -42,8 +42,8 @@ export const fetchAllOrdersAsync = createAsyncThunk(
 
 export const OrderWithPaymentAsync = createAsyncThunk(
   "fetch/OrderWithPayment",
-  async () => {
-    const response = await OrderWithPayment();
+  async (amount) => {
+    const response = await OrderWithPayment(amount);
     return response.data;
   }
 );
@@ -110,12 +110,12 @@ export const OrderSlice = createSlice({
       .addCase(OrderWithPaymentAsync.fulfilled, (state, action) => {
         state.status = false;
         state.UserPaymentInfo = action.payload;
-        // state.adminCheck = true;
+        state.adminCheck = true;
       })
       .addCase(OrderWithPaymentAsync.rejected, (state, action) => {
         state.status = false;
         state.error = action.error;
-        // state.adminCheck = true;
+        state.adminCheck = true;
       })
 
       // =======================================================

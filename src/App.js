@@ -31,7 +31,7 @@ import AdminProductsFormPage from "./Pages/AdminProductsFormPage";
 import AdminOrdersPage from "./Pages/AdminOrdersPage";
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import StripeCheckout from "./Pages/StripeCheckout";
+import RazorpayCheckout from "./Pages/RazorpayCheckout";
 
 // ===================================================================
 
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
     path: "/stripe_checkout",
     element: (
       <Protected>
-        <StripeCheckout />
+        <RazorpayCheckout />
       </Protected>
     ),
   },

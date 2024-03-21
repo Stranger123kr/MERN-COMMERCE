@@ -9,7 +9,6 @@ import { toast } from "react-toastify";
 const UserProfile = () => {
   const user = useSelector(selectUserInfo);
   const userCheck = useSelector(selectUserCheck);
-  console.log(user);
   const dispatch = useDispatch();
   // ==================================================================
 
