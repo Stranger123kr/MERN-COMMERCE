@@ -29,6 +29,7 @@ import AdminProductsDetailsPage from "./Pages/AdminProductsDetailsPage";
 import AdminHomePage from "./Pages/AdminHomePage";
 import AdminProductsFormPage from "./Pages/AdminProductsFormPage";
 import AdminOrdersPage from "./Pages/AdminOrdersPage";
+import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RazorpayCheckout from "./Pages/RazorpayCheckout";
@@ -161,6 +162,10 @@ const router = createBrowserRouter([
   {
     path: "/forgot_password",
     element: <ForgotPasswordPage />,
+  },
+  {
+    path: "/reset_Password",
+    element: <ResetPasswordPage />,
   },
 
   {

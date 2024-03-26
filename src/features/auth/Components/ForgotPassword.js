@@ -1,8 +1,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  ResetPasswordRequestAsync,
+  selectMailStatus,
+  selectStatus,
+} from "../AuthSlice";
 
 const ForgotPassword = () => {
+  const dispatch = useDispatch();
+  const MailStatus = useSelector(selectMailStatus);
+  const Status = useSelector(selectStatus);
+  console.log(MailStatus);
+  console.log(Status);
+
   const {
     register,
     handleSubmit,
@@ -27,6 +39,9 @@ const ForgotPassword = () => {
           <form
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
+              console.log(data);
+              dispatch(ResetPasswordRequestAsync(data.email));
+
               // TODO : implementation will be on backend side with email
             })}
           >
@@ -50,8 +65,12 @@ const ForgotPassword = () => {
                   type="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
-                <p className="text-red-600 font-[700]">
+                <p className="text-red-600 mt-3 font-[700]">
                   {errors.email && errors.email.message}
+                </p>
+
+                <p className="text-red-600 mt-3 font-[700]">
+                  {MailStatus && "Email Send Successfully Check your Email"}
                 </p>
               </div>
             </div>
@@ -61,7 +80,16 @@ const ForgotPassword = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Send Email
+                {Status ? (
+                  <div
+                    role="status"
+                    class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                  >
+                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+                  </div>
+                ) : (
+                  "Send Email"
+                )}
               </button>
             </div>
           </form>

@@ -8,7 +8,11 @@ import {
 } from "../ProductsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
-import { AddToCartAsync, selectCarts } from "../../Cart/CartSlice";
+import {
+  AddToCartAsync,
+  selectCarts,
+  selectCartsStatus,
+} from "../../Cart/CartSlice";
 import { selectLoggedInUserToken } from "../../auth/AuthSlice";
 import { discountPrice } from "../../../app/Constant";
 import { toast } from "react-toastify";
@@ -26,9 +30,10 @@ const ProductsDetails = () => {
   const dispatch = useDispatch();
   const ProductData = useSelector(selectProductsById);
   const status = useSelector(selectStatus);
+  const cartStatus = useSelector(selectCartsStatus);
   const user = useSelector(selectLoggedInUserToken);
   const GetAddToCart = useSelector(selectCarts);
-
+  console.log(status);
   // ==========================================================================
 
   // to check product is already in cart or not : to implement duplicate problem
@@ -402,7 +407,16 @@ const ProductsDetails = () => {
                           type="button"
                           className="mt-10 flex w-[10rem] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
-                          Add to Card
+                          {cartStatus ? (
+                            <div
+                              role="status"
+                              class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                            >
+                              <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+                            </div>
+                          ) : (
+                            "Add to Card"
+                          )}
                         </button>
                       )}
                       {ProductData && CheckingProductInCart.length > 0 ? (

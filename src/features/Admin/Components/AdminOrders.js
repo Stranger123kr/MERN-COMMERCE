@@ -8,7 +8,7 @@ import {
   selectOrdersStatus,
   selectTotalOrders,
 } from "../../Order/OrderSlice";
-import { ITEMS_PER_PAGE } from "../../../app/Constant";
+import { ITEMS_PER_PAGE, discountPrice } from "../../../app/Constant";
 
 import {
   EyeIcon,
@@ -157,7 +157,10 @@ const AdminOrders = () => {
                                         <span className="font-bold text-[1rem] flex items-center">
                                           {orderItem.product.title.slice(0, 25)}
                                           <br></br>
-                                          <br></br>₹{orderItem.product.price}
+                                          <br></br>₹{" "}
+                                          {discountPrice(
+                                            orderItem.product
+                                          ).toLocaleString()}
                                         </span>
                                       </div>
                                     )
@@ -171,7 +174,7 @@ const AdminOrders = () => {
                               </td>
                               <td className="py-3 px-6 text-center">
                                 <div className="flex font-semibold text-[1rem] items-center justify-center">
-                                  ₹{orderInfo.totalAmount.toLocaleString()}
+                                  ₹ {orderInfo.totalAmount.toLocaleString()}
                                 </div>
                               </td>
 

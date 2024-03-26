@@ -6,6 +6,8 @@ import {
   loginUserAsync,
   selectError,
   selectLoggedInUserToken,
+  selectLoginStatus,
+  selectStatus,
 } from "../AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 const Login = () => {
@@ -16,6 +18,8 @@ const Login = () => {
   } = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
+  const Status = useSelector(selectStatus);
+  const LoginStatus = useSelector(selectLoginStatus);
   const error = useSelector(selectError);
   const user = useSelector(selectLoggedInUserToken);
   const dispatch = useDispatch();
@@ -112,7 +116,7 @@ const Login = () => {
 
                 <p className="text-red-600 font-[700]">
                   {errors.password && errors.password.message}
-                  {error && error.message}
+                  {error && LoginStatus ? error.message : null}
                 </p>
               </div>
             </div>
@@ -122,7 +126,16 @@ const Login = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Login in
+                {Status ? (
+                  <div
+                    role="status"
+                    class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                  >
+                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+                  </div>
+                ) : (
+                  "Login in"
+                )}
               </button>
             </div>
           </form>

@@ -81,7 +81,6 @@ export const userSlice = createSlice({
         state.status = false;
         // this info is to much bigger of loggedIn user
         state.orders = action.payload;
-        state.userInfo.orders = action.payload;
         state.userCheck = true;
       })
       .addCase(fetchLoggedInUserOrdersAsync.rejected, (state, action) => {
