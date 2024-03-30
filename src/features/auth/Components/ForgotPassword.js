@@ -41,8 +41,6 @@ const ForgotPassword = () => {
             onSubmit={handleSubmit((data) => {
               console.log(data);
               dispatch(ResetPasswordRequestAsync(data.email));
-
-              // TODO : implementation will be on backend side with email
             })}
           >
             <div>

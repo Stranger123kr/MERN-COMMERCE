@@ -33,6 +33,7 @@ import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RazorpayCheckout from "./Pages/RazorpayCheckout";
+import MoreOrderInfoPage from "./Pages/MoreOrderInfoPage";
 
 // ===================================================================
 
@@ -152,6 +153,14 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <UserOrdersPage />
+      </Protected>
+    ),
+  },
+  {
+    path: "/MoreOrders_Info/:id",
+    element: (
+      <Protected>
+        <MoreOrderInfoPage />
       </Protected>
     ),
   },

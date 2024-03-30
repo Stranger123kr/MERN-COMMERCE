@@ -22,7 +22,6 @@ import {
   FetchProductsByFilterAsync,
   selectCategories,
   selectBrands,
-  selectProductsById,
 } from "../ProductsSlice";
 import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
 import { ITEMS_PER_PAGE, discountPrice } from "../../../app/Constant";
@@ -51,7 +50,6 @@ const Products = () => {
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const ProductData = useSelector(selectProducts);
-  const ProductDataById = useSelector(selectProductsById);
   const totalProducts = useSelector(selectTotalProductsPage);
   const categories = useSelector(selectCategories);
   const brands = useSelector(selectBrands);
@@ -125,6 +123,7 @@ const Products = () => {
 
   const [sort, setSort] = useState({});
   const handleSort = (option) => {
+    console.log(option);
     const newSort = { ...sort, _sort: option.sort, _order: option.order };
     setSort(newSort);
     setPage(1);

@@ -15,8 +15,6 @@ const UserProfile = () => {
   const [showAddedForm, setShowAddedForm] = useState(false);
   const [selectedEditIndex, setSelectedEditIndex] = useState(-1);
 
-  // TODO i will add payment section when i'll work on  backend side
-
   // ==================================================================
 
   const {

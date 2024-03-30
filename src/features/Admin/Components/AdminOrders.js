@@ -3,21 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   UpdateOrderAsync,
   fetchAllOrdersAsync,
+  fetchOderByIdAsync,
   selectAdminCheck,
   selectAllOrder,
   selectOrdersStatus,
   selectTotalOrders,
 } from "../../Order/OrderSlice";
-import { ITEMS_PER_PAGE, discountPrice } from "../../../app/Constant";
+import { ITEMS_PER_PAGE } from "../../../app/Constant";
 
-import {
-  EyeIcon,
-  PencilIcon,
-  ArrowUpIcon,
-  ArrowDownIcon,
-} from "@heroicons/react/24/outline";
+import { EyeIcon, PencilIcon } from "@heroicons/react/24/outline";
 import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
 import Pagination from "../../Common/Pagination";
+import { Link } from "react-router-dom";
 const AdminOrders = () => {
   // =============================================
 
@@ -35,10 +32,6 @@ const AdminOrders = () => {
 
   const [editOrderId, setEditOrderId] = useState(-1);
 
-  const handleViewOrder = (order) => {
-    setEditOrderId(order.id);
-  };
-
   const handleEditOrder = (order) => {
     setEditOrderId(order.id);
   };
@@ -46,12 +39,6 @@ const AdminOrders = () => {
   const handleStatusChange = (e, order) => {
     dispatch(UpdateOrderAsync({ ...order, status: e.target.value }));
     setEditOrderId(-1);
-  };
-
-  const [sort, setSort] = useState({});
-
-  const handleSort = (newSort) => {
-    setSort(newSort);
   };
 
   // =============================================
@@ -81,8 +68,8 @@ const AdminOrders = () => {
 
   useEffect(() => {
     const pagination = { _page: Page, _limit: ITEMS_PER_PAGE };
-    dispatch(fetchAllOrdersAsync({ sort, pagination }));
-  }, [Page, sort]);
+    dispatch(fetchAllOrdersAsync(pagination));
+  }, [Page]);
 
   // =============================================
 
@@ -100,22 +87,6 @@ const AdminOrders = () => {
                     <table className="w-full table-auto">
                       <thead>
                         <tr className="bg-gray-200  text-gray-600 uppercase text-sm leading-normal">
-                          <th
-                            className="py-3 px-6 text-left flex gap-2  cursor-pointer"
-                            onClick={(e) =>
-                              handleSort({
-                                _sort: "id",
-                                _order: sort._order === "desc" ? "asc" : "desc",
-                              })
-                            }
-                          >
-                            Orders{" "}
-                            {sort._sort === "id" && sort._order === "desc" ? (
-                              <ArrowDownIcon className="w-4 h-4 mt-[0.2rem]" />
-                            ) : (
-                              <ArrowUpIcon className="w-4 h-4 mt-[0.2rem]" />
-                            )}
-                          </th>
                           <th className="py-3 px-6 text-left">Items</th>
                           <th className="py-3 px-6 text-center">Total Items</th>
                           <th className="py-3 px-6 text-center">
@@ -135,32 +106,19 @@ const AdminOrders = () => {
                               key={index}
                               className="border-b border-gray-200 hover:bg-gray-100"
                             >
-                              <td className="py-3 px-6 text-left whitespace-nowrap">
-                                <span className="font-medium">
-                                  {orderInfo.id}
-                                </span>
-                              </td>
                               <td className="py-3 px-6 text-left">
                                 {orderInfo &&
                                   orderInfo.GetAddToCart.map(
                                     (orderItem, od) => (
                                       <div key={od} className="flex gap-[3rem]">
                                         <div>
-                                          <span className="font-[500] text-gray-500 text-[1rem]">
-                                            q {orderItem.quantity}
-                                          </span>
                                           <img
                                             className="w-[4.2rem] h-[4.2rem] p-[0.5rem]  rounded-lg"
                                             src={orderItem.product.thumbnail}
                                           />
                                         </div>
                                         <span className="font-bold text-[1rem] flex items-center">
-                                          {orderItem.product.title.slice(0, 25)}
-                                          <br></br>
-                                          <br></br>₹{" "}
-                                          {discountPrice(
-                                            orderItem.product
-                                          ).toLocaleString()}
+                                          {orderItem.product.title}
                                         </span>
                                       </div>
                                     )
@@ -213,13 +171,23 @@ const AdminOrders = () => {
                                   </span>
                                 )}
                               </td>
+
                               <td className="py-3 px-6 text-center">
                                 <div className="flex gap-2 item-center justify-center">
                                   <div className="w-5 mr-2  cursor-pointer transform hover:text-purple-500 hover:scale-110">
-                                    <EyeIcon
-                                      onClick={() => handleViewOrder(orderInfo)}
-                                    ></EyeIcon>
+                                    <Link
+                                      to={`/MoreOrders_Info/${orderInfo.id}`}
+                                    >
+                                      <EyeIcon
+                                        onClick={() =>
+                                          dispatch(
+                                            fetchOderByIdAsync(orderInfo.id)
+                                          )
+                                        }
+                                      />
+                                    </Link>
                                   </div>
+
                                   <div className="w-5 mr-2  cursor-pointer transform hover:text-purple-500 hover:scale-110">
                                     <PencilIcon
                                       onClick={() => handleEditOrder(orderInfo)}

@@ -2,13 +2,16 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
   CreateOrder,
   fetchAllOrders,
+  fetchOderById,
   OrderWithPayment,
   UpdateOrder,
 } from "./OrderAPI";
 
 const initialState = {
   orders: [],
+  OderById: [],
   status: true,
+  OrderStatus: false,
   error: null,
   currentOrder: null,
   UserPaymentInfo: [],
@@ -32,8 +35,18 @@ export const CreateOrderAsync = createAsyncThunk(
 
 export const fetchAllOrdersAsync = createAsyncThunk(
   "fetch/fetchAllOrders",
-  async ({ sort, pagination }) => {
-    const response = await fetchAllOrders(sort, pagination);
+  async (pagination) => {
+    const response = await fetchAllOrders(pagination);
+    return response.data;
+  }
+);
+
+// ===========================================================
+
+export const fetchOderByIdAsync = createAsyncThunk(
+  "fetch/fetchOderById",
+  async (id) => {
+    const response = await fetchOderById(id);
     return response.data;
   }
 );
@@ -74,14 +87,17 @@ export const OrderSlice = createSlice({
     builder
       .addCase(CreateOrderAsync.pending, (state) => {
         state.status = true;
+        state.OrderStatus = true;
       })
       .addCase(CreateOrderAsync.fulfilled, (state, action) => {
         state.status = false;
+        state.OrderStatus = false;
         state.orders.push(action.payload);
         state.currentOrder = action.payload;
       })
       .addCase(CreateOrderAsync.rejected, (state, action) => {
         state.status = false;
+        state.OrderStatus = false;
         state.error = action.error;
       })
 
@@ -97,6 +113,22 @@ export const OrderSlice = createSlice({
         state.adminCheck = true;
       })
       .addCase(fetchAllOrdersAsync.rejected, (state, action) => {
+        state.status = false;
+        state.error = action.error;
+        state.adminCheck = true;
+      })
+
+      // =======================================================
+
+      .addCase(fetchOderByIdAsync.pending, (state) => {
+        state.status = true;
+      })
+      .addCase(fetchOderByIdAsync.fulfilled, (state, action) => {
+        state.status = false;
+        state.OderById = action.payload;
+        state.adminCheck = true;
+      })
+      .addCase(fetchOderByIdAsync.rejected, (state, action) => {
         state.status = false;
         state.error = action.error;
         state.adminCheck = true;
@@ -144,9 +176,11 @@ export const { ResetOrder } = OrderSlice.actions;
 
 export const selectCurrentOrder = (state) => state.order.currentOrder;
 export const selectAllOrder = (state) => state.order.orders;
+export const selectOrderById = (state) => state.order.OderById;
 export const selectAdminCheck = (state) => state.order.adminCheck;
 export const selectTotalOrders = (state) => state.order.totalOrders;
 export const selectUserPaymentInfo = (state) => state.order.UserPaymentInfo;
-export const selectOrdersStatus = (state) => state.order.status;
+export const selectStatus = (state) => state.order.status;
+export const selectOrdersStatus = (state) => state.order.OrderStatus;
 
 export default OrderSlice.reducer;

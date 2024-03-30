@@ -17,14 +17,10 @@ export const CreateOrder = (order) => {
 
 // this is function to fetch all order for  admin panel
 
-export const fetchAllOrders = (sort, pagination) => {
+export const fetchAllOrders = (pagination) => {
   let queryString = "";
   for (let key in pagination) {
     queryString += `${key}=${pagination[key]}&`;
-  }
-
-  for (let key in sort) {
-    queryString += `${key}=${sort[key]}&`;
   }
 
   return new Promise(async (resolve) => {
@@ -35,9 +31,22 @@ export const fetchAllOrders = (sort, pagination) => {
       }
     );
     const data = await response.json();
-    console.log(data);
     const totalOrder = response.headers.get("X-Total-Count");
     resolve({ data: { orders: data, totalOrders: +totalOrder } });
+  });
+};
+
+// ============================================================================
+
+// this is function to fetch order by id
+
+export const fetchOderById = (id) => {
+  return new Promise(async (resolve) => {
+    const response = await fetch(`http://localhost:8080/orders/admin/${id}`, {
+      credentials: "include",
+    });
+    const data = await response.json();
+    resolve({ data });
   });
 };
 

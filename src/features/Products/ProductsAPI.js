@@ -15,15 +15,11 @@ export const FetchProductsById = (id) => {
 // this is filter function for filtering products for particular situation
 
 export const FetchProductsByFilter = (search, filter, sort, pagination) => {
-  // filter  = {"Category : ["smartphone","laptops"}
-  // sort  = {_sort:"rating",_order:"asc"}
   let queryString = "";
   for (let key in filter) {
     const CategoriesValues = filter[key];
-    if (CategoriesValues.length > 0) {
-      const LastCategoriesValues =
-        CategoriesValues[CategoriesValues.length - 1];
-      queryString += `${key}=${LastCategoriesValues}&`;
+    if (CategoriesValues.length) {
+      queryString += `${key}=${CategoriesValues}&`;
     }
   }
 

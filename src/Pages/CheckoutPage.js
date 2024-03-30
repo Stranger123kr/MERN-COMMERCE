@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import {
@@ -9,6 +9,7 @@ import {
 import {
   CreateOrderAsync,
   selectCurrentOrder,
+  selectOrdersStatus,
 } from "../features/Order/OrderSlice";
 import { useForm } from "react-hook-form";
 import { UpdateUserAsync } from "../features/User/UserSlice";
@@ -22,6 +23,7 @@ const CheckoutPage = () => {
   const user = useSelector(selectUserInfo);
   const currentOrder = useSelector(selectCurrentOrder);
   const status = useSelector(selectCartsStatus);
+  const Status = useSelector(selectOrdersStatus);
   const dispatch = useDispatch();
 
   // ===================================================================
@@ -488,7 +490,16 @@ const CheckoutPage = () => {
                       onClick={handleOrder}
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                     >
-                      Order Now
+                      {Status ? (
+                        <div
+                          role="status"
+                          class="inline-block h-6 w-6 mr-2  animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        >
+                          <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+                        </div>
+                      ) : (
+                        "Order Now"
+                      )}
                     </button>
                   </div>
                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
