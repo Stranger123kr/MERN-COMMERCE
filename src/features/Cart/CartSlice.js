@@ -12,7 +12,6 @@ import {
 const initialState = {
   carts: [],
   status: true,
-  SuccessStatus: false,
   error: null,
 };
 
@@ -82,17 +81,14 @@ export const CartSlice = createSlice({
     builder
       .addCase(AddToCartAsync.pending, (state) => {
         state.status = true;
-        state.SuccessStatus = false;
       })
       .addCase(AddToCartAsync.fulfilled, (state, action) => {
         state.status = false;
         state.carts.push(action.payload);
-        state.SuccessStatus = true;
       })
       .addCase(AddToCartAsync.rejected, (state, action) => {
         state.status = false;
         state.error = action.error;
-        state.SuccessStatus = false;
       })
 
       // ===================================================
@@ -165,6 +161,5 @@ export const CartSlice = createSlice({
 
 export const selectCarts = (state) => state.cart.carts;
 export const selectCartsStatus = (state) => state.cart.status;
-export const selectSuccessStatus = (state) => state.cart.SuccessStatus;
 
 export default CartSlice.reducer;

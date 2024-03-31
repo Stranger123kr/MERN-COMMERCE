@@ -21,7 +21,7 @@ const UserOrders = () => {
 
   useEffect(() => {
     dispatch(fetchLoggedInUserOrdersAsync());
-  }, []);
+  }, [dispatch]);
 
   // ==============================================
 

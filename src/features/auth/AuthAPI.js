@@ -150,7 +150,6 @@ export const UserSignOut = () => {
           credentials: "include",
         }
       );
-      console.log(response);
       resolve("USER SignOut");
     } catch (error) {
       reject(error);

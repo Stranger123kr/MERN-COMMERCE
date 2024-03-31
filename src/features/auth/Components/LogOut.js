@@ -8,7 +8,7 @@ const LogOut = () => {
   const user = useSelector(selectLoggedInUserToken);
   useEffect(() => {
     dispatch(UserSignOutAsync());
-  }, []);
+  }, [dispatch]);
 
   return <>{!user && <Navigate to="/login" replace={true} />}</>;
 };

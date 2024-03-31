@@ -13,7 +13,7 @@ import {
   selectCarts,
   selectCartsStatus,
 } from "../../Cart/CartSlice";
-import { selectLoggedInUserToken } from "../../auth/AuthSlice";
+
 import { discountPrice } from "../../../app/Constant";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
@@ -31,7 +31,6 @@ const ProductsDetails = () => {
   const ProductData = useSelector(selectProductsById);
   const status = useSelector(selectStatus);
   const cartStatus = useSelector(selectCartsStatus);
-  const user = useSelector(selectLoggedInUserToken);
   const GetAddToCart = useSelector(selectCarts);
 
   // ==========================================================================

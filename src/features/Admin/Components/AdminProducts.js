@@ -141,7 +141,7 @@ const AdminProducts = () => {
   useEffect(() => {
     dispatch(FetchCategoriesAsync());
     dispatch(FetchBrandsAsync());
-  }, []);
+  }, [dispatch]);
 
   // ============================================================================
 

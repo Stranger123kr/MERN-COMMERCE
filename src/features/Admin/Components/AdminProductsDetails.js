@@ -85,7 +85,7 @@ const AdminProductsDetails = () => {
 
   useEffect(() => {
     dispatch(FetchProductsByIdAsync(id));
-  }, [id]);
+  }, [dispatch, id]);
 
   // =============================================================================
 

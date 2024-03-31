@@ -18,7 +18,7 @@ const OrderSuccessPage = () => {
 
     // reset current order
     dispatch(ResetOrder());
-  }, [user]);
+  }, [dispatch, user]);
   return (
     <>
       {!id && (

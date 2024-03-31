@@ -374,7 +374,7 @@ const CheckoutPage = () => {
                             htmlFor="card"
                             className="block text-lg font-bold leading-6 text-gray-900"
                           >
-                            Card Payment
+                            Online Payment
                           </label>
                         </div>
                         <div className="flex items-center gap-x-3">

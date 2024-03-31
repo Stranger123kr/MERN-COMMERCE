@@ -145,7 +145,7 @@ export const DeleteProducts = (id) => {
         headers: { "content-type": "application/json" },
       }
     );
-    const data = response.json();
+    await response.json();
     resolve({ data: { id } });
   });
 };
