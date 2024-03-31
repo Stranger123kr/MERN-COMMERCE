@@ -82,7 +82,7 @@ export const ResetPasswordRequest = (email) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `https://mern-commerce-backend-64fw.onrender.com/reset_Password_Request`,
+        `https://mern-commerce-backend-64fw.onrender.com/auth/reset_Password_Request`,
 
         {
           method: "POST",

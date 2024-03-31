@@ -28,7 +28,7 @@ export const fetchAllOrders = (pagination) => {
 
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/admin?${queryString}`,
+      `https://mern-commerce-backend-64fw.onrender.com/orders/admin?${queryString}`,
       {
         credentials: "include",
       }
