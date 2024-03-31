@@ -143,7 +143,7 @@ export const UserSignOut = () => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `https://mern-commerce-backend-psi.vercel.app/auth/logout`,
+        `https://mern-commerce-backend-64fw.onrender.com/auth/logout`,
 
         {
           method: "POST",

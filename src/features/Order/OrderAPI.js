@@ -2,12 +2,15 @@
 
 export const CreateOrder = (order) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/orders`, {
-      method: "POST",
-      credentials: "include",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(order),
-    });
+    const response = await fetch(
+      `https://mern-commerce-backend-64fw.onrender.com/orders`,
+      {
+        method: "POST",
+        credentials: "include",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(order),
+      }
+    );
     const data = response.json();
     resolve({ data });
   });
@@ -25,7 +28,7 @@ export const fetchAllOrders = (pagination) => {
 
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `http://localhost:8080/orders/admin?${queryString}`,
+      `https://mern-commerce-backend-64fw.onrender.com/admin?${queryString}`,
       {
         credentials: "include",
       }
@@ -42,9 +45,12 @@ export const fetchAllOrders = (pagination) => {
 
 export const fetchOderById = (id) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/orders/admin/${id}`, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      `https://mern-commerce-backend-64fw.onrender.com/orders/admin/${id}`,
+      {
+        credentials: "include",
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -56,12 +62,15 @@ export const fetchOderById = (id) => {
 
 export const OrderWithPayment = (amount) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/create/payment`, {
-      method: "POST",
-      credentials: "include",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ amount }),
-    });
+    const response = await fetch(
+      `https://mern-commerce-backend-64fw.onrender.com/create/payment`,
+      {
+        method: "POST",
+        credentials: "include",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ amount }),
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -73,12 +82,15 @@ export const OrderWithPayment = (amount) => {
 
 export const UpdateOrder = (order) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/orders/${order.id}`, {
-      method: "PATCH",
-      credentials: "include",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(order),
-    });
+    const response = await fetch(
+      `https://mern-commerce-backend-64fw.onrender.com/orders/${order.id}`,
+      {
+        method: "PATCH",
+        credentials: "include",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(order),
+      }
+    );
     const data = response.json();
     resolve({ data });
   });

@@ -32,7 +32,8 @@ const RazorpayCheckout = () => {
         description: item.product.description,
         image: item.product.thumbnail,
         order_id: PaymentInfo.id, // Generate a unique order_id for this item
-        callback_url: "http://localhost:8080/payment/success",
+        callback_url:
+          "https://mern-commerce-backend-64fw.onrender.com/payment/success",
         prefill: {
           name: currentOrder.selectedAddress.name,
           email: UserInfo.email,
