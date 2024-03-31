@@ -4,7 +4,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { selectLoggedInUserToken } from "../features/auth/AuthSlice";
 import { ResetCartAsync } from "../features/Cart/CartSlice";
 import { ResetOrder } from "../features/Order/OrderSlice";
-const Order_SuccessPage = () => {
+const OrderSuccessPage = () => {
   const { id } = useParams();
   const user = useSelector(selectLoggedInUserToken);
 
@@ -51,4 +51,4 @@ const Order_SuccessPage = () => {
   );
 };
 
-export default Order_SuccessPage;
+export default OrderSuccessPage;

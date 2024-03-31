@@ -15,7 +15,7 @@ import {
   selectLoggedInUserToken,
   selectUserCheck,
 } from "./features/auth/AuthSlice";
-import Order_SuccessPage from "./Pages/Order_SuccessPage";
+import Order_SuccessPage from "./Pages/OrderSuccessPage";
 import UserProfilePage from "./Pages/UserProfilePage";
 import UserOrdersPage from "./Pages/UserOrdersPage";
 import {
@@ -190,7 +190,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(CheckAuthAsync());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchCartByUserIdAsync());
