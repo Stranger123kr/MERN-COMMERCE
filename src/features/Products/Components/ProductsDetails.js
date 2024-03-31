@@ -33,7 +33,7 @@ const ProductsDetails = () => {
   const cartStatus = useSelector(selectCartsStatus);
   const user = useSelector(selectLoggedInUserToken);
   const GetAddToCart = useSelector(selectCarts);
-  console.log(status);
+
   // ==========================================================================
 
   // to check product is already in cart or not : to implement duplicate problem

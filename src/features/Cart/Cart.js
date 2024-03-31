@@ -20,8 +20,6 @@ const Cart = () => {
   const status = useSelector(selectCartsStatus);
   const dispatch = useDispatch();
 
-  console.log(GetAddToCart);
-
   const totalAmount = GetAddToCart.reduce(
     (amount, cart) => discountPrice(cart.product) * cart.quantity + amount,
     0

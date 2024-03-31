@@ -2,7 +2,7 @@
 
 export const AddToCart = (CartInfo) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/carts`, {
+    const response = await fetch(`/carts`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       credentials: "include",
@@ -19,7 +19,7 @@ export const AddToCart = (CartInfo) => {
 
 export const fetchCartByUserId = () => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/carts`, {
+    const response = await fetch(`/carts`, {
       credentials: "include",
     });
     const data = response.json();
@@ -33,7 +33,7 @@ export const fetchCartByUserId = () => {
 
 export const UpdateCart = (update) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/carts/${update.id}`, {
+    const response = await fetch(`/carts/${update.id}`, {
       method: "PATCH",
       credentials: "include",
       headers: { "content-type": "application/json" },
@@ -50,7 +50,7 @@ export const UpdateCart = (update) => {
 
 export const DeleteCartItem = (itemId) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/carts/${itemId}`, {
+    const response = await fetch(`/carts/${itemId}`, {
       method: "DELETE",
       credentials: "include",
       headers: { "content-type": "application/json" },

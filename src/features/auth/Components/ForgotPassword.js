@@ -12,8 +12,6 @@ const ForgotPassword = () => {
   const dispatch = useDispatch();
   const MailStatus = useSelector(selectMailStatus);
   const Status = useSelector(selectStatus);
-  console.log(MailStatus);
-  console.log(Status);
 
   const {
     register,
@@ -39,7 +37,6 @@ const ForgotPassword = () => {
           <form
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
-              console.log(data);
               dispatch(ResetPasswordRequestAsync(data.email));
             })}
           >

@@ -1,12 +1,15 @@
 // this is function for getting user information to register at first time
 export const CreateUser = (UserData) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:8080/auth/signup`, {
-      method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(UserData),
-    });
+    const response = await fetch(
+      `https://mern-commerce-backend-64fw.onrender.com/auth/signup`,
+      {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(UserData),
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -20,7 +23,7 @@ export const loginUser = (loginInfo) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/auth/login`,
+        `https://mern-commerce-backend-64fw.onrender.com/auth/login`,
 
         {
           method: "POST",
@@ -51,7 +54,7 @@ export const CheckAuth = () => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/auth/check`,
+        `https://mern-commerce-backend-64fw.onrender.com/auth/check`,
 
         {
           credentials: "include",
@@ -79,11 +82,11 @@ export const ResetPasswordRequest = (email) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/auth/reset_Password_Request`,
+        `https://mern-commerce-backend-64fw.onrender.com/reset_Password_Request`,
 
         {
           method: "POST",
-          // credentials: "include",
+          credentials: "include",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email }),
         }
@@ -97,7 +100,6 @@ export const ResetPasswordRequest = (email) => {
       }
     } catch (error) {
       reject(error);
-      console.log(error);
     }
   });
 };
@@ -110,11 +112,11 @@ export const ResetPassword = (UserInfo) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/auth/reset_Password`,
+        `https://mern-commerce-backend-64fw.onrender.com/auth/reset_Password`,
 
         {
           method: "POST",
-          // credentials: "include",
+          credentials: "include",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(UserInfo),
         }
@@ -123,11 +125,9 @@ export const ResetPassword = (UserInfo) => {
       if (response.ok) {
         const data = await response.json();
         resolve({ data });
-        console.log(data);
       } else {
         const error = await response.json();
         reject(error);
-        console.log(error);
       }
     } catch (error) {
       reject(error);
@@ -143,7 +143,7 @@ export const UserSignOut = () => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/auth/logout`,
+        `https://mern-commerce-backend-psi.vercel.app/auth/logout`,
 
         {
           method: "POST",

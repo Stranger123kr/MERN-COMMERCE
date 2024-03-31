@@ -25,7 +25,7 @@ const RazorpayCheckout = () => {
   currentOrder &&
     currentOrder.GetAddToCart.forEach((item) => {
       const options = {
-        key: "rzp_test_BqpAdjmem7uL88",
+        key: process.env.REACT_APP_API_KEY,
         amount: PaymentInfo.amount, // Amount for this item
         currency: "INR",
         name: item.product.title,

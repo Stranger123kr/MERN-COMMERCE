@@ -26,7 +26,11 @@ import {
 import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
 import { ITEMS_PER_PAGE, discountPrice } from "../../../app/Constant";
 import Pagination from "../../Common/Pagination";
-import { AddToCartAsync, selectCarts } from "../../Cart/CartSlice";
+import {
+  AddToCartAsync,
+  selectCarts,
+  selectSuccessStatus,
+} from "../../Cart/CartSlice";
 import { toast } from "react-toastify";
 import { CiSearch } from "react-icons/ci";
 // ============================================================================
@@ -50,6 +54,7 @@ const Products = () => {
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const ProductData = useSelector(selectProducts);
+  const SuccessStatus = useSelector(selectSuccessStatus);
   const totalProducts = useSelector(selectTotalProductsPage);
   const categories = useSelector(selectCategories);
   const brands = useSelector(selectBrands);
@@ -123,7 +128,6 @@ const Products = () => {
 
   const [sort, setSort] = useState({});
   const handleSort = (option) => {
-    console.log(option);
     const newSort = { ...sort, _sort: option.sort, _order: option.order };
     setSort(newSort);
     setPage(1);
@@ -150,9 +154,16 @@ const Products = () => {
           product: productId,
         })
       );
-      toast.success(<h3 className="font-bold"> 🛒 item added to cart</h3>);
+
+      toast.success(
+        SuccessStatus && <h3 className="font-bold"> 🛒 item added to cart</h3>
+      );
     } else {
-      toast.info(<h3 className="font-bold"> 🛒 item already in your cart</h3>);
+      toast.info(
+        SuccessStatus && (
+          <h3 className="font-bold"> 🛒 item already in your cart</h3>
+        )
+      );
     }
 
     // TODO : it will be based on the server response
