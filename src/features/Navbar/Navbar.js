@@ -207,7 +207,7 @@ const Navbar = ({ Children }) => {
                     <Link to="/cart">
                       <button
                         type="button"
-                        className="relative ml-[3rem] flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                        className="relative ml-[1.1rem] flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       >
                         <span className="absolute -inset-1.5" />
                         <ShoppingCartIcon
@@ -221,6 +221,7 @@ const Navbar = ({ Children }) => {
                         )}
                       </button>
                     </Link>
+                    <DarkMode />
                   </div>
                   <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map((item) => (

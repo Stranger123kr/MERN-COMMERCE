@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     screens: {
       sm0: "330px", // custom small screen size
-      sm1: "360px", // custom small screen size
+      sm1: "365px", // custom small screen size
       sm: "640px", // default small screen size
       md: "768px",
       lg: "1024px",
