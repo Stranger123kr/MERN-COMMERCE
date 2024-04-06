@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCarts } from "../Cart/CartSlice";
 import { selectUserInfo } from "../User/UserSlice";
-
+import DarkMode from "../Common/colorMode/DarkMode";
 
 // ============================================================================
 
@@ -142,6 +142,7 @@ const Navbar = ({ Children }) => {
                           </Menu.Items>
                         </Transition>
                       </Menu>
+                      <DarkMode />
                     </div>
                   </div>
                   <div className="-mr-2 flex md:hidden">

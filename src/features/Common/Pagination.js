@@ -1,12 +1,17 @@
 import React from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ITEMS_PER_PAGE } from "../../app/Constant";
-
+import { whiteColor, blackColor } from "../../app/Constant";
+import { useSelector } from "react-redux";
 const Pagination = ({ totalItems, Page, setPage }) => {
   // ==================================
 
   // Calculate the total number of pages
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+
+  // ==================================
+
+  const darkMode = useSelector((state) => state.user.dark);
 
   // ==================================
 
@@ -16,7 +21,9 @@ const Pagination = ({ totalItems, Page, setPage }) => {
 
   return (
     <>
-      <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+      <div
+        className={`flex items-center justify-between border-t border-gray-200 px-4 py-3 sm:px-6`}
+      >
         <div className="flex flex-1 justify-between sm:hidden">
           <button
             onClick={() => setPage((pre) => pre - 1)}
@@ -35,7 +42,7 @@ const Pagination = ({ totalItems, Page, setPage }) => {
         </div>
         <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm text-gray-700">
+            <p className={`${darkMode ? blackColor : whiteColor} text-sm `}>
               Showing{" "}
               <span className="font-medium">
                 {(Page - 1) * ITEMS_PER_PAGE + 1}

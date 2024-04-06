@@ -24,11 +24,19 @@ import {
   selectBrands,
 } from "../ProductsSlice";
 import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
-import { ITEMS_PER_PAGE, discountPrice } from "../../../app/Constant";
+import {
+  ITEMS_PER_PAGE,
+  discountPrice,
+  whiteColor,
+  blackColor,
+  bg_white,
+  bg_black,
+} from "../../../app/Constant";
 import Pagination from "../../Common/Pagination";
 import { AddToCartAsync, selectCarts } from "../../Cart/CartSlice";
 import { toast } from "react-toastify";
 import { CiSearch } from "react-icons/ci";
+
 // ============================================================================
 
 const sortOptions = [
@@ -53,6 +61,10 @@ const Products = () => {
   const totalProducts = useSelector(selectTotalProductsPage);
   const categories = useSelector(selectCategories);
   const brands = useSelector(selectBrands);
+
+  // ============================================================================
+
+  const darkMode = useSelector((state) => state.user.dark);
 
   // ============================================================================
 
@@ -177,7 +189,7 @@ const Products = () => {
   return (
     // =========== This is Filter Layout start ================
     <>
-      <div className="bg-white">
+      <div className={darkMode ? bg_black : bg_white}>
         <div>
           {/* Mobile filter dialog */}
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -225,7 +237,13 @@ const Products = () => {
 
                     {/* Filters */}
                     <form className="mt-4 border-t border-gray-200">
-                      <h3 className="sr-only">Categories</h3>
+                      <h2
+                        className={`${
+                          darkMode ? blackColor : whiteColor
+                        }  sr-only `}
+                      >
+                        Categories
+                      </h2>
 
                       {filters.map((section) => (
                         <Disclosure
@@ -317,7 +335,11 @@ const Products = () => {
               }
               <Menu as="div" className="relative inline-block text-left">
                 <div>
-                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                  <Menu.Button
+                    className={`${
+                      darkMode ? blackColor : whiteColor
+                    } group inline-flex justify-center text-sm font-medium`}
+                  >
                     Sort
                     <ChevronDownIcon
                       className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
@@ -335,19 +357,22 @@ const Products = () => {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <Menu.Items
+                    className={`${
+                      darkMode ? bg_black : bg_white
+                    } absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                  >
                     <div className="py-1">
                       {sortOptions.map((option) => (
-                        <Menu.Item key={option.name}>
+                        <Menu.Item
+                          className={darkMode ? blackColor : whiteColor}
+                          key={option.name}
+                        >
                           {({ active }) => (
                             <p
                               onClick={(e) => handleSort(option)}
                               className={classNames(
-                                option.current
-                                  ? "font-medium text-gray-900"
-                                  : "text-gray-500",
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm"
+                                " cursor-pointer block px-4 py-2 text-sm"
                               )}
                             >
                               {option.name}
@@ -377,7 +402,11 @@ const Products = () => {
               </button>
             </div>
             <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+              <h1
+                className={`${
+                  darkMode ? blackColor : whiteColor
+                }  text-4xl font-bold tracking-tight`}
+              >
                 All Products
               </h1>
             </div>
@@ -385,7 +414,13 @@ const Products = () => {
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 {/* Filters */}
                 <form className="hidden lg:block">
-                  <h3 className="sr-only">Categories</h3>
+                  <h3
+                    className={`${
+                      darkMode ? blackColor : whiteColor
+                    }  sr-only `}
+                  >
+                    Categoriesss
+                  </h3>
 
                   {filters.map((section) => (
                     <Disclosure
@@ -396,8 +431,16 @@ const Products = () => {
                       {({ open }) => (
                         <>
                           <h3 className="-my-3 flow-root">
-                            <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                              <span className="font-medium text-gray-900">
+                            <Disclosure.Button
+                              className={`${
+                                darkMode ? bg_black : bg_white
+                              }  flex w-full items-center justify-between  py-3 text-sm text-gray-400 hover:text-gray-500`}
+                            >
+                              <span
+                                className={`${
+                                  darkMode ? blackColor : whiteColor
+                                } font-medium `}
+                              >
                                 {section.name}
                               </span>
                               <span className="ml-6 flex items-center">
@@ -435,7 +478,9 @@ const Products = () => {
                                   />
                                   <label
                                     htmlFor={`filter-${section.id}-${optionIdx}`}
-                                    className="ml-3 text-sm text-gray-600"
+                                    className={`${
+                                      darkMode ? blackColor : whiteColor
+                                    } ml-3 text-sm`}
                                   >
                                     {option.label}
                                   </label>
@@ -453,7 +498,7 @@ const Products = () => {
                 <div className="lg:col-span-3">
                   {
                     // =========== This is Products Layout start ================
-                    <div className="bg-white">
+                    <div className={darkMode ? bg_black : bg_white}>
                       <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
                         {status ? (
                           <LoadingSpinner />
@@ -477,19 +522,33 @@ const Products = () => {
                                       </div>
                                       <div className="mt-4 flex justify-between">
                                         <div>
-                                          <h3 className="text-lg font-[600] text-gray-700">
+                                          <h3
+                                            className={`${
+                                              darkMode ? blackColor : whiteColor
+                                            } text-lg font-[600] `}
+                                          >
                                             {product.title.slice(0, 20)}
                                           </h3>
-                                          <p className="text-sm  mt-2  font-medium text-gray-900">
+                                          <p
+                                            className={`${
+                                              darkMode ? blackColor : whiteColor
+                                            } text-sm  mt-2  font-medium `}
+                                          >
                                             {product.rating}
                                             <StarIcon className="w-4 h-4 text-gray-500 inline-flex mb-[0.3rem] ml-[0.6rem]"></StarIcon>
                                           </p>
                                         </div>
                                         <div className="mt-1 flex flex-col gap-y-[0.3rem]">
-                                          <p className="text-sm font-medium text-gray-400 line-through">
+                                          <p
+                                            className={`text-sm font-medium text-gray-400 line-through`}
+                                          >
                                             ₹ {product.price.toLocaleString()}
                                           </p>
-                                          <p className="text-sm font-medium text-gray-900">
+                                          <p
+                                            className={`${
+                                              darkMode ? blackColor : whiteColor
+                                            } text-sm font-medium `}
+                                          >
                                             ₹{" "}
                                             {discountPrice(
                                               product
@@ -501,7 +560,9 @@ const Products = () => {
                                   </div>
                                   <ShoppingCartIcon
                                     onClick={() => handleAddToCart(product.id)}
-                                    className={`w-[1.5rem] text-green-800 ${
+                                    className={`${
+                                      darkMode ? blackColor : whiteColor
+                                    } w-[1.5rem] ${
                                       product.stock <= 0 ? "hidden" : "block"
                                     }  cursor-pointer absolute right-[1rem] bottom-[0rem] my-5`}
                                   />

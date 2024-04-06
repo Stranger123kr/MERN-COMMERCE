@@ -10,6 +10,7 @@ const initialState = {
   // this info will be used in case of details user info, while auth will
   // only be used for loggedIn user id etc checks
   orders: [],
+  dark: false,
   status: true,
   userCheck: false,
   error: null,
@@ -50,8 +51,8 @@ export const userSlice = createSlice({
   initialState,
 
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    changeMod: (state, action) => {
+      state.dark = action.payload;
     },
   },
 
@@ -107,7 +108,7 @@ export const userSlice = createSlice({
   },
 });
 
-// export const { increment } = counterSlice.actions;
+export const { changeMod } = userSlice.actions;
 
 export const selectUserInfo = (state) => state.user.userInfo;
 export const selectUserCheck = (state) => state.user.userCheck;
