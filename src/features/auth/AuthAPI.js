@@ -2,7 +2,7 @@
 export const CreateUser = (UserData) => {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/auth/signup`,
+      `${process.env.REACT_APP_API_URL}/auth/signup`,
       {
         method: "POST",
         credentials: "include",
@@ -23,7 +23,7 @@ export const loginUser = (loginInfo) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `https://mern-commerce-backend-64fw.onrender.com/auth/login`,
+        `${process.env.REACT_APP_API_URL}/auth/login`,
 
         {
           method: "POST",
@@ -54,7 +54,7 @@ export const CheckAuth = () => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `https://mern-commerce-backend-64fw.onrender.com/auth/check`,
+        `${process.env.REACT_APP_API_URL}/auth/check`,
 
         {
           credentials: "include",
@@ -82,7 +82,7 @@ export const ResetPasswordRequest = (email) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `https://mern-commerce-backend-64fw.onrender.com/auth/reset_Password_Request`,
+        `${process.env.REACT_APP_API_URL}/auth/reset_Password_Request`,
 
         {
           method: "POST",
@@ -112,7 +112,7 @@ export const ResetPassword = (UserInfo) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `https://mern-commerce-backend-64fw.onrender.com/auth/reset_Password`,
+        `${process.env.REACT_APP_API_URL}/auth/reset_Password`,
 
         {
           method: "POST",
@@ -143,7 +143,7 @@ export const UserSignOut = () => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `https://mern-commerce-backend-64fw.onrender.com/auth/logout`,
+        `${process.env.REACT_APP_API_URL}/auth/logout`,
 
         {
           method: "POST",

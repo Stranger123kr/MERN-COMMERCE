@@ -2,15 +2,12 @@
 
 export const AddToCart = (CartInfo) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/carts`,
-      {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify(CartInfo),
-      }
-    );
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/carts`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify(CartInfo),
+    });
     const data = response.json();
     resolve({ data });
   });
@@ -22,12 +19,9 @@ export const AddToCart = (CartInfo) => {
 
 export const fetchCartByUserId = () => {
   return new Promise(async (resolve) => {
-    const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/carts`,
-      {
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/carts`, {
+      credentials: "include",
+    });
     const data = response.json();
     resolve({ data });
   });
@@ -40,7 +34,7 @@ export const fetchCartByUserId = () => {
 export const UpdateCart = (update) => {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/carts/${update.id}`,
+      `${process.env.REACT_APP_API_URL}/carts/${update.id}`,
       {
         method: "PATCH",
         credentials: "include",
@@ -60,7 +54,7 @@ export const UpdateCart = (update) => {
 export const DeleteCartItem = (itemId) => {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/carts/${itemId}`,
+      `${process.env.REACT_APP_API_URL}/carts/${itemId}`,
       {
         method: "DELETE",
         credentials: "include",

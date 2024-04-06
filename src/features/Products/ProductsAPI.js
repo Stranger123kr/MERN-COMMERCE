@@ -3,7 +3,7 @@
 export const FetchProductsById = (id) => {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/products/${id}`,
+      `${process.env.REACT_APP_API_URL}/products/${id}`,
       {
         credentials: "include",
       }
@@ -46,7 +46,7 @@ export const FetchProductsByFilter = (search, filter, sort, pagination) => {
 
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/products?${queryString}`,
+      `${process.env.REACT_APP_API_URL}/products?${queryString}`,
       {
         credentials: "include",
       }
@@ -64,7 +64,7 @@ export const FetchProductsByFilter = (search, filter, sort, pagination) => {
 export const FetchCategories = () => {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      "https://mern-commerce-backend-64fw.onrender.com/categories",
+      `${process.env.REACT_APP_API_URL}/categories`,
       {
         credentials: "include",
       }
@@ -80,12 +80,9 @@ export const FetchCategories = () => {
 
 export const FetchBrands = () => {
   return new Promise(async (resolve) => {
-    const response = await fetch(
-      "https://mern-commerce-backend-64fw.onrender.com/brands",
-      {
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/brands`, {
+      credentials: "include",
+    });
     const data = response.json();
     resolve({ data });
   });
@@ -97,15 +94,12 @@ export const FetchBrands = () => {
 
 export const CreateProducts = (productInfo) => {
   return new Promise(async (resolve) => {
-    const response = await fetch(
-      "https://mern-commerce-backend-64fw.onrender.com/products",
-      {
-        method: "POST",
-        credentials: "include",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(productInfo),
-      }
-    );
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/products`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(productInfo),
+    });
     const data = response.json();
     resolve({ data });
   });
@@ -118,7 +112,7 @@ export const CreateProducts = (productInfo) => {
 export const UpdateProducts = (productInfo) => {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/products/${productInfo.id}`,
+      `${process.env.REACT_APP_API_URL}/products/${productInfo.id}`,
       {
         method: "PATCH",
         credentials: "include",
@@ -138,7 +132,7 @@ export const UpdateProducts = (productInfo) => {
 export const DeleteProducts = (id) => {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/products/${id}`,
+      `${process.env.REACT_APP_API_URL}/products/${id}`,
       {
         method: "DELETE",
         credentials: "include",

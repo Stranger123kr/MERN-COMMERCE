@@ -2,12 +2,9 @@
 
 export const fetchLoggedInUser = () => {
   return new Promise(async (resolve) => {
-    const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/users/own`,
-      {
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/users/own`, {
+      credentials: "include",
+    });
     const data = response.json();
     resolve({ data });
   });
@@ -19,12 +16,9 @@ export const fetchLoggedInUser = () => {
 
 export const fetchLoggedInUserOrders = () => {
   return new Promise(async (resolve) => {
-    const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/orders`,
-      {
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/orders`, {
+      credentials: "include",
+    });
     const data = response.json();
     resolve({ data });
   });
@@ -37,7 +31,7 @@ export const fetchLoggedInUserOrders = () => {
 export const UpdateUser = (update) => {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `https://mern-commerce-backend-64fw.onrender.com/users/${update.id}`,
+      `${process.env.REACT_APP_API_URL}/users/${update.id}`,
       {
         method: "PATCH",
         credentials: "include",
