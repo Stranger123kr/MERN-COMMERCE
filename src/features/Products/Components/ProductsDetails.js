@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
-import { RadioGroup } from "@headlessui/react";
+import { Menu, RadioGroup, Transition } from "@headlessui/react";
 import {
   selectProductsById,
   FetchProductsByIdAsync,
@@ -17,11 +17,25 @@ import {
 import { discountPrice } from "../../../app/Constant";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../../Common/LoadingSpinner/LoadingSpinner";
+import { TbLocationShare } from "react-icons/tb";
+import { FaLink } from "react-icons/fa6";
+import {
+  EmailShareButton,
+  EmailIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+} from "react-share";
 // ==========================================================================
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
+// ==========================================================================
 
 // ==========================================================================
 
@@ -108,6 +122,25 @@ const ProductsDetails = () => {
 
   // =============================================================================
 
+  const pageUrl = window.location.href;
+  const [copy, setCopy] = useState(false);
+  const productShareOption = () => {
+    navigator.clipboard
+      .writeText(pageUrl)
+      .then(() => {
+        setCopy(true);
+      })
+      .catch((error) => {
+        setCopy(false);
+      });
+
+    setTimeout(() => {
+      setCopy(false);
+    }, 1000);
+  };
+
+  // =============================================================================
+
   useEffect(() => {
     dispatch(FetchProductsByIdAsync(id));
   }, [dispatch, id]);
@@ -119,7 +152,7 @@ const ProductsDetails = () => {
       {status ? (
         <LoadingSpinner />
       ) : (
-        <div className="bg-white">
+        <div className="bg-white relative">
           <div className="pt-6">
             <nav aria-label="Breadcrumb">
               <ol
@@ -162,6 +195,80 @@ const ProductsDetails = () => {
                     {product.title}
                   </a>
                 </li>
+
+                <Menu
+                  as="div"
+                  className="absolute z-10 right-2 top-[4.8rem] sm2:top-2 ml-3"
+                >
+                  <div>
+                    <Menu.Button className="relative p-[0.5rem] flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ">
+                      <span className="absolute -inset-1.5" />
+                      <span className="sr-only">Open user menu</span>
+                      <TbLocationShare className="text-white text-[1.5rem] rounded-[0.5rem]" />
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-opacity-5 focus:outline-none">
+                      <div className="flex flex-col gap-3 py-2">
+                        <WhatsappShareButton
+                          className="flex gap-4 ml-3 "
+                          url={pageUrl}
+                          title={product.title}
+                          separator=" - "
+                        >
+                          <WhatsappIcon size={22} round />
+                          WhatsApp
+                        </WhatsappShareButton>
+
+                        <FacebookShareButton
+                          className="flex gap-4 ml-3 "
+                          url={pageUrl}
+                          title={product.title}
+                          separator=" - "
+                        >
+                          <FacebookIcon size={22} round />
+                          Facebook
+                        </FacebookShareButton>
+
+                        <EmailShareButton
+                          className="flex gap-4 ml-3 "
+                          url={pageUrl}
+                          title={product.title}
+                          separator=" - "
+                        >
+                          <EmailIcon size={22} round />
+                          Email
+                        </EmailShareButton>
+
+                        <LinkedinShareButton
+                          className="flex gap-4 ml-3 "
+                          url={pageUrl}
+                          title={product.title}
+                          separator=" - "
+                        >
+                          <LinkedinIcon size={22} round />
+                          Linkedin
+                        </LinkedinShareButton>
+
+                        <button
+                          onClick={productShareOption}
+                          className="flex gap-4 ml-3 "
+                        >
+                          <FaLink />
+                          {copy ? "Link Copied" : "Copy Link"}
+                        </button>
+                      </div>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
               </ol>
             </nav>
             {/* Image gallery */}

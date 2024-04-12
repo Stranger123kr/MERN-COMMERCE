@@ -196,14 +196,6 @@ const Navbar = ({ Children }) => {
                         alt="profile_img"
                       />
                     </div>
-                    <div className="ml-3">
-                      <div className="text-base font-medium leading-none text-white">
-                        {user.name}
-                      </div>
-                      <div className="text-sm font-medium leading-none text-gray-400">
-                        {user.email}
-                      </div>
-                    </div>
                     <Link to="/cart">
                       <button
                         type="button"
