@@ -6,5 +6,5 @@ export const discountPrice = (item) => {
 
 export const whiteColor = "text-black";
 export const blackColor = "text-white";
-export const bg_black = "bg-black";
+export const bg_black = "bg-gray-800";
 export const bg_white = "bg-white";

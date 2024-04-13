@@ -1,7 +1,7 @@
 {
   "name": "commerce",
   "version": "0.1.0",
-  "proxy": "http://localhost:8080",
+  "proxy": "${process.env.REACT_APP_API_URL}",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",

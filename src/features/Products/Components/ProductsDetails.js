@@ -29,13 +29,17 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from "react-share";
+import {
+  whiteColor,
+  blackColor,
+  bg_white,
+  bg_black,
+} from "../../../app/Constant";
 // ==========================================================================
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
-// ==========================================================================
 
 // ==========================================================================
 
@@ -122,6 +126,10 @@ const ProductsDetails = () => {
 
   // =============================================================================
 
+  const darkMode = useSelector((state) => state.user.dark);
+
+  // =============================================================================
+
   const pageUrl = window.location.href;
   const [copy, setCopy] = useState(false);
   const productShareOption = () => {
@@ -152,7 +160,7 @@ const ProductsDetails = () => {
       {status ? (
         <LoadingSpinner />
       ) : (
-        <div className="bg-white relative">
+        <div className={`${darkMode ? bg_black : bg_white} relative`}>
           <div className="pt-6">
             <nav aria-label="Breadcrumb">
               <ol
@@ -168,7 +176,9 @@ const ProductsDetails = () => {
                         <div className="flex items-center">
                           <a
                             href={breadcrumb.href}
-                            className="mr-2 text-sm font-medium text-gray-900"
+                            className={`${
+                              darkMode ? blackColor : whiteColor
+                            }  mr-2 text-sm font-medium text-gray-900`}
                           >
                             {breadcrumb.name}
                           </a>
@@ -178,7 +188,7 @@ const ProductsDetails = () => {
                             viewBox="0 0 16 20"
                             fill="currentColor"
                             aria-hidden="true"
-                            className="h-5 w-4 text-gray-300"
+                            className="h-5 w-4 text-gray-200"
                           >
                             <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
                           </svg>
@@ -190,7 +200,7 @@ const ProductsDetails = () => {
                   <a
                     href={product.href}
                     aria-current="page"
-                    className="font-medium text-gray-500 hover:text-gray-600"
+                    className="font-medium text-gray-400 hover:text-gray-600"
                   >
                     {product.title}
                   </a>
@@ -198,13 +208,21 @@ const ProductsDetails = () => {
 
                 <Menu
                   as="div"
-                  className="absolute z-10 right-2 top-[4.8rem] sm2:top-2 ml-3"
+                  className="absolute z-10 right-2 top-[5.5rem] sm:top-2 ml-3"
                 >
                   <div>
-                    <Menu.Button className="relative p-[0.5rem] flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ">
+                    <Menu.Button
+                      className={`${
+                        darkMode ? bg_white : bg_black
+                      } relative p-[0.5rem] flex max-w-xs items-center rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 `}
+                    >
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      <TbLocationShare className="text-white text-[1.5rem] rounded-[0.5rem]" />
+                      <TbLocationShare
+                        className={`${
+                          darkMode ? whiteColor : blackColor
+                        } text-[1.5rem] rounded-[0.5rem]`}
+                      />
                     </Menu.Button>
                   </div>
                   <Transition
@@ -324,7 +342,11 @@ const ProductsDetails = () => {
             {/* Product info */}
             <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
               <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+                <h1
+                  className={`${
+                    darkMode ? blackColor : whiteColor
+                  } text-2xl font-bold tracking-tight  sm:text-3xl`}
+                >
                   {product.title}
                 </h1>
               </div>
@@ -333,11 +355,17 @@ const ProductsDetails = () => {
               <div className="mt-4 lg:row-span-3 lg:mt-0">
                 <h2 className="sr-only">Product information</h2>
                 {product.stock <= 0 ? (
-                  <p className="text-4xl font-bold tracking-tight text-red-500">
+                  <p
+                    className={"text-4xl font-bold tracking-tight text-red-500"}
+                  >
                     Out of Stock
                   </p>
                 ) : (
-                  <p className="text-3xl tracking-tight text-gray-900">
+                  <p
+                    className={`${
+                      darkMode ? blackColor : whiteColor
+                    } text-3xl tracking-tight `}
+                  >
                     ₹{product.price.toLocaleString()}
                   </p>
                 )}
@@ -351,8 +379,8 @@ const ProductsDetails = () => {
                           key={rating}
                           className={classNames(
                             product.rating > rating
-                              ? "text-gray-900"
-                              : "text-gray-200",
+                              ? "text-gray-500"
+                              : "text-gray-500",
                             "h-5 w-5 flex-shrink-0"
                           )}
                           aria-hidden="true"
@@ -372,7 +400,13 @@ const ProductsDetails = () => {
                 <form className="mt-10">
                   {/* Colors */}
                   <div>
-                    <h3 className="text-sm font-medium text-gray-900">Color</h3>
+                    <h3
+                      className={`${
+                        darkMode ? blackColor : whiteColor
+                      } text-sm font-medium text-gray-900`}
+                    >
+                      Color
+                    </h3>
 
                     <RadioGroup
                       value={selectedColor}
@@ -416,7 +450,11 @@ const ProductsDetails = () => {
                   {/* Sizes */}
                   <div className="mt-10">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-medium text-gray-900">
+                      <h3
+                        className={`${
+                          darkMode ? blackColor : whiteColor
+                        } text-sm font-medium `}
+                      >
                         Size
                       </h3>
                       <a
@@ -556,14 +594,22 @@ const ProductsDetails = () => {
                   <h3 className="sr-only">Description</h3>
 
                   <div className="space-y-6">
-                    <p className="text-base text-gray-900">
+                    <p
+                      className={`${
+                        darkMode ? blackColor : whiteColor
+                      } text-base`}
+                    >
                       {product.description}
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-10">
-                  <h3 className="text-sm font-medium text-gray-900">
+                  <h3
+                    className={`${
+                      darkMode ? blackColor : whiteColor
+                    } text-sm font-medium text-gray-900`}
+                  >
                     Highlights
                   </h3>
                   <div className="mt-4">
@@ -573,8 +619,15 @@ const ProductsDetails = () => {
                     >
                       {product.highlights &&
                         product.highlights.map((highlight) => (
-                          <li key={highlight} className="text-gray-400">
-                            <span className="text-gray-600">{highlight}</span>
+                          <li
+                            key={highlight}
+                            className={darkMode ? blackColor : whiteColor}
+                          >
+                            <span
+                              className={darkMode ? blackColor : whiteColor}
+                            >
+                              {highlight}
+                            </span>
                           </li>
                         ))}
                     </ul>
@@ -582,10 +635,20 @@ const ProductsDetails = () => {
                 </div>
 
                 <div className="mt-10">
-                  <h2 className="text-sm font-medium text-gray-900">Details</h2>
+                  <h2
+                    className={`${
+                      darkMode ? blackColor : whiteColor
+                    } text-sm font-medium text-gray-900`}
+                  >
+                    Details
+                  </h2>
 
                   <div className="mt-4 space-y-6">
-                    <p className="text-sm text-gray-600">
+                    <p
+                      className={`${
+                        darkMode ? blackColor : whiteColor
+                      } text-sm`}
+                    >
                       {product.description}
                     </p>
                   </div>
