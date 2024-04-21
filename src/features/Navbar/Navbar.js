@@ -109,7 +109,11 @@ const Navbar = ({ Children }) => {
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
-                              src="https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png"
+                              src={
+                                user.image
+                                  ? user.image
+                                  : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
+                              }
                               alt="profile_img"
                             />
                           </Menu.Button>
@@ -192,7 +196,11 @@ const Navbar = ({ Children }) => {
                     <div className="flex-shrink-0">
                       <img
                         className="h-10 w-10 rounded-full"
-                        src="https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png"
+                        src={
+                          user.image
+                            ? user.image
+                            : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
+                        }
                         alt="profile_img"
                       />
                     </div>

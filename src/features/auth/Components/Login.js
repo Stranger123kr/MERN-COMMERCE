@@ -24,6 +24,18 @@ const Login = () => {
   const user = useSelector(selectLoggedInUserToken);
   const dispatch = useDispatch();
 
+  // =================================
+  // social login functionality
+
+  const LoginWithGoogle = () => {
+    window.open("http://localhost:8080/auth/google/callback", "_self");
+    console.log("LoginWithGoggle");
+  };
+
+  const LoginWithGithub = () => {
+    console.log("LoginWithGithub");
+  };
+
   return (
     <>
       {user && <Navigate to="/" replace={true}></Navigate>}
@@ -139,6 +151,44 @@ const Login = () => {
               </button>
             </div>
           </form>
+
+          <span className="block mt-2 text-center font-[500] text-[1.1rem]">
+            or
+          </span>
+
+          <div className="flex my-4 gap-2 justify-between">
+            <button
+              onClick={LoginWithGoogle}
+              className="group h-12 px-3 border-2 border-gray-300 rounded-full transition duration-300 "
+            >
+              <div className=" flex gap-2">
+                <img
+                  src="https://www.svgrepo.com/show/475656/google-color.svg"
+                  className="w-5"
+                  alt="google logo"
+                />
+                <span className="font-semibold tracking-wide text-gray-700 text-sm sm:text-base">
+                  Login via Google
+                </span>
+              </div>
+            </button>
+
+            <button
+              onClick={LoginWithGithub}
+              className="group h-12 px-3 border-2 border-gray-300 rounded-full transition duration-300 "
+            >
+              <div className=" flex gap-2">
+                <img
+                  src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-256.png"
+                  className="w-6"
+                  alt="google logo"
+                />
+                <span className="font-semibold tracking-wide text-gray-700 text-sm sm:text-base">
+                  Login via Github
+                </span>
+              </div>
+            </button>
+          </div>
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member ?{" "}

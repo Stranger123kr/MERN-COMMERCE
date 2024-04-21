@@ -66,6 +66,8 @@ const UserProfile = () => {
 
   // ==================================================================
 
+  console.log(user);
+
   return (
     <>
       {userCheck && (
@@ -73,8 +75,12 @@ const UserProfile = () => {
           <div>
             <div className="mx-auto relative bg-white rounded-[1rem] max-w-5xl px-4 mt-[2rem]  sm:px-6 lg:px-[5rem]">
               <img
-                className="w-[5rem] m-auto pt-3"
-                src="https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png"
+                className="m-auto p-2 rounded-full  h-[7rem] w-[7rem]"
+                src={
+                  user.image
+                    ? user.image
+                    : `https://cdn2.iconfinder.com/data/icons/avatars-60/5985/13-Captain-512.png`
+                }
                 alt="Profile_img"
               />
 
