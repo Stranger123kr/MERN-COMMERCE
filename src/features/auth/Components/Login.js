@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import {
   loginUserAsync,
   selectError,
@@ -28,7 +29,10 @@ const Login = () => {
   // social login functionality
 
   const LoginWithGoogle = () => {
-    window.open("http://localhost:8080/auth/google/callback", "_self");
+    window.open(
+      "https://mern-commerce-backend-64fw.onrender.com/auth/google/callback",
+      "_self"
+    );
     console.log("LoginWithGoggle");
   };
 
@@ -39,7 +43,7 @@ const Login = () => {
   return (
     <>
       {user && <Navigate to="/" replace={true}></Navigate>}
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className=" bg-[GhostWhite] flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
@@ -156,12 +160,12 @@ const Login = () => {
             or
           </span>
 
-          <div className="flex my-4 gap-2 justify-between">
+          <div className="flex flex-col sm:flex-row my-4 gap-4 sm:gap-2 justify-between">
             <button
               onClick={LoginWithGoogle}
               className="group h-12 px-3 border-2 border-gray-300 rounded-full transition duration-300 "
             >
-              <div className=" flex gap-2">
+              <div className=" flex gap-2 justify-center">
                 <img
                   src="https://www.svgrepo.com/show/475656/google-color.svg"
                   className="w-5"
@@ -177,10 +181,10 @@ const Login = () => {
               onClick={LoginWithGithub}
               className="group h-12 px-3 border-2 border-gray-300 rounded-full transition duration-300 "
             >
-              <div className=" flex gap-2">
+              <div className=" flex gap-2 justify-center">
                 <img
-                  src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-256.png"
-                  className="w-6"
+                  src="https://www.svgrepo.com/show/475654/github-color.svg"
+                  className="w-5"
                   alt="google logo"
                 />
                 <span className="font-semibold tracking-wide text-gray-700 text-sm sm:text-base">
