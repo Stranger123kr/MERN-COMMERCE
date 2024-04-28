@@ -33,11 +33,13 @@ const Login = () => {
       "https://mern-commerce-backend-64fw.onrender.com/auth/google/callback",
       "_self"
     );
-    console.log("LoginWithGoggle");
   };
 
   const LoginWithGithub = () => {
-    console.log("LoginWithGithub");
+    window.open(
+      "https://mern-commerce-backend-64fw.onrender.com/auth/github/callback",
+      "_self"
+    );
   };
 
   return (
